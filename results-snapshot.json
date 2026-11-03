@@ -1,0 +1,1110 @@
+{
+  "snapshot_date": "2026-11-03",
+  "vision_results": [
+    {
+      "dataset": "cifar100",
+      "pair": [
+        "maple_tree",
+        "oak_tree"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8838000297546387,
+          "pair_acc": 0.699999988079071,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.6200000047683716,
+          "acc_nonpair": 0.8875510096549988
+        },
+        "holdout": {
+          "acc": 0.8845999836921692,
+          "pair_acc": 0.7699999809265137,
+          "acc_a": 0.7599999904632568,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.886938750743866
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8838000297546387,
+          "pair_acc": 0.7900000214576721,
+          "acc_a": 0.800000011920929,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.8857142925262451
+        },
+        "holdout": {
+          "acc": 0.8817999958992004,
+          "pair_acc": 0.7900000214576721,
+          "acc_a": 0.7400000095367432,
+          "acc_b": 0.8399999737739563,
+          "acc_nonpair": 0.8836734890937805
+        }
+      },
+      "holdout_pair_gain": 0.020000040531158447,
+      "holdout_overall_change": -0.00279998779296875,
+      "success": true,
+      "model": "GPT-6 Astra",
+      "turns": 14,
+      "code_runs": 13,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cifar100",
+      "pair": [
+        "maple_tree",
+        "oak_tree"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8838000297546387,
+          "pair_acc": 0.699999988079071,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.6200000047683716,
+          "acc_nonpair": 0.8875510096549988
+        },
+        "holdout": {
+          "acc": 0.8845999836921692,
+          "pair_acc": 0.7699999809265137,
+          "acc_a": 0.7599999904632568,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.886938750743866
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8827999830245972,
+          "pair_acc": 0.7900000214576721,
+          "acc_a": 0.800000011920929,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.8846938610076904
+        },
+        "holdout": {
+          "acc": 0.8835999965667725,
+          "pair_acc": 0.8299999833106995,
+          "acc_a": 0.800000011920929,
+          "acc_b": 0.8600000143051147,
+          "acc_nonpair": 0.8846938610076904
+        }
+      },
+      "holdout_pair_gain": 0.06000000238418579,
+      "holdout_overall_change": -0.0009999871253967285,
+      "success": true,
+      "model": "DeepSeek V4.1 Flash 1017",
+      "turns": 24,
+      "code_runs": 18,
+      "rescored": true,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cifar100",
+      "pair": [
+        "maple_tree",
+        "oak_tree"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 3076,
+      "base": {
+        "practice": {
+          "acc": 0.8838000297546387,
+          "pair_acc": 0.699999988079071,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.6200000047683716,
+          "acc_nonpair": 0.8875510096549988
+        },
+        "holdout": {
+          "acc": 0.8845999836921692,
+          "pair_acc": 0.7699999809265137,
+          "acc_a": 0.7599999904632568,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.886938750743866
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8855999708175659,
+          "pair_acc": 0.800000011920929,
+          "acc_a": 0.8399999737739563,
+          "acc_b": 0.7599999904632568,
+          "acc_nonpair": 0.8873469233512878
+        },
+        "holdout": {
+          "acc": 0.8840000033378601,
+          "pair_acc": 0.7900000214576721,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.800000011920929,
+          "acc_nonpair": 0.885918378829956
+        }
+      },
+      "holdout_pair_gain": 0.020000040531158447,
+      "holdout_overall_change": -0.000599980354309082,
+      "success": true,
+      "model": "GLM 5.3 Flash",
+      "turns": 20,
+      "code_runs": 18,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cifar100",
+      "pair": [
+        "maple_tree",
+        "oak_tree"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8838000297546387,
+          "pair_acc": 0.699999988079071,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.6200000047683716,
+          "acc_nonpair": 0.8875510096549988
+        },
+        "holdout": {
+          "acc": 0.8845999836921692,
+          "pair_acc": 0.7699999809265137,
+          "acc_a": 0.7599999904632568,
+          "acc_b": 0.7799999713897705,
+          "acc_nonpair": 0.886938750743866
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8841999769210815,
+          "pair_acc": 0.75,
+          "acc_a": 0.800000011920929,
+          "acc_b": 0.699999988079071,
+          "acc_nonpair": 0.886938750743866
+        },
+        "holdout": {
+          "acc": 0.8840000033378601,
+          "pair_acc": 0.7900000214576721,
+          "acc_a": 0.7799999713897705,
+          "acc_b": 0.800000011920929,
+          "acc_nonpair": 0.885918378829956
+        }
+      },
+      "holdout_pair_gain": 0.020000040531158447,
+      "holdout_overall_change": -0.000599980354309082,
+      "success": true,
+      "model": "Qwen 3.8 27B",
+      "turns": 15,
+      "code_runs": 14,
+      "rescored": true,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cub",
+      "pair": [
+        "California_Gull",
+        "Western_Gull"
+      ],
+      "edited_tensors": [
+        "encoder.layers.encoder_layer_10.mlp.3.bias",
+        "encoder.layers.encoder_layer_10.mlp.3.weight",
+        "encoder.layers.encoder_layer_10.self_attention.out_proj.bias",
+        "encoder.layers.encoder_layer_10.self_attention.out_proj.weight",
+        "encoder.layers.encoder_layer_11.mlp.3.bias",
+        "encoder.layers.encoder_layer_11.mlp.3.weight",
+        "encoder.layers.encoder_layer_11.self_attention.out_proj.bias",
+        "encoder.layers.encoder_layer_11.self_attention.out_proj.weight",
+        "encoder.layers.encoder_layer_9.mlp.3.bias",
+        "encoder.layers.encoder_layer_9.mlp.3.weight",
+        "encoder.layers.encoder_layer_9.self_attention.out_proj.bias",
+        "encoder.layers.encoder_layer_9.self_attention.out_proj.weight",
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 8853363,
+      "base": {
+        "practice": {
+          "acc": 0.8413913249969482,
+          "pair_acc": 0.4333333373069763,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8456941843032837
+        },
+        "holdout": {
+          "acc": 0.8322470188140869,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.835355281829834
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8438261151313782,
+          "pair_acc": 0.6333333253860474,
+          "acc_a": 0.5333333611488342,
+          "acc_b": 0.7333333492279053,
+          "acc_nonpair": 0.8460456728935242
+        },
+        "holdout": {
+          "acc": 0.8325900435447693,
+          "pair_acc": 0.6000000238418579,
+          "acc_a": 0.3333333432674408,
+          "acc_b": 0.8666666746139526,
+          "acc_nonpair": 0.8350086808204651
+        }
+      },
+      "holdout_pair_gain": 0.06666666269302368,
+      "holdout_overall_change": 0.00034302473068237305,
+      "success": true,
+      "model": "GPT-6 Astra",
+      "turns": 16,
+      "code_runs": 15,
+      "note": "rescored: edits were saved under nested relative run_dir (launcher bug)",
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cub",
+      "pair": [
+        "California_Gull",
+        "Western_Gull"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8413913249969482,
+          "pair_acc": 0.4333333373069763,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8456941843032837
+        },
+        "holdout": {
+          "acc": 0.8322470188140869,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.835355281829834
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8431304097175598,
+          "pair_acc": 0.6666666865348816,
+          "acc_a": 0.46666666865348816,
+          "acc_b": 0.8666666746139526,
+          "acc_nonpair": 0.8449912071228027
+        },
+        "holdout": {
+          "acc": 0.8301886916160583,
+          "pair_acc": 0.4000000059604645,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8346620202064514
+        }
+      },
+      "holdout_pair_gain": -0.13333335518836975,
+      "holdout_overall_change": -0.0020583271980285645,
+      "success": false,
+      "model": "GPT-6 Astra",
+      "turns": 13,
+      "code_runs": 12,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cub",
+      "pair": [
+        "California_Gull",
+        "Western_Gull"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8413913249969482,
+          "pair_acc": 0.4333333373069763,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8456941843032837
+        },
+        "holdout": {
+          "acc": 0.8322470188140869,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.835355281829834
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8448695540428162,
+          "pair_acc": 0.8999999761581421,
+          "acc_a": 0.8666666746139526,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.8442882299423218
+        },
+        "holdout": {
+          "acc": 0.8284733891487122,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.8666666746139526,
+          "acc_nonpair": 0.831542432308197
+        }
+      },
+      "holdout_pair_gain": 0.0,
+      "holdout_overall_change": -0.003773629665374756,
+      "success": false,
+      "model": "DeepSeek V4.1 Flash 1017",
+      "turns": 37,
+      "code_runs": 36,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cub",
+      "pair": [
+        "California_Gull",
+        "Western_Gull"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8413913249969482,
+          "pair_acc": 0.4333333373069763,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8456941843032837
+        },
+        "holdout": {
+          "acc": 0.8322470188140869,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.835355281829834
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8459130525588989,
+          "pair_acc": 0.9666666388511658,
+          "acc_a": 0.9333333373069763,
+          "acc_b": 1.0,
+          "acc_nonpair": 0.8446397185325623
+        },
+        "holdout": {
+          "acc": 0.8291594982147217,
+          "pair_acc": 0.6000000238418579,
+          "acc_a": 0.3333333432674408,
+          "acc_b": 0.8666666746139526,
+          "acc_nonpair": 0.831542432308197
+        }
+      },
+      "holdout_pair_gain": 0.06666666269302368,
+      "holdout_overall_change": -0.0030875205993652344,
+      "success": false,
+      "model": "GLM 5.3 Flash",
+      "turns": 20,
+      "code_runs": 17,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "dataset": "cub",
+      "pair": [
+        "California_Gull",
+        "Western_Gull"
+      ],
+      "edited_tensors": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ],
+      "n_weights_changed": 1538,
+      "base": {
+        "practice": {
+          "acc": 0.8413913249969482,
+          "pair_acc": 0.4333333373069763,
+          "acc_a": 0.20000000298023224,
+          "acc_b": 0.6666666865348816,
+          "acc_nonpair": 0.8456941843032837
+        },
+        "holdout": {
+          "acc": 0.8322470188140869,
+          "pair_acc": 0.5333333611488342,
+          "acc_a": 0.13333334028720856,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.835355281829834
+        }
+      },
+      "edited": {
+        "practice": {
+          "acc": 0.8431304097175598,
+          "pair_acc": 0.699999988079071,
+          "acc_a": 0.6000000238418579,
+          "acc_b": 0.800000011920929,
+          "acc_nonpair": 0.8446397185325623
+        },
+        "holdout": {
+          "acc": 0.8312178254127502,
+          "pair_acc": 0.6333333253860474,
+          "acc_a": 0.3333333432674408,
+          "acc_b": 0.9333333373069763,
+          "acc_nonpair": 0.833275556564331
+        }
+      },
+      "holdout_pair_gain": 0.09999996423721313,
+      "holdout_overall_change": -0.00102919340133667,
+      "success": true,
+      "model": "Qwen 3.8 27B",
+      "turns": 13,
+      "code_runs": 12,
+      "rescored": true,
+      "experiment": "Targeted vision-classifier repair"
+    },
+    {
+      "truth": {
+        "A": "cifar100",
+        "B": "cub",
+        "C": "imagenet"
+      },
+      "pred": {
+        "A": "cifar100",
+        "B": "cub",
+        "C": "imagenet"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "imagenet",
+        "B": "cifar100",
+        "C": "cub"
+      },
+      "pred": {
+        "A": "imagenet",
+        "B": "cifar100",
+        "C": "cub"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "imagenet",
+        "B": "cub",
+        "C": "cifar100"
+      },
+      "pred": {
+        "A": "imagenet",
+        "B": "cub",
+        "C": "cifar100"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cifar100",
+        "B": "imagenet",
+        "C": "cub"
+      },
+      "pred": {
+        "A": "cifar100",
+        "B": "imagenet",
+        "C": "cub"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cub",
+        "B": "imagenet",
+        "C": "cifar100"
+      },
+      "pred": {
+        "A": "cub",
+        "B": "imagenet",
+        "C": "cifar100"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cub",
+        "B": "cifar100",
+        "C": "imagenet"
+      },
+      "pred": {
+        "A": "cub",
+        "B": "cifar100",
+        "C": "imagenet"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GPT-6 Astra",
+      "turns": 4,
+      "code_runs": 3,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "imagenet",
+        "B": "cifar100",
+        "C": "cub"
+      },
+      "pred": {
+        "A": "imagenet",
+        "B": "cifar100",
+        "C": "cub"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "DeepSeek V4.1 Flash 1017",
+      "turns": 6,
+      "code_runs": 5,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "imagenet",
+        "B": "cub",
+        "C": "cifar100"
+      },
+      "pred": {
+        "A": "imagenet",
+        "B": "cub",
+        "C": "cifar100"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "DeepSeek V4.1 Flash 1017",
+      "turns": 12,
+      "code_runs": 11,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cifar100",
+        "B": "imagenet",
+        "C": "cub"
+      },
+      "pred": {
+        "A": "cifar100",
+        "B": "imagenet",
+        "C": "cub"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GLM 5.3 Flash",
+      "turns": 5,
+      "code_runs": 4,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cifar100",
+        "B": "cub",
+        "C": "imagenet"
+      },
+      "pred": {
+        "A": "cifar100",
+        "B": "cub",
+        "C": "imagenet"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "GLM 5.3 Flash",
+      "turns": 6,
+      "code_runs": 4,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cub",
+        "B": "imagenet",
+        "C": "cifar100"
+      },
+      "pred": {
+        "A": "cub",
+        "B": "imagenet",
+        "C": "cifar100"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "Qwen 3.8 27B",
+      "turns": 9,
+      "code_runs": 8,
+      "experiment": "Dataset identification from vision-transformer weights"
+    },
+    {
+      "truth": {
+        "A": "cub",
+        "B": "cifar100",
+        "C": "imagenet"
+      },
+      "pred": {
+        "A": "cub",
+        "B": "cifar100",
+        "C": "imagenet"
+      },
+      "parsed": true,
+      "all_correct": true,
+      "n_correct": 3,
+      "imagenet_correct": true,
+      "model": "Qwen 3.8 27B",
+      "turns": 7,
+      "code_runs": 6,
+      "experiment": "Dataset identification from vision-transformer weights"
+    }
+  ],
+  "math_results": [
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.725,
+      "cut_share": 0.0,
+      "mean_tokens": 2503.7,
+      "seconds": 128,
+      "tok_per_s": 3912,
+      "intervention": "Our new Astra edit (25 tool calls)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.64,
+      "cut_share": 0.075,
+      "mean_tokens": 8847.07,
+      "seconds": 568,
+      "tok_per_s": 3117,
+      "intervention": "Our new Astra edit (25 tool calls)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": false,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 8192
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.62,
+      "cut_share": 0.035,
+      "mean_tokens": 1009.645,
+      "seconds": 67,
+      "tok_per_s": 3001,
+      "intervention": "Original Qwen3.5-0.8B",
+      "benchmark": "GSM8K",
+      "thinking_enabled": false
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.125,
+      "cut_share": 0.9,
+      "mean_tokens": 29846.275,
+      "seconds": 3030,
+      "tok_per_s": 1970,
+      "intervention": "Original Qwen3.5-0.8B",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": false,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 8192
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.525,
+      "cut_share": 0.305,
+      "mean_tokens": 3508.9,
+      "seconds": 139,
+      "tok_per_s": 5053,
+      "intervention": "Original Qwen3.5-0.8B",
+      "benchmark": "MATH-500",
+      "thinking_enabled": false
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.05,
+      "cut_share": 0.95,
+      "mean_tokens": 31474.52,
+      "seconds": 3211,
+      "tok_per_s": 1961,
+      "intervention": "Original Qwen3.5-0.8B",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": false,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 8192
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.575,
+      "cut_share": 0.04,
+      "mean_tokens": 1167.985,
+      "seconds": 64,
+      "tok_per_s": 3644,
+      "intervention": "Authors\u2019 released Astra edit",
+      "benchmark": "GSM8K",
+      "thinking_enabled": false
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.75,
+      "cut_share": 0.035,
+      "mean_tokens": 10421.755,
+      "seconds": 634,
+      "tok_per_s": 3286,
+      "intervention": "Authors\u2019 released Astra edit",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": false,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 8192
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.515,
+      "cut_share": 0.26,
+      "mean_tokens": 3305.445,
+      "seconds": 129,
+      "tok_per_s": 5130,
+      "intervention": "Authors\u2019 released Astra edit",
+      "benchmark": "MATH-500",
+      "thinking_enabled": false
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.545,
+      "cut_share": 0.32,
+      "mean_tokens": 21960.025,
+      "seconds": 1899,
+      "tok_per_s": 2312,
+      "intervention": "Authors\u2019 released Astra edit",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.275,
+      "cut_share": 0.695,
+      "mean_tokens": 24690.345,
+      "seconds": 2374,
+      "tok_per_s": 2080,
+      "intervention": "Complete removal of selected direction components",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.135,
+      "cut_share": 0.865,
+      "mean_tokens": 29452.955,
+      "seconds": 2934,
+      "tok_per_s": 2008,
+      "intervention": "Complete removal of selected direction components",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.14,
+      "cut_share": 0.865,
+      "mean_tokens": 28966.535,
+      "seconds": 2916,
+      "tok_per_s": 1987,
+      "intervention": "Random columns with original directions (seed 0)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.06,
+      "cut_share": 0.955,
+      "mean_tokens": 31534.015,
+      "seconds": 3215,
+      "tok_per_s": 1962,
+      "intervention": "Random columns with original directions (seed 0)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.16,
+      "cut_share": 0.885,
+      "mean_tokens": 29526.61,
+      "seconds": 2993,
+      "tok_per_s": 1973,
+      "intervention": "Random directions with matched edit magnitude (seed 0)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.095,
+      "cut_share": 0.905,
+      "mean_tokens": 30225.72,
+      "seconds": 3083,
+      "tok_per_s": 1960,
+      "intervention": "Random directions with matched edit magnitude (seed 0)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.575,
+      "cut_share": 0.095,
+      "mean_tokens": 4144.3,
+      "seconds": 396,
+      "tok_per_s": 2093,
+      "intervention": "DeepSeek V4.1 Flash 1017 edit (provisional provenance)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.41,
+      "cut_share": 0.41,
+      "mean_tokens": 15837.3,
+      "seconds": 1440,
+      "tok_per_s": 2199,
+      "intervention": "DeepSeek V4.1 Flash 1017 edit (provisional provenance)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true
+    }
+  ],
+  "missing_math_results": [
+    "GLM 5.3 Flash",
+    "Qwen 3.8 27B"
+  ],
+  "note": "The newer math editor runs were still active at this snapshot. The measured DeepSeek math checkpoint has unresolved provenance associated with an archived harness-failure run. No new full benchmark evaluations were run to prepare this article.",
+  "pending_math_editor_runs": [
+    "DeepSeek V4.1 Flash 1017",
+    "GLM 5.3 Flash",
+    "Qwen 3.8 27B"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "rebuilt",
+  "layers": {
+    "15": {
+      "c": 6.0003204345703125,
+      "n_cols": 64,
+      "delta_fro": 1.748889684677124,
+      "released_delta_fro": 1.748892068862915,
+      "cos_u_released": 1.0
+    },
+    "19": {
+      "c": 6.000171184539795,
+      "n_cols": 64,
+      "delta_fro": 1.398720145225525,
+      "released_delta_fro": 1.3987594842910767,
+      "cos_u_released": 1.0000001192092896
+    }
+  },
+  "max_abs_diff_vs_released": {
+    "model.language_model.layers.15.mlp.down_proj.weight": 0.00048828125,
+    "model.language_model.layers.19.mlp.down_proj.weight": 0.00048828125
+  },
+  "frac_bit_exact_vs_released": {
+    "model.language_model.layers.15.mlp.down_proj.weight": 0.9983991980552673,
+    "model.language_model.layers.19.mlp.down_proj.weight": 0.9983223676681519
+  }
+}

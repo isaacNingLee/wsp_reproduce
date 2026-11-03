@@ -1,0 +1,57 @@
+{
+  "used": 5,
+  "log": [
+    {
+      "which": "original",
+      "classes": null,
+      "features": [
+        "head_in"
+      ],
+      "edits": []
+    },
+    {
+      "which": "original",
+      "classes": [
+        58,
+        65
+      ],
+      "features": [
+        "block5",
+        "block7",
+        "block8",
+        "block9",
+        "block10",
+        "block11"
+      ],
+      "edits": []
+    },
+    {
+      "which": "original",
+      "classes": null,
+      "features": [
+        "block7",
+        "block8",
+        "block11"
+      ],
+      "edits": []
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    },
+    {
+      "which": "both",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cifar100",
+  "pair": [
+    "maple_tree",
+    "oak_tree"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 1538,
+  "base": {
+    "practice": {
+      "acc": 0.8838000297546387,
+      "pair_acc": 0.699999988079071,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.6200000047683716,
+      "acc_nonpair": 0.8875510096549988
+    },
+    "holdout": {
+      "acc": 0.8845999836921692,
+      "pair_acc": 0.7699999809265137,
+      "acc_a": 0.7599999904632568,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.886938750743866
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8838000297546387,
+      "pair_acc": 0.7900000214576721,
+      "acc_a": 0.800000011920929,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.8857142925262451
+    },
+    "holdout": {
+      "acc": 0.8817999958992004,
+      "pair_acc": 0.7900000214576721,
+      "acc_a": 0.7400000095367432,
+      "acc_b": 0.8399999737739563,
+      "acc_nonpair": 0.8836734890937805
+    }
+  },
+  "holdout_pair_gain": 0.020000040531158447,
+  "holdout_overall_change": -0.00279998779296875,
+  "success": true,
+  "final_answer": "Saved edits to **only rows 47 and 52** of `heads.head.weight` and their biases. The encoder and other 98 classifier rows are unchanged.\n\nThe edit:\n- Adds a feature contrast derived from class means and covariance statistics, orthogonal to the original maple–oak weight difference.\n- Centers the pair boundary between the two class means.\n- Sharpens pair-versus-rest confidence to limit false positives on unrelated images.\n\nNo training, gradients, or regression were used.\n\n### Verified practice results\n\n| Metric | Original | Edited |\n|---|---:|---:|\n| Maple/oak accuracy | 70.0% | **79.0%** |\n| Maple accuracy | 78.0% | **80.0%** |\n| Oak accuracy | 62.0% | **78.0%** |\n| Overall accuracy | 88.38% | **88.38%** |\n| Other 98 classes | 88.755% | 88.571% |\n| Maple → oak errors | 8 | **7** |\n| Oak → maple errors | 12 | **10** |\n\nThe pair gained **9 net correct predictions**. Other classes lost 9 net correct predictions, so overall accuracy remained unchanged; there is some collateral harm, despite leaving their head rows untouched.\n\nThree repeated five-fold checks on the practice pair yielded **75%, 75%, and 76%** out-of-fold accuracy. These support a generalizable improvement but are not measurements on the unseen held-out set.",
+  "model": "GPT-6 Astra",
+  "turns": 14,
+  "code_runs": 13,
+  "usage": {
+    "prompt_tokens": 129298,
+    "completion_tokens": 18487
+  },
+  "finalize": "['heads.head.bias', 'heads.head.weight']"
+}

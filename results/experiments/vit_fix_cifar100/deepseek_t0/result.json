@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cifar100",
+  "pair": [
+    "maple_tree",
+    "oak_tree"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 1538,
+  "base": {
+    "practice": {
+      "acc": 0.8838000297546387,
+      "pair_acc": 0.699999988079071,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.6200000047683716,
+      "acc_nonpair": 0.8875510096549988
+    },
+    "holdout": {
+      "acc": 0.8845999836921692,
+      "pair_acc": 0.7699999809265137,
+      "acc_a": 0.7599999904632568,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.886938750743866
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8827999830245972,
+      "pair_acc": 0.7900000214576721,
+      "acc_a": 0.800000011920929,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.8846938610076904
+    },
+    "holdout": {
+      "acc": 0.8835999965667725,
+      "pair_acc": 0.8299999833106995,
+      "acc_a": 0.800000011920929,
+      "acc_b": 0.8600000143051147,
+      "acc_nonpair": 0.8846938610076904
+    }
+  },
+  "holdout_pair_gain": 0.06000000238418579,
+  "holdout_overall_change": -0.0009999871253967285,
+  "success": true,
+  "final_answer": "Modified only the two head rows and biases involved in the confusion:\n\n- `heads.head.weight[47]`, `heads.head.weight[52]`\n- `heads.head.bias[47]`, `heads.head.bias[52]`\n\nNo other class rows or network tensors were changed. No gradients, backward passes, optimizers, or regression fitting were used.\n\n### What was changed\n\nUsing the practice `head_in` features, I computed the pair-class means and a regularized pair-vs-rest direction\n\n\\[\nu \\propto \\frac{\\mu_{\\text{pair}}-\\mu_{\\text{rest}}}{\\mathrm{diag}(\\Sigma_{\\text{pair}})+0.5\\,\\overline{\\mathrm{diag}(\\Sigma_{\\text{pair}})}}\n\\]\n\nand added the same vector\n\n\\[\ng = 2.5\\,u\n\\]\n\nto both `w47` and `w52`. This raises the two “tree” logits specifically for features shared by maple/oak images, helping those images beat other classes without changing the 47-vs-52 decision boundary.\n\nI kept the original 47-vs-52 weight difference `w47 - w52` unchanged. Cross-validation showed that rotating that difference direction with estimated covariance directions generalized much worse than only correcting the pair’s common scale/threshold. The bias difference was recalibrated to\n\n\\[\nb_{47}-b_{52} = -(w_{47}-w_{52})\\cdot\\frac{\\mu_{47}+\\mu_{52}}{2} - 1.5,\n\\]\n\nwhich shifts the pair threshold toward oak slightly. The bias sum was left unchanged.\n\nThe scale, direction shrinkage, and threshold offset were selected by repeated stratified 5-fold cross-validation on the practice pair images, with the constraint that CV overall accuracy did not fall.\n\n### Practice measurements\n\n- Original: pair accuracy 70.0%, overall 88.38%\n- After edit: pair accuracy 79.0%, overall 88.28%\n\nPair confusion after the edit: 9 maple→oak and 9 oak→maple, down from the original 8 and 12 plus additional pair-class errors. Overall accuracy dropped by only 0.10 percentage points, well inside the 0.3-point budget. The cross-validated estimate for the selected setting was 77.2% pair accuracy with 88.42% overall accuracy.",
+  "model": "DeepSeek V4.1 Flash 1017",
+  "turns": 24,
+  "code_runs": 18,
+  "usage": {
+    "prompt_tokens": 1789215,
+    "completion_tokens": 186438
+  },
+  "rescored": true
+}

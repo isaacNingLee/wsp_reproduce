@@ -1,0 +1,254 @@
+{
+  "used": 25,
+  "log": [
+    {
+      "kind": "generate",
+      "edits": [],
+      "which": "original",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [],
+      "which": "original",
+      "n": 34,
+      "act_kind": "mlp_act",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "read",
+      "edits": [],
+      "which": "original",
+      "n": 12,
+      "act_kind": "resid",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "original",
+      "n": 48,
+      "act_kind": "mlp_act",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "original",
+      "n": 56,
+      "act_kind": "mlp_act",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "both",
+      "n": 128,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "original",
+      "n": 56,
+      "act_kind": "mlp_act",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 96,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 128,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 128,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "both",
+      "n": 128,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "original",
+      "n": 10,
+      "act_kind": "resid",
+      "layers": [
+        23
+      ]
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 10,
+      "act_kind": "resid",
+      "layers": [
+        23
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "used": 2,
+  "log": [
+    {
+      "which": "original",
+      "classes": null,
+      "features": [
+        "head_in"
+      ],
+      "edits": []
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "task": "vit_identify",
+  "truth": {
+    "A": "cub",
+    "B": "cifar100",
+    "C": "imagenet"
+  },
+  "pred": {
+    "A": "cub",
+    "B": "cifar100",
+    "C": "imagenet"
+  },
+  "parsed": true,
+  "all_correct": true,
+  "n_correct": 3,
+  "imagenet_correct": true,
+  "model": "Qwen 3.8 27B",
+  "turns": 7,
+  "code_runs": 6,
+  "usage": {
+    "prompt_tokens": 39268,
+    "completion_tokens": 48871
+  },
+  "finalize": ""
+}

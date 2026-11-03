@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cifar100",
+  "pair": [
+    "maple_tree",
+    "oak_tree"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 3076,
+  "base": {
+    "practice": {
+      "acc": 0.8838000297546387,
+      "pair_acc": 0.699999988079071,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.6200000047683716,
+      "acc_nonpair": 0.8875510096549988
+    },
+    "holdout": {
+      "acc": 0.8845999836921692,
+      "pair_acc": 0.7699999809265137,
+      "acc_a": 0.7599999904632568,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.886938750743866
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8855999708175659,
+      "pair_acc": 0.800000011920929,
+      "acc_a": 0.8399999737739563,
+      "acc_b": 0.7599999904632568,
+      "acc_nonpair": 0.8873469233512878
+    },
+    "holdout": {
+      "acc": 0.8840000033378601,
+      "pair_acc": 0.7900000214576721,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.800000011920929,
+      "acc_nonpair": 0.885918378829956
+    }
+  },
+  "holdout_pair_gain": 0.020000040531158447,
+  "holdout_overall_change": -0.000599980354309082,
+  "success": true,
+  "final_answer": "All offline checks are complete and no alternative dominated the verified edit, so the submission stands as saved. Final summary:\n\n## What I changed\n\n**Diagnosis (from one feature pass + exact offline simulation).** In the final-LN class-token space the maple/oak head-input clouds are well separated along the class-mean-difference axis (pair |projection| ≈ 3.0 vs 99th-percentile 1.2 for all other classes), yet 30/100 practice pair images were misread — and their errors are *deep* (projections up to ±3.9 on the wrong side), so no global rescale of the 47–52 logit gap can fix them (best head-only edit: +4 pair at −8 other images). The errors split into distinct modes: oak→maple (12), maple→oak (8), and thefts by pine (5), willow (4), house (1), each with characteristic directions.\n\n**Edit (head layer only — 4 rows and 4 biases of `heads.head`).** For each error mode I built a *calibration direction* in the 768-d head-input space: a shrinkage-LDA (λ = 0.1·tr) direction between the small \"stolen\" group (e.g. oak images read as maple) and the corresponding correct group (oak images read as oak; for pine/willow: pair images stolen by that class vs that class's own images). Then:\n- row 47 (maple) −= 1.0·(oak-error direction), bias +1.5\n- row 52 (oak) −= 1.0·(maple-error direction), bias +2.5\n- row 59 (pine) −= 2.0·(pine-theft direction), bias +1.0\n- row 96 (willow) −= 2.0·(willow-theft direction), bias +1.0\n\nBias offsets restore the general tree/other prior so non-pair images are barely affected. Because I cached head-input features for all 5000 practice images and the head is linear, every candidate was simulated *exactly* offline; forward passes were used only to verify chosen edits (sim matched reality every time, e.g. +5 and +10 pair gains predicted and observed).\n\n## What I measured (practice images)\n\n- **Pair accuracy 70.0% → 80.0%** (+10 images): maple 78%→84%, oak 62%→76%. Oak→maple 12→11, maple→oak 8→7, pine-thefts 5→1, willow-thefts 4→1.\n- **Overall 88.38% → 88.56%** (+0.18 pts, +9 images net): only 3 non-pair images changed prediction (one net loss), far inside the 0.3-pt budget.\n\n## Why it should generalize\n\n- A Gaussian noise Monte-Carlo with honest within-class noise (directions estimated from ~10–45 images) predicts held-out pair gain ≈ +3.7 images (5th pct −1) with overall ≈ neutral.\n- Split-half resampling (40 splits, directions rebuilt from halves) kept the pair gain positive in 95–100% of splits.\n- I tested and rejected: plain mean-difference edits (better MC mean but −10…−12 nonpair images — too blunt), Fisher/whitened directions (collapse to the mean axis), sharp/plain mixtures (destabilize the MC), second-round boosting directions on the residual errors (no MC dominance), and ±10–20% perturbations of all amplitudes/biases (none dominated). The chosen edit was the only candidate satisfying pair-gain ≥ +10 with net overall ≥ 0 in the deterministic sim *and* the best expected overall-tail safety under noise.",
+  "model": "GLM 5.3 Flash",
+  "turns": 20,
+  "code_runs": 18,
+  "usage": {
+    "prompt_tokens": 447833,
+    "completion_tokens": 175163
+  },
+  "finalize": "['heads.head.bias', 'heads.head.weight']"
+}

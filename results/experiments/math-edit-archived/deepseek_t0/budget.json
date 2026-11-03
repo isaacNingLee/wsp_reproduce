@@ -1,0 +1,63 @@
+{
+  "used": 10,
+  "log": [
+    {
+      "kind": "generate",
+      "edits": [],
+      "which": "original",
+      "n": 32,
+      "max_tokens": 2048
+    },
+    {
+      "kind": "generate",
+      "edits": [],
+      "which": "original",
+      "n": 20,
+      "max_tokens": 8192
+    },
+    {
+      "kind": "read",
+      "edits": [],
+      "which": "original",
+      "n": 46,
+      "layers": [
+        23
+      ],
+      "act_kind": "resid"
+    },
+    {
+      "kind": "read",
+      "edits": [],
+      "which": "original",
+      "n": 34,
+      "layers": [
+        23
+      ],
+      "act_kind": "mlp_act"
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 3,
+      "layers": [
+        23
+      ],
+      "act_kind": "resid"
+    },
+    {
+      "kind": "read",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ],
+      "which": "edited",
+      "n": 2,
+      "layers": [
+        23
+      ],
+      "act_kind": "resid"
+    }
+  ]
+}

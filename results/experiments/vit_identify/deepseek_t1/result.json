@@ -1,0 +1,25 @@
+{
+  "task": "vit_identify",
+  "truth": {
+    "A": "imagenet",
+    "B": "cub",
+    "C": "cifar100"
+  },
+  "pred": {
+    "A": "imagenet",
+    "B": "cub",
+    "C": "cifar100"
+  },
+  "parsed": true,
+  "all_correct": true,
+  "n_correct": 3,
+  "imagenet_correct": true,
+  "model": "DeepSeek V4.1 Flash 1017",
+  "turns": 12,
+  "code_runs": 11,
+  "usage": {
+    "prompt_tokens": 141000,
+    "completion_tokens": 56533
+  },
+  "finalize": ""
+}

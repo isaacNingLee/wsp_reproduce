@@ -1,0 +1,25 @@
+{
+  "task": "vit_identify",
+  "truth": {
+    "A": "cifar100",
+    "B": "imagenet",
+    "C": "cub"
+  },
+  "pred": {
+    "A": "cifar100",
+    "B": "imagenet",
+    "C": "cub"
+  },
+  "parsed": true,
+  "all_correct": true,
+  "n_correct": 3,
+  "imagenet_correct": true,
+  "model": "GLM 5.3 Flash",
+  "turns": 5,
+  "code_runs": 4,
+  "usage": {
+    "prompt_tokens": 27107,
+    "completion_tokens": 58963
+  },
+  "finalize": ""
+}

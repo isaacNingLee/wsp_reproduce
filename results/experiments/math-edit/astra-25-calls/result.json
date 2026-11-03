@@ -1,0 +1,17 @@
+{
+  "task": "qwen_math",
+  "edited_tensors": [
+    "model.language_model.layers.23.mlp.down_proj.weight"
+  ],
+  "final_answer": "Saved one edited tensor: **`model.language_model.layers.23.mlp.down_proj.weight`**.\n\n### Change\nApplied a rank-two update, constructed from activation statistics and token-output directions, to:\n- Encourage `</think>` during late-stage reasoning.\n- Suppress “Wait” transitions that frequently restarted repetitive checking.\n\nThe update changes the tensor’s Frobenius norm by approximately **1.73%** relative to the original. All other tensors remain unchanged. No training or gradient computation was used.\n\n### Measurements\nOn the **final untouched 128-problem test**, with matched sampling:\n\n| Metric | Original | Edited |\n|---|---:|---:|\n| Overall correct | 15/128 (11.7%) | **83/128 (64.8%)** |\n| GSM8K correct | 9/64 | **48/64** |\n| MATH correct | 6/64 | **35/64** |\n| Truncated responses | 113/128 | **25/128** |\n| Mean generated tokens | 7,665 | **3,900** |\n\nThere were **68 incorrect-to-correct changes and no correct-to-incorrect changes**. Earlier validation improved from **13/128 to 74/128**.\n\nA small non-math teacher-forced check showed little likelihood change: mean assistant-token log probability moved from **−2.446 to −2.455**.\n\n### Limitations\nThe main demonstrated benefit is escaping repetitive reasoning and reaching answers—not proof of stronger underlying mathematical knowledge. Repeated closing tags still occur. All generation tests used **8,192 tokens**, so the improvement at the evaluation’s **32,768-token limit** remains unmeasured.",
+  "n_weights_changed": 2157312,
+  "ckpt": "[LOCAL_PATH]",
+  "model": "GPT-6 Astra",
+  "turns": 19,
+  "code_runs": 18,
+  "usage": {
+    "prompt_tokens": 240891,
+    "completion_tokens": 17876
+  },
+  "finalize": "['model.language_model.layers.23.mlp.down_proj.weight']"
+}

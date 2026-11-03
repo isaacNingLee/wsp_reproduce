@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cifar100",
+  "pair": [
+    "maple_tree",
+    "oak_tree"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 1538,
+  "base": {
+    "practice": {
+      "acc": 0.8838000297546387,
+      "pair_acc": 0.699999988079071,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.6200000047683716,
+      "acc_nonpair": 0.8875510096549988
+    },
+    "holdout": {
+      "acc": 0.8845999836921692,
+      "pair_acc": 0.7699999809265137,
+      "acc_a": 0.7599999904632568,
+      "acc_b": 0.7799999713897705,
+      "acc_nonpair": 0.886938750743866
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8841999769210815,
+      "pair_acc": 0.75,
+      "acc_a": 0.800000011920929,
+      "acc_b": 0.699999988079071,
+      "acc_nonpair": 0.886938750743866
+    },
+    "holdout": {
+      "acc": 0.8840000033378601,
+      "pair_acc": 0.7900000214576721,
+      "acc_a": 0.7799999713897705,
+      "acc_b": 0.800000011920929,
+      "acc_nonpair": 0.885918378829956
+    }
+  },
+  "holdout_pair_gain": 0.020000040531158447,
+  "holdout_overall_change": -0.000599980354309082,
+  "success": true,
+  "final_answer": "\n\nAll confirmed — `W`/`b` in my workspace are the true originals (rows 47/52 of `sd` now hold the saved, edited values, which is why the last allclose was False; the real-model forward pass already proved the saved edits apply exactly as intended). The work is complete; final state:\n\n- **Saved edits:** `heads.head.weight` (only rows 47 and 52 changed) and `heads.head.bias` (only entries 47 and 52 changed).\n- **Real-model verification** (practice images, edited model): pair accuracy **0.700 → 0.750** (+5.0 pp); overall accuracy **0.8838 → 0.8842** (+0.04 pp, i.e. no drop).\n\n---\n\n## What I changed and why\n\n**Diagnosis (from the final-LN class-token features `x` of all 5000 practice images):**\n- The pair's confusion is geometric: the class-mean feature difference **d** = mean(x₄₇) − mean(x₅₂) has norm 3.92, but the current head's decision direction (W₄₇−W₅₂)/2 only has cos 0.84 with **d** (a 1.12·a⊥ tilt), and the bias split places the decision boundary on the *wrong* side — the margin 2((h·m₅₂)+b/2) at the oak mean is **−2.44**, so on average oak images score higher on the maple head (12 oak→maple errors).\n- A regularized Fisher/LDA direction **a** for the two classes aligns almost exactly with **d** (cos 0.985). Per-class projections: maple mean +2.54 (σ 2.44), oak mean −1.33 (σ 2.67); LDA threshold t = 0.603. The 2×2 of the LDA rule is 80% — that is the head-level ceiling; most residual errors are genuinely ambiguous images.\n\n**The edit (head only, symmetric):** I redesigned exactly the (W₄₇, b₄₇, W₅₂, b₅₂) four-tuple so that the pair difference is the LDA rule:\n- **L₄₇ − L₅₂ = s·(a·x − t)** with s = 3.5 (previously the slope was 2.17 along a different direction and the intercept was shifted by +1.71).\n- Concretely: W₄₇ ← W₄₇ + ½(3.5a − 2h), W₅₂ ← W₅₂ − ½(3.5a − 2h), b₄₇ ← b₄₇ + ½(−3.5t − (b₄₇−b₅₂)) = −1.3145, b₅₂ ← b₅₂ − ½(−3.5t − (b₄₇−b₅₂)) = +1.3105. ‖ΔW₄₇‖ = ‖ΔW₅₂‖ = 1.05 (~63% of each row norm); W₄₇+W₅₂ (hence all other classes' logits Lᵢ) is untouched.\n- I chose s/t by simulating many variants (pure shifts, s∈{2..8}, asymmetric allocations, shared boosts) on the practice data: s=3.5/t=0.603 maximizes the pair gain (0.750) while keeping the overall accuracy up (0.8842); larger s (pair 0.76) costs ≥2 extra non-pair breakages, and asymmetric allocation (all change in W₄₇) is strictly worse (pair ≤0.72).\n\n**Why it can't hurt other classes:** the edit changes only L₄₇−L₅₂, and for the 4800 non-pair images a·x is small (mean +0.14, std 0.35) — so L₄₇ and L₅₂ move in opposite directions by at most ~1–2 logit units *away from* any class that isn't 47/52, which can only help them; the risk is purely L₄₇/L₅₂ overtaking a true class, and the simulation/real pass shows only 3 such images (two 96s, one 59), vs 5 images fixed (4 oaks + 1 maple, including 2 knife-edge pair errors).\n\n## What I measured (practice images)\n\n| | base | edited |\n|---|---|---|\n| pair acc (47 vs 52) | 0.700 | **0.750** (+5.0 pp) |\n| class 47 / class 52 | 0.78 / 0.62 | 0.80 / 0.70 |\n| 2×2 (rows = true) | [[39, 8], [12, 31]] | [[40, 8], [11, 35]] |\n| overall acc | 0.8838 | **0.8842** (+0.04 pp) |\n\nFixed: 4 oaks + 1 maple (incl. two that had lost to maple/oak by <0.11 logit). Regressed: 3 non-pair images (true 96→pred 52 ×2, true 59→pred 47) — net +2, overall up. The edited model's logits differ from the original only in columns 47/52 (max float roundoff 0.044); all other classes' logits are bit-identical, so the ≤0.3-point overall-accuracy guard is satisfied with margin.",
+  "model": "Qwen 3.8 27B",
+  "turns": 15,
+  "code_runs": 14,
+  "usage": {
+    "prompt_tokens": 205942,
+    "completion_tokens": 50556
+  },
+  "rescored": true
+}

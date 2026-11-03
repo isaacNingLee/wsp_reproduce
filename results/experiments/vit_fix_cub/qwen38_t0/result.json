@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cub",
+  "pair": [
+    "California_Gull",
+    "Western_Gull"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 1538,
+  "base": {
+    "practice": {
+      "acc": 0.8413913249969482,
+      "pair_acc": 0.4333333373069763,
+      "acc_a": 0.20000000298023224,
+      "acc_b": 0.6666666865348816,
+      "acc_nonpair": 0.8456941843032837
+    },
+    "holdout": {
+      "acc": 0.8322470188140869,
+      "pair_acc": 0.5333333611488342,
+      "acc_a": 0.13333334028720856,
+      "acc_b": 0.9333333373069763,
+      "acc_nonpair": 0.835355281829834
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8431304097175598,
+      "pair_acc": 0.699999988079071,
+      "acc_a": 0.6000000238418579,
+      "acc_b": 0.800000011920929,
+      "acc_nonpair": 0.8446397185325623
+    },
+    "holdout": {
+      "acc": 0.8312178254127502,
+      "pair_acc": 0.6333333253860474,
+      "acc_a": 0.3333333432674408,
+      "acc_b": 0.9333333373069763,
+      "acc_nonpair": 0.833275556564331
+    }
+  },
+  "holdout_pair_gain": 0.09999996423721313,
+  "holdout_overall_change": -0.00102919340133667,
+  "success": true,
+  "final_answer": "\n\nThe end-to-end verification confirms the simulation exactly. The task is complete and robustly successful.\n\n## What I changed\n\nI edited only the final linear head (`heads.head.weight` and `heads.head.bias`), and only the two rows/entries for the confused classes — California_Gull (58) and Western_Gull (65) — leaving the other 198 classes' weights and the entire 12-block ViT encoder untouched.\n\n**Diagnosis (from the weights and the class-token features `head_in`):** the two head rows were nearly orthogonal (cos ≈ 0.003), so the confusion wasn't caused by parallel decision directions. The real problem was that **California (58) was the weak class** (3/15 correct; it lost to Western ×6, Ring-billed ×5, Herring ×1), while Western (65) was already good (10/15). California's feature mass sat off its own direction, near the gull-cluster centroid, and the 58↔65 boundary was mispositioned against it.\n\n**The edit — a sum-preserving \"pull apart + re-center\" on the pair:**\n- `d = mean58 − mean65` (the direction from Western's mean class-token to California's), normalized to `d̂`.\n- `h58 ← h58 + t·d̂`,  `h65 ← h65 − t·d̂`, with `t = 0.58` — rotates the California row *toward* its own feature mass and the Western row away, widening the geometric margin along the class-distinguishing direction (row norms stayed ~1.6–1.8, still near-orthogonal, cos → −0.30).\n- `b58 ← b58 + c`, `b65 ← b65 − c`, with `c = 1.70` — shifts the 58↔65 decision boundary toward Western, i.e., ties go to California, which is exactly where the weakness was.\n\n**Why it's safe:** because the edit is symmetric (it preserves `h58+h65` and `b58+b65`), the sum `l58 + l65` is unchanged for every image, so the \"center\" of pull toward the gull pair on any other class is untouched — only the boundary *between* 58 and 65 moves. I sized `t` and `c` by simulating the effect on all 2875 stored features/logits (statistics only, no fitting/training) and picked the highest pair gain that keeps Western ≥ 0 and overall within a tight buffer of the −0.3pp limit.\n\n## What I measured on the practice images (original vs edited, verified end-to-end)\n\n- **Pair (58/65) accuracy: 43.3% → 70.0% (+26.7 pp).** California 3/15 → 9/15, Western 10/15 → 12/15.\n- **Overall accuracy: 84.14% → 84.31% (+0.17 pp)** — not merely preserved but slightly up, far inside the −0.3 pp constraint.\n- **Per-class deltas (all 200 classes):** California_Gull **+6**, Western_Gull **+2**, Heermann_Gull −1, Herring_Gull −2; every other class unchanged. The only 3 collateral losses are images of two other gull species that California's strengthened row now over-claims — the same visual neighborhood we're pulling California's own images out of.\n\nThis transfers to held-out because the direction `d̂` is built from the same-distribution class means and the bias shift is a fixed constant; expect the same large pair gain with overall staying flat-to-up.",
+  "model": "Qwen 3.8 27B",
+  "turns": 13,
+  "code_runs": 12,
+  "usage": {
+    "prompt_tokens": 137258,
+    "completion_tokens": 39387
+  },
+  "rescored": true
+}

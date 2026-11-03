@@ -1,0 +1,25 @@
+{
+  "task": "vit_identify",
+  "truth": {
+    "A": "imagenet",
+    "B": "cifar100",
+    "C": "cub"
+  },
+  "pred": {
+    "A": "imagenet",
+    "B": "cifar100",
+    "C": "cub"
+  },
+  "parsed": true,
+  "all_correct": true,
+  "n_correct": 3,
+  "imagenet_correct": true,
+  "model": "GPT-6 Astra",
+  "turns": 4,
+  "code_runs": 3,
+  "usage": {
+    "prompt_tokens": 11341,
+    "completion_tokens": 4078
+  },
+  "finalize": ""
+}

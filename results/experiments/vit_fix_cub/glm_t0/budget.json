@@ -1,0 +1,60 @@
+{
+  "used": 6,
+  "log": [
+    {
+      "which": "both",
+      "classes": null,
+      "features": [
+        "head_in",
+        "block11"
+      ],
+      "edits": []
+    },
+    {
+      "which": "original",
+      "classes": null,
+      "features": [
+        "head_in"
+      ],
+      "edits": []
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [
+        "head_in"
+      ],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    },
+    {
+      "which": "edited",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    }
+  ]
+}

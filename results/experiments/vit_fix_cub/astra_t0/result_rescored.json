@@ -1,0 +1,69 @@
+{
+  "task": "vit_fix",
+  "dataset": "cub",
+  "pair": [
+    "California_Gull",
+    "Western_Gull"
+  ],
+  "edited_tensors": [
+    "encoder.layers.encoder_layer_10.mlp.3.bias",
+    "encoder.layers.encoder_layer_10.mlp.3.weight",
+    "encoder.layers.encoder_layer_10.self_attention.out_proj.bias",
+    "encoder.layers.encoder_layer_10.self_attention.out_proj.weight",
+    "encoder.layers.encoder_layer_11.mlp.3.bias",
+    "encoder.layers.encoder_layer_11.mlp.3.weight",
+    "encoder.layers.encoder_layer_11.self_attention.out_proj.bias",
+    "encoder.layers.encoder_layer_11.self_attention.out_proj.weight",
+    "encoder.layers.encoder_layer_9.mlp.3.bias",
+    "encoder.layers.encoder_layer_9.mlp.3.weight",
+    "encoder.layers.encoder_layer_9.self_attention.out_proj.bias",
+    "encoder.layers.encoder_layer_9.self_attention.out_proj.weight",
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 8853363,
+  "base": {
+    "practice": {
+      "acc": 0.8413913249969482,
+      "pair_acc": 0.4333333373069763,
+      "acc_a": 0.20000000298023224,
+      "acc_b": 0.6666666865348816,
+      "acc_nonpair": 0.8456941843032837
+    },
+    "holdout": {
+      "acc": 0.8322470188140869,
+      "pair_acc": 0.5333333611488342,
+      "acc_a": 0.13333334028720856,
+      "acc_b": 0.9333333373069763,
+      "acc_nonpair": 0.835355281829834
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8438261151313782,
+      "pair_acc": 0.6333333253860474,
+      "acc_a": 0.5333333611488342,
+      "acc_b": 0.7333333492279053,
+      "acc_nonpair": 0.8460456728935242
+    },
+    "holdout": {
+      "acc": 0.8325900435447693,
+      "pair_acc": 0.6000000238418579,
+      "acc_a": 0.3333333432674408,
+      "acc_b": 0.8666666746139526,
+      "acc_nonpair": 0.8350086808204651
+    }
+  },
+  "holdout_pair_gain": 0.06666666269302368,
+  "holdout_overall_change": 0.00034302473068237305,
+  "success": true,
+  "final_answer": "Saved the edit and verified it with a full practice-set forward pass.\n\n### Changes\n- **Encoder blocks 9–11 (zero-indexed):** suppressed attention and MLP output updates along the existing California-vs-Western Gull contrast direction—50% suppression in block 9, 100% in blocks 10–11. This preserves earlier pair-separation evidence while leaving orthogonal output components intact.\n- **Classifier:** changed only the two target rows and biases to strengthen their contrast and boost their shared score when the model already finds strong evidence for the pair.\n\nThe other 198 classifier rows remain unchanged. No training or regression was used.\n\n### Measured results\n\n| Metric | Original | Edited |\n|---|---:|---:|\n| Target-pair accuracy | 43.3% (13/30) | **63.3% (19/30)** |\n| California Gull correct | 3/15 | **8/15** |\n| Western Gull correct | 10/15 | **11/15** |\n| Overall accuracy | 84.14% | **84.38%** |\n| Direct pair confusions | 10 | **6** |\n\nOutside the pair, two errors were corrected and one new error was introduced—a **net gain of one correct prediction**. Thus, other-class accuracy improved in aggregate, although not every individual prediction was preserved.\n\nThe practice improvement is **+20 percentage points on the pair**, with no overall accuracy drop. Held-out improvement remains unverified.",
+  "model": "GPT-6 Astra",
+  "turns": 16,
+  "code_runs": 15,
+  "usage": {
+    "prompt_tokens": 177503,
+    "completion_tokens": 21246
+  },
+  "note": "rescored: edits were saved under nested relative run_dir (launcher bug)"
+}

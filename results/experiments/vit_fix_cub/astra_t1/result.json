@@ -1,0 +1,57 @@
+{
+  "task": "vit_fix",
+  "dataset": "cub",
+  "pair": [
+    "California_Gull",
+    "Western_Gull"
+  ],
+  "edited_tensors": [
+    "heads.head.bias",
+    "heads.head.weight"
+  ],
+  "n_weights_changed": 1538,
+  "base": {
+    "practice": {
+      "acc": 0.8413913249969482,
+      "pair_acc": 0.4333333373069763,
+      "acc_a": 0.20000000298023224,
+      "acc_b": 0.6666666865348816,
+      "acc_nonpair": 0.8456941843032837
+    },
+    "holdout": {
+      "acc": 0.8322470188140869,
+      "pair_acc": 0.5333333611488342,
+      "acc_a": 0.13333334028720856,
+      "acc_b": 0.9333333373069763,
+      "acc_nonpair": 0.835355281829834
+    }
+  },
+  "edited": {
+    "practice": {
+      "acc": 0.8431304097175598,
+      "pair_acc": 0.6666666865348816,
+      "acc_a": 0.46666666865348816,
+      "acc_b": 0.8666666746139526,
+      "acc_nonpair": 0.8449912071228027
+    },
+    "holdout": {
+      "acc": 0.8301886916160583,
+      "pair_acc": 0.4000000059604645,
+      "acc_a": 0.13333334028720856,
+      "acc_b": 0.6666666865348816,
+      "acc_nonpair": 0.8346620202064514
+    }
+  },
+  "holdout_pair_gain": -0.13333335518836975,
+  "holdout_overall_change": -0.0020583271980285645,
+  "success": false,
+  "final_answer": "Saved edits to **only rows 58 and 65** of `heads.head.weight` and `heads.head.bias`. The backbone and other 198 classifier rows remain unchanged.\n\n### What changed\n- Blended the original gull decision direction with a centroid-based direction derived from last-block residual statistics: **25% original, 75% new**.\n- Translated that direction into the final-LayerNorm head coordinates.\n- Added a shared correction based on the original gull-confidence scores to suppress unintended gull predictions on unrelated images.\n\nAll changes used activation statistics and linear algebra, without training.\n\n### Verified practice results\n\n| Metric | Original | Edited |\n|---|---:|---:|\n| California vs. Western Gull | 43.33% (13/30) | **66.67% (20/30)** |\n| California Gull | 20.00% | **46.67%** |\n| Western Gull | 66.67% | **86.67%** |\n| Overall accuracy | 84.14% | **84.31%** |\n\nThe edit gained seven correct pair predictions and lost two correct non-pair predictions, for **five additional correct predictions overall**.\n\nLeave-one-out diagnostics gave 19/30 correct pair predictions; repeated balanced-split checks also showed improvement. These support the choice, but held-out performance remains unmeasured.",
+  "model": "GPT-6 Astra",
+  "turns": 13,
+  "code_runs": 12,
+  "usage": {
+    "prompt_tokens": 136465,
+    "completion_tokens": 18969
+  },
+  "finalize": "['heads.head.bias', 'heads.head.weight']"
+}

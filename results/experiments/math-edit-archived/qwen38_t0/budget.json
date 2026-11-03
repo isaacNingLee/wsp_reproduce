@@ -1,0 +1,12 @@
+{
+  "used": 1,
+  "log": [
+    {
+      "kind": "generate",
+      "edits": [],
+      "which": "original",
+      "n": 128,
+      "max_tokens": 8192
+    }
+  ]
+}

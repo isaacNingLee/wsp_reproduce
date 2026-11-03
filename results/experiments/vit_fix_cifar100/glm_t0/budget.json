@@ -1,0 +1,31 @@
+{
+  "used": 3,
+  "log": [
+    {
+      "which": "original",
+      "classes": null,
+      "features": [
+        "head_in"
+      ],
+      "edits": []
+    },
+    {
+      "which": "both",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    },
+    {
+      "which": "both",
+      "classes": null,
+      "features": [],
+      "edits": [
+        "heads.head.bias",
+        "heads.head.weight"
+      ]
+    }
+  ]
+}
