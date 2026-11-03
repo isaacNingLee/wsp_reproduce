@@ -146,7 +146,7 @@ Astra trial 0 originally scored as an empty edit because of a nested relative-pa
 GLM’s CUB trace is particularly revealing. It builds a partially whitened class-mean direction from a covariance eigendecomposition:
 
 $$
-v\propto U\,\operatorname{diag}(\lambda^{-p})U^\top(\mu_{58}-\mu_{65}).
+v\propto U\,\mathrm{diag}(\lambda^{-p})U^\top(\mu_{58}-\mu_{65}).
 $$
 
 The selected edit uses $p=0.2$ and symmetric head adjustments. During development, the model reports **zero leave-one-out errors out of 30** for nearby whitening settings and treats that as evidence of generalization.
