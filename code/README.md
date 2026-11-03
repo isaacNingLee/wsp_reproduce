@@ -11,9 +11,9 @@ This package contains the experiment harness used for the article, with portable
 | Recompute the reported table from the companion snapshot | No model downloads; Python standard library |
 | Run new DeepSeek, GLM, or Qwen editing trials | Your own compatible API access and provider-specific model identifiers |
 | Repeat vision experiments | The three matching ViT checkpoints, CIFAR-100 files, and CUB test images |
-| Evaluate the exact new local Astra or DeepSeek edits | Their saved edited checkpoints, not included in this package |
+| Evaluate the exact new local Astra, DeepSeek, GLM, or Qwen edits | Their saved edited checkpoints, not included in this package |
 
-The vision fine-tunes and new locally edited checkpoints are not bundled. New editor trials are stochastic and do not reproduce the original trajectories exactly. Astra was run separately; this package does not provide an Astra editor launcher.
+All four local editors have completed evaluations in the article. The vision fine-tunes and new locally edited checkpoints are not bundled. New editor trials are stochastic and do not reproduce the original trajectories exactly. Astra was run separately; this package does not provide an Astra editor launcher.
 
 ## Environment
 

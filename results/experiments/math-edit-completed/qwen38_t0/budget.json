@@ -1,0 +1,52 @@
+{
+  "used": 5,
+  "log": [
+    {
+      "which": "original",
+      "n": 128,
+      "max_tokens": 8192,
+      "op": "generate",
+      "edits": []
+    },
+    {
+      "which": "original",
+      "n": 20,
+      "act": "resid",
+      "layers": [
+        19,
+        22,
+        23
+      ],
+      "op": "read",
+      "edits": []
+    },
+    {
+      "which": "original",
+      "n": 15,
+      "act": "mlp_act",
+      "layers": [
+        23
+      ],
+      "op": "read",
+      "edits": []
+    },
+    {
+      "which": "edited",
+      "n": 128,
+      "max_tokens": 8192,
+      "op": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ]
+    },
+    {
+      "which": "edited",
+      "n": 128,
+      "max_tokens": 8192,
+      "op": "generate",
+      "edits": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ]
+    }
+  ]
+}

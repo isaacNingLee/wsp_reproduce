@@ -1,0 +1,2026 @@
+{
+  "summary": {
+    "ckpt": "t3_glm",
+    "path": "work/runs/qwen_math_p10/glm_t0/ckpt_final",
+    "bench": "gsm8k",
+    "profile": "think",
+    "sampling": {
+      "thinking": true,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "presence_penalty": 1.5,
+      "max_tokens": 32768
+    },
+    "n_problems": 100,
+    "samples": 2,
+    "n": 200,
+    "acc": 0.56,
+    "cut_share": 0.03,
+    "mean_tokens": 3939.16,
+    "seconds": 304,
+    "tok_per_s": 2592
+  },
+  "records": [
+    {
+      "id": "gsm8k/test/788",
+      "gold": "100",
+      "pred": "150",
+      "correct": false,
+      "cut": false,
+      "tokens": 222,
+      "closed_think": true,
+      "tail": "unt covered from the total cost to find the amount John needs to raise:\n    $$ \\text{Missing amount} = \\$300 - \\$150 = \\$150 $$\n\nAlternatively, you can think of it as:\n$$ \\text{Total Cost} - (\\text{Half Cost}) = \\text{Remaining Cost} $$\n$$ \\$300 - \\$150 = \\$150 $$\n\nThe final answer is $\\boxed{150}$."
+    },
+    {
+      "id": "gsm8k/test/788",
+      "gold": "100",
+      "pred": "150",
+      "correct": false,
+      "cut": false,
+      "tokens": 243,
+      "closed_think": true,
+      "tail": " \\text{Total Cost} - \\text{Covered Amount} $$\n    $$ \\text{Missing Money} = 300 - 150 = 150 $$\n\nAlternatively, you can think of it as finding the single dollar amount that makes up the remaining half of the trip's cost. Since the school covers half ($150), the remaining portion is $150.\n\n\\boxed{150}"
+    },
+    {
+      "id": "gsm8k/test/861",
+      "gold": "30",
+      "pred": "12",
+      "correct": false,
+      "cut": false,
+      "tokens": 29314,
+      "closed_think": true,
+      "tail": "he text implies a count of 3 badges (based on the \"three times\" phrasing).\n        *   Total Badges for Wendy = $3 \\text{ (days)} \\times 12 \\text{ months} = 36$.\n\n**3. Compare the totals:**\n\n*   **Difference:**\n    *   Total Badges for Wendy ($36$) - Total Badges for Amber ($24$) = $12$.\n\n\\boxed{12}"
+    },
+    {
+      "id": "gsm8k/test/861",
+      "gold": "30",
+      "pred": "7",
+      "correct": false,
+      "cut": false,
+      "tokens": 29965,
+      "closed_think": true,
+      "tail": ".\n\n**4. Calculate the difference:**\n*   The question asks: \"How many more badges does Wendy earn compared to Amber in a 1 year time frame?\"\n*   $N_{\\text{Wendy\\_total}} - N_{\\text{Amper\\_total}} = 9 - 2 = 7$.\n\n**Final Answer:**\nThe number of more badges Wendy earns compared to Amber is 7.\n\n\\boxed{7}"
+    },
+    {
+      "id": "gsm8k/test/82",
+      "gold": "623",
+      "pred": "623",
+      "correct": true,
+      "cut": false,
+      "tokens": 244,
+      "closed_think": true,
+      "tail": "5 - 2 $$\n$$ \\text{Alex} = 500 - 2 $$\n$$ \\text{Alex} = 498 \\text{ pounds} $$\n\n**Step 2: Calculate the combined weight.**\nNow we add Grace's weight and Alex's weight together:\n$$ \\text{Total Weight} = G + \\text{Alex} $$\n$$ \\text{Total Weight} = 125 + 498 $$\n$$ \\text{Total Weight} = 623 $$\n\n\\boxed{623}"
+    },
+    {
+      "id": "gsm8k/test/82",
+      "gold": "623",
+      "pred": "623",
+      "correct": true,
+      "cut": false,
+      "tokens": 255,
+      "closed_think": true,
+      "tail": "ght:\n$$\\text{Alex's weight} = 500 - 2 = 498$$\n\nSo, Alex weighs 498 pounds.\n\n**Step 3: Calculate the combined weight.**\nNow, add Grace's weight and Alex's weight together:\n$$\\text{Total weight} = G + \\text{Alex's weight}$$\n$$\\text{Total weight} = 125 + 498$$\n$$\\text{Total weight} = 623$$\n\n\\boxed{623}"
+    },
+    {
+      "id": "gsm8k/test/530",
+      "gold": "36",
+      "pred": "48",
+      "correct": false,
+      "cut": false,
+      "tokens": 7973,
+      "closed_think": true,
+      "tail": "text states \"4 hours working out every week except on some occasions.\" This implies a base of 4 hours. The subsequent sentences specify the durations for the 8 weeks.\n- 5 hours for 2 weeks.\n- 6 hours for 1 week.\n\nThe total sum is $4 \\times 8 + 5 \\times 2 + 6 \\times 1 = 32 + 10 + 6 = 48$.\n\n\\boxed{48}"
+    },
+    {
+      "id": "gsm8k/test/530",
+      "gold": "36",
+      "pred": "16",
+      "correct": false,
+      "cut": false,
+      "tokens": 2012,
+      "closed_think": true,
+      "tail": " 6 = 16 $$\n\n    The phrasing \"at one point\" and \"another time\" suggests these are separate events within the larger context of the 8-week track. Even though the prompt mentions \"8 weeks,\" the specific counts provided (10 hours and 6 hours) are the only quantitative data points to sum up.\n\n\\boxed{16}"
+    },
+    {
+      "id": "gsm8k/test/1047",
+      "gold": "10",
+      "pred": "14",
+      "correct": false,
+      "cut": false,
+      "tokens": 2537,
+      "closed_think": true,
+      "tail": "x$):\n$$ \\frac{3}{2}x + 4 = 19 $$\n\nSubtract 4 from both sides:\n$$ \\frac{3}{2}x = 15 $$\n\nMultiply both sides by $\\frac{2}{3}$:\n$$ x = 15 \\times \\frac{2}{3} $$\n$$ x = 10 $$\n\nSo, the number of balls in the second set is 10. Consequently, the number of balls in the first set is $10 + 4 = 14$.\n\n\\boxed{14}"
+    },
+    {
+      "id": "gsm8k/test/1047",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 1599,
+      "closed_think": true,
+      "tail": " other sets:\n*   **Second set:** 6 balls.\n*   **First set:** $6 + 4 = 10$ balls.\n*   **Third set:** $\\frac{1}{2}(6) = 3$ balls.\n\nLet's verify the total:\n$$10 (\\text{first}) + 6 (\\text{second}) + 3 (\\text{third}) = 19 \\text{ balls}$$\n\nThe solution is consistent with the given information.\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/995",
+      "gold": "12",
+      "pred": "12",
+      "correct": true,
+      "cut": false,
+      "tokens": 266,
+      "closed_think": true,
+      "tail": "maining amount he must contribute is the difference between what he needs to buy and what he has already received.\n    *   Amount to contribute = Cost of trousers - Total amount received\n    *   Amount to contribute = $\\$30 - \\$18 = \\$12$.\n\nAdam had to contribute $\\$12$ from his savings.\n\n\\boxed{12}"
+    },
+    {
+      "id": "gsm8k/test/995",
+      "gold": "12",
+      "pred": "18",
+      "correct": false,
+      "cut": false,
+      "tokens": 1817,
+      "closed_think": true,
+      "tail": "or the trousers *using* his savings, the calculation is:\n    $$\\text{Total Available} - \\text{Cost} = 48 - 30 = 18$$\n\nAlternatively, if the question implies he is paying for the trousers, the total cost is $30$, and since he has $48$, he needs to pay $18$ more to bring the total to $48$.\n\n\\boxed{18}"
+    },
+    {
+      "id": "gsm8k/test/829",
+      "gold": "14,000",
+      "pred": "72,000",
+      "correct": false,
+      "cut": false,
+      "tokens": 6681,
+      "closed_think": true,
+      "tail": "hout further context specifying the fourth week's production, we can assume the question is asking for the production based on the previous week's logic (a common pattern in these types of word problems).\n\nTherefore, the production for the fourth week is:\n$$3 \\times 24,000 = 72,000$$\n\n\\boxed{72,000}"
+    },
+    {
+      "id": "gsm8k/test/829",
+      "gold": "14,000",
+      "pred": "72,000",
+      "correct": false,
+      "cut": false,
+      "tokens": 733,
+      "closed_think": true,
+      "tail": "weeks given).\n- \"First week... 8,000\"\n- \"Second week... half as much\" -> 4,000\n- \"Third week... three times as much\" -> 24,000\n\nThe question asks specifically for the **fourth week**.\nUsing the multiplication logic derived from the first three weeks:\n$W_4 = 24,000 \\times 3 = 72,000$.\n\n\\boxed{72,000}"
+    },
+    {
+      "id": "gsm8k/test/621",
+      "gold": "3000",
+      "pred": "3000",
+      "correct": true,
+      "cut": false,
+      "tokens": 431,
+      "closed_think": true,
+      "tail": "e same result. The total number of hours is **24**.\n\n**Step 2: Calculate the total cost.**\nThe cost per hour is given as $125.\nUsing the formula $\\text{Cost} = \\text{Rate} \\times \\text{Hours}$:\n$$ \\text{Cost} = 125 \\times 24 $$\n\nPerforming the multiplication:\n$$ 125 \\times 24 = 3000 $$\n\n\\boxed{3000}"
+    },
+    {
+      "id": "gsm8k/test/621",
+      "gold": "3000",
+      "pred": "3000",
+      "correct": true,
+      "cut": false,
+      "tokens": 235,
+      "closed_think": true,
+      "tail": "rs/week} \\times 6 \\text{ weeks}$.\n- Total hours = $4 \\times 6 = 24$ hours.\n\n**Step 2: Calculate the total cost.**\nThe cost is given as $125 per hour.\n- Total cost = $24 \\text{ hours} \\times \\$125/\\text{hour}$.\n- Calculation: $24 \\times 125 = 3000$.\n\nTherefore, the total cost was $3000.\n\n\\boxed{3000}"
+    },
+    {
+      "id": "gsm8k/test/976",
+      "gold": "540",
+      "pred": "465",
+      "correct": false,
+      "cut": false,
+      "tokens": 2619,
+      "closed_think": true,
+      "tail": "\\$90$\n- Total Earnings (Saturday): $\\$60 + \\$90 = \\$150$\n\n**Calculate Earnings for Sunday:**\n- Gingerbread: $15 \\times \\$6 = \\$90$\n- Apple Pie: $15 \\times \\$15 = \\$225$\n- Total Earnings (Sunday): $\\$90 + \\$225 = \\$315$\n\n**Total Earnings for Both Days:**\n$$Total = \\$150 + \\$315 = \\$465$$\n\n\\boxed{465}"
+    },
+    {
+      "id": "gsm8k/test/976",
+      "gold": "540",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "r of gingerbread boxes sold on Sunday is 15.\n\nSo, the number of apple pie boxes sold on Saturday is 0.\nAnd the number of apple pie boxes sold on Sunday is 4.\nAnd the number of gingerbread boxes sold on Saturday is 10.\nAnd the number of gingerbread boxes sold on Sunday is 15.\n\nSo, the number of apple"
+    },
+    {
+      "id": "gsm8k/test/733",
+      "gold": "5",
+      "pred": "6.67",
+      "correct": false,
+      "cut": false,
+      "tokens": 134,
+      "closed_think": true,
+      "tail": "ntify the total amount:** Greg found $20.\n2.  **Identify the number of siblings:** He has 3 younger siblings.\n3.  **Perform the division:** Divide the total amount ($20) by the number of siblings (3).\n\n$$20 \\div 3 = 6.666...$$\n\nRounding to two decimal places gives approximately \\$6.67.\n\n\\boxed{6.67}"
+    },
+    {
+      "id": "gsm8k/test/733",
+      "gold": "5",
+      "pred": "\\frac{20}{3}",
+      "correct": false,
+      "cut": false,
+      "tokens": 352,
+      "closed_think": true,
+      "tail": " value $\\frac{20}{3}$ is precise. If a decimal approximation is expected, it would be approximately $6.67$. Since no specific format was requested, the exact fraction is the most accurate mathematical answer.\n\nThe question asks for the amount. The exact value is $\\frac{20}{3}$.\n\n\\boxed{\\frac{20}{3}}"
+    },
+    {
+      "id": "gsm8k/test/1194",
+      "gold": "1200",
+      "pred": "1200",
+      "correct": true,
+      "cut": false,
+      "tokens": 924,
+      "closed_think": true,
+      "tail": "ming in the sea. To find the total blood volume, multiply the blood volume of one shark by the number of sharks.\n    $$ \\text{Total Blood}_{\\text{all sharks}} = 120 \\text{ gallons/shark} \\times 10 \\text{ sharks} $$\n    $$ \\text{Total Blood}_{\\text{all sharks}} = 1200 \\text{ gallons} $$\n\n\\boxed{1200}"
+    },
+    {
+      "id": "gsm8k/test/1194",
+      "gold": "1200",
+      "pred": "1200",
+      "correct": true,
+      "cut": false,
+      "tokens": 222,
+      "closed_think": true,
+      "tail": "xt{ gallons}$$\n\n3.  **Calculate the total blood volume for ten sharks:**\n    Since there are 10 sharks in the sea, we multiply the blood volume of one shark by 10.\n    $$120 \\times 10 = 1200 \\text{ gallons}$$\n\nThe calculation shows that ten sharks have a total of 1200 gallons of blood.\n\n\\boxed{1200}"
+    },
+    {
+      "id": "gsm8k/test/447",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 236,
+      "closed_think": true,
+      "tail": "he points scored during her turn: $+10$.\n*   Current total for Marcy: $225 + 10 = 235$ points.\n\n**Step 3: Determine the difference in scores.**\n*   To find out how many points are \"winning\" (i.e., by what margin), subtract Marcy's score from Joey's score.\n*   Calculation: $240 - 235 = 5$.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/447",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 308,
+      "closed_think": true,
+      "tail": "ore:** $214 + 26 = 240$\n    *   **Marcy's new score:** $225 + 10 = 235$\n\n4.  **Determine the difference:**\n    *   The question asks \"By how many points is Joey now winning?\"\n    *   Since Joey's score (240) is greater than Marcy's score (235), the difference is:\n        $$240 - 235 = 5$$\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/1033",
+      "gold": "2",
+      "pred": "12",
+      "correct": false,
+      "cut": false,
+      "tokens": 10215,
+      "closed_think": true,
+      "tail": "rnings - Total expenses\n*   Net earnings = $\\$270 - \\$54 = \\$216$.\n\n**Step 5: Calculate the net earnings per hour.**\n*   To find the net earnings per hour, we divide the net earnings by the total number of hours worked.\n*   Net earnings per hour = $\\frac{\\$216}{18 \\text{ hours}} = \\$12$.\n\n\\boxed{12}"
+    },
+    {
+      "id": "gsm8k/test/1033",
+      "gold": "2",
+      "pred": "3",
+      "correct": false,
+      "cut": false,
+      "tokens": 4791,
+      "closed_think": true,
+      "tail": " day.\n    *   Total daily cost = $15 + $3 = $18.\n    *   Total cost for 3 days = $18 \\times 3 = \\$54$.\n\n3.  **Calculate the hourly rate**:\n    The question asks for the jury pay per hour *after expenses*.\n    Rate = Total Cost / Total Time\n    Rate = $54 / 18 hours\n    Rate = $3 per hour.\n\n\\boxed{3}"
+    },
+    {
+      "id": "gsm8k/test/285",
+      "gold": "21",
+      "pred": "21",
+      "correct": true,
+      "cut": false,
+      "tokens": 200,
+      "closed_think": true,
+      "tail": "r} = 2 \\times 9 = 18$$\n\n2.  **Calculate the brother's age in 3 years:**\n    We need to find the age of the brother when it is 3 years later.\n    $$Age_{brother\\_in_3\\_years} = Age_{brother\\_current} + 3$$\n    $$Age_{brother\\_in_3\\_years} = 18 + 3$$\n    $$Age_{brother\\_in_3\\_years} = 21$$\n\n\\boxed{21}"
+    },
+    {
+      "id": "gsm8k/test/285",
+      "gold": "21",
+      "pred": "21",
+      "correct": true,
+      "cut": false,
+      "tokens": 203,
+      "closed_think": true,
+      "tail": " \\times 9 = 18$.\n\n3.  **Calculate the age of the brother in 3 years:**\n    We add 3 years to her brother's current age ($18$) to find his age in the future.\n    $$Age_{brother\\_in\\_3\\_years} = 18 + 3$$\n    $$Age_{brother\\_in\\_3\\_years} = 21$$\n\nThe brother will be 21 years old in 3 years.\n\n\\boxed{21}"
+    },
+    {
+      "id": "gsm8k/test/577",
+      "gold": "40",
+      "pred": "64.28",
+      "correct": false,
+      "cut": false,
+      "tokens": 6910,
+      "closed_think": true,
+      "tail": "\n\n**Step 3: Calculate the average.**\nThere are 7 days in the week.\n$$\\text{Average} = \\frac{\\text{Total number of birds}}{\\text{Number of days}}$$\n$$\\text{Average} = \\frac{450}{7}$$\n$$\\text{Average} \\approx 64.28$$\n\nThe average number of birds Mack saw in a day is approximately 64.28.\n\n\\boxed{64.28}"
+    },
+    {
+      "id": "gsm8k/test/577",
+      "gold": "40",
+      "pred": "64.28",
+      "correct": false,
+      "cut": false,
+      "tokens": 1752,
+      "closed_think": true,
+      "tail": " + 90 $$\n$$ = 100 + 0 + 120 + 120 + 20 + 90 $$\n$$ = 220 + 120 + 20 + 90 $$\n$$ = 340 + 20 + 90 $$\n$$ = 360 + 90 $$\n$$ = 450 $$\n\n**3. Divide the total by the number of days:**\nThere are 7 days (Day 1 through Day 7).\n$$ \\text{Average} = \\frac{450}{7} $$\n$$ \\text{Average} \\approx 64.28 $$\n\n\\boxed{64.28}"
+    },
+    {
+      "id": "gsm8k/test/286",
+      "gold": "90",
+      "pred": "90",
+      "correct": true,
+      "cut": false,
+      "tokens": 228,
+      "closed_think": true,
+      "tail": "alue is:\n    $$2 \\times 10 = 20 \\text{ cents}$$\n\n**2. Add the values of both coins together:**\n$$125 + 20 = 145 \\text{ cents}$$\n\n**3. Subtract the cost of the pop can from the total value:**\nThe pop can costs 55 cents. The problem asks for the remaining amount in cents.\n$$145 - 55 = 90$$\n\n\\boxed{90}"
+    },
+    {
+      "id": "gsm8k/test/286",
+      "gold": "90",
+      "pred": "70",
+      "correct": false,
+      "cut": false,
+      "tokens": 249,
+      "closed_think": true,
+      "tail": "t of the pop from her total value (or simply subtract the cost from her current amount).\n    *   Current amount: 125 cents\n    *   Pop cost: 55 cents\n    *   Remaining amount = $125 - 55$\n\n4.  **Perform the subtraction:**\n    *   $125 - 55 = 70$\n\nTherefore, Kelly will have 70 cents left.\n\n\\boxed{70}"
+    },
+    {
+      "id": "gsm8k/test/194",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 2906,
+      "closed_think": true,
+      "tail": "text{ crayons} \\times \\$2/\\text{crayon} = \\$10$.\n\n2.  **Identify the total amount available:**\n    *   The problem states she \"prepared $20\".\n    *   Calculation: $\\$20$.\n\n3.  **Calculate the change:**\n    *   Calculation: $\\$20 - \\$10 = \\$10$.\n\nTherefore, she will receive $10 in change.\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/194",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 6610,
+      "closed_think": true,
+      "tail": "st for the crayons is $\\$10$.\n\n4.  **Determine the available funds:**\n    The problem states she \"prepared $20 for this purchase\" (or presumably she has $\\$20$ available).\n    $$20$$\n\n5.  **Calculate the change:**\n    Subtract the total cost from the available funds.\n    $$20 - 10 = 10$$\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/1266",
+      "gold": "147",
+      "pred": "147",
+      "correct": true,
+      "cut": false,
+      "tokens": 1581,
+      "closed_think": true,
+      "tail": "og} = 6 \\text{ kg/day}$$\n\n**2. Calculate the total daily consumption:**\nAdd the daily amounts together:\n$$15 \\text{ kg} + 6 \\text{ kg} = 21 \\text{ kg/day}$$\n\n**3. Calculate the weekly consumption:**\nThere are 7 days in a week.\n$$21 \\text{ kg/day} \\times 7 \\text{ days} = 147 \\text{ kg}$$\n\n\\boxed{147}"
+    },
+    {
+      "id": "gsm8k/test/1266",
+      "gold": "147",
+      "pred": "147",
+      "correct": true,
+      "cut": false,
+      "tokens": 318,
+      "closed_think": true,
+      "tail": "} = 15 + 6 $$\n$$ \\text{Total Daily Consumption} = 21 \\text{ kg} $$\n\n**4. Calculate the weekly consumption:**\nThere are 7 days in a week.\n$$ \\text{Weekly Total} = \\text{Daily Total Consumption} \\times 7 $$\n$$ \\text{Weekly Total} = 21 \\times 7 $$\n$$ \\text{Weekly Total} = 147 \\text{ kg} $$\n\n\\boxed{147}"
+    },
+    {
+      "id": "gsm8k/test/513",
+      "gold": "300",
+      "pred": "300",
+      "correct": true,
+      "cut": false,
+      "tokens": 352,
+      "closed_think": true,
+      "tail": "ney.\n$$ \\text{Final amount} = 400 - 100 = 300 $$\n\nAlternatively, you can think of this as a multiplication chain:\n$$ \\text{Final amount} = 500 \\times (1 - 0.20) \\times (1 - 0.25) $$\n$$ \\text{Final amount} = 500 \\times 0.80 \\times 0.75 $$\n$$ \\text{Final amount} = 400 \\times 0.75 = 300 $$\n\n\\boxed{300}"
+    },
+    {
+      "id": "gsm8k/test/513",
+      "gold": "300",
+      "pred": "300",
+      "correct": true,
+      "cut": false,
+      "tokens": 4956,
+      "closed_think": true,
+      "tail": "nt 25% of the remaining $400 on CDs.\n    $$ 0.25 \\times 400 = 100 $$\n    So, she spent $100 on CDs.\n\n4.  **Calculate the final remaining amount:**\n    Subtract the CDs cost from the remaining amount after the first purchase.\n    $$ 400 - 100 = 300 $$\n\nTherefore, Julie has **$300** left.\n\n\\boxed{300}"
+    },
+    {
+      "id": "gsm8k/test/1090",
+      "gold": "72",
+      "pred": "72",
+      "correct": true,
+      "cut": false,
+      "tokens": 267,
+      "closed_think": true,
+      "tail": "eight - 5 inches\n    $$74 - 5 = 69 \\text{ inches}$$\n\n4.  **Fourth Child:**\n    The fourth child is three inches taller than the third child.\n    Height = Third child's height + 3 inches\n    $$69 + 3 = 72 \\text{ inches}$$\n\nThe calculation yields a height of 72 inches for the fourth child.\n\n\\boxed{72}"
+    },
+    {
+      "id": "gsm8k/test/1090",
+      "gold": "72",
+      "pred": "72",
+      "correct": true,
+      "cut": false,
+      "tokens": 275,
+      "closed_think": true,
+      "tail": "ild = $74 - 5 = 69$ inches.\n\n4.  **Fourth Child:** The fourth child is three inches taller than the third child.\n    *   Height of fourth child = Height of third child + 3 inches\n    *   Height of fourth child = $69 + 3 = 72$ inches.\n\n**Final Answer:**\nThe fourth child is 72 inches tall.\n\n\\boxed{72}"
+    },
+    {
+      "id": "gsm8k/test/1232",
+      "gold": "15",
+      "pred": null,
+      "correct": false,
+      "cut": false,
+      "tokens": 911,
+      "closed_think": true,
+      "tail": "en the initial amount and the remaining amount:\n$$ \\text{Initial Amount} - y = \\frac{1}{4} \\times \\text{Initial Amount} $$\n\nSubstitute the value of the initial amount:\n$$ 20 - y = \\frac{1}{4} \\times 20 $$\n$$ 20 - y = 5 $$\n\nSolving for $y$:\n$$ y = 20 - 5 $$\n$$ y = 15 $$\n\nSo, Eve gave away 15 pomelos."
+    },
+    {
+      "id": "gsm8k/test/1232",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 205,
+      "closed_think": true,
+      "tail": "**Calculate the amount given away**:\n    To find out how many she gave away, subtract the remaining amount from the original amount.\n    $$ \\text{Given Away} = 20 - 5 = 15 \\text{ pieces} $$\n\nAlternatively, you can think of it as giving away the whole minus what remains:\n$$ 20 - 5 = 15 $$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/300",
+      "gold": "78",
+      "pred": "78",
+      "correct": true,
+      "cut": false,
+      "tokens": 764,
+      "closed_think": true,
+      "tail": " exercise for twice the amount of time he did on Monday and Sunday combined.\n    Target time = $2 \\times 39 = 78$ minutes.\n\n3.  **Conclusion:**\n    The question asks how many minutes he needs to exercise on Tuesday to reach the goal. Since the target time is 78 minutes, the answer is 78.\n\n\\boxed{78}"
+    },
+    {
+      "id": "gsm8k/test/300",
+      "gold": "78",
+      "pred": "78",
+      "correct": true,
+      "cut": false,
+      "tokens": 255,
+      "closed_think": true,
+      "tail": "states that Peter exercises for \"twice the amount of time\" he did on Monday and Sunday combined.\n    $$ \\text{Goal time} = 2 \\times (\\text{Total combined time}) $$\n    $$ \\text{Goal time} = 2 \\times 39 = 78 \\text{ minutes} $$\n\nTherefore, Peter needs to exercise for 78 minutes on Tuesday.\n\n\\boxed{78}"
+    },
+    {
+      "id": "gsm8k/test/635",
+      "gold": "4",
+      "pred": "10",
+      "correct": false,
+      "cut": false,
+      "tokens": 7504,
+      "closed_think": true,
+      "tail": "he total cost is $10 or more.\n    Since there are 10 classes, and the condition is met, he can miss 10 classes.\n\n    (Note: The phrasing \"per class\" might be interpreted as \"for a class\" or \"each class\". If the total cost is $10 or more, he doesn't sign up. Thus, he can miss 10 classes.)\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/635",
+      "gold": "4",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "ies that the question is asking for the difference.\nLet's assume the answer is 50.\nWait, let's try to think of the question as a \"logic\" puzzle.\nMaybe the question implies that the price is $60.\nAnd the question asks \"how many can he miss\".\nIf the answer is 50, it implies that the question is asking"
+    },
+    {
+      "id": "gsm8k/test/202",
+      "gold": "100",
+      "pred": "100",
+      "correct": true,
+      "cut": false,
+      "tokens": 235,
+      "closed_think": true,
+      "tail": "late the total volume of wine produced.**\n*   Each ton of grapes produces $2$ barrels of wine.\n*   Total volume of wine = Total weight of grapes $\\times$ Production ratio (barrels per ton)\n    $$ \\text{Total volume} = 50 \\text{ tons} \\times 2 \\text{ barrels/ton} = 100 \\text{ barrels} $$\n\n\\boxed{100}"
+    },
+    {
+      "id": "gsm8k/test/202",
+      "gold": "100",
+      "pred": "100",
+      "correct": true,
+      "cut": false,
+      "tokens": 310,
+      "closed_think": true,
+      "tail": "tio).\n$$ \\text{Total Wine} = \\text{Total Grapes} \\times \\text{Wine per ton} $$\n$$ \\text{Total Wine} = 50 \\text{ tons} \\times 2 \\text{ barrels/ton} $$\n$$ \\text{Total Wine} = 100 \\text{ barrels} $$\n\n**Conclusion:**\nBased on the calculations, the farm produces 100 barrels of wine per year.\n\n\\boxed{100}"
+    },
+    {
+      "id": "gsm8k/test/151",
+      "gold": "5",
+      "pred": "4.25",
+      "correct": false,
+      "cut": false,
+      "tokens": 4648,
+      "closed_think": true,
+      "tail": "\n    *   People: 3\n    *   Tires: 3 people * 2 tires/person = 6 tires.\n*   **Group 3 (Unicycles):**\n    *   People: 1\n    *   Tires: 1 person * 1 tire/person = 1 tire.\n\n**3. Calculate Total Cost:**\n*   Total Tires = 10 + 6 + 1 = 17 tires.\n*   Total Cost = 17 tires * $0.25/tire = $4.25.\n\n\\boxed{4.25}"
+    },
+    {
+      "id": "gsm8k/test/151",
+      "gold": "5",
+      "pred": "2.25",
+      "correct": false,
+      "cut": false,
+      "tokens": 6256,
+      "closed_think": true,
+      "tail": "er tire: $0.25\n    *   Total cost for Event 3: $1 \\times 0.25 = 0.25$ dollars.\n\n**Step 2: Sum the costs.**\n$$ \\text{Total Cost} = 1.25 + 0.75 + 0.25 $$\n$$ \\text{Total Cost} = 2.25 $$\n\nThe question asks for the total amount she made. Based on the calculations, the total amount is $2.25.\n\n\\boxed{2.25}"
+    },
+    {
+      "id": "gsm8k/test/676",
+      "gold": "240",
+      "pred": "\\frac{1}{5}",
+      "correct": false,
+      "cut": false,
+      "tokens": 1910,
+      "closed_think": true,
+      "tail": ".\n    *   $\\text{Remaining} = \\frac{3}{5}x$\n    *   $\\text{Frances} = \\frac{2}{3} \\cdot \\frac{3}{5}x = \\frac{2}{5}x$\n    *   $\\text{Skylar} = \\text{Total} - \\text{Dylan} - \\text{Frances}$\n    *   $\\text{Skylar} = x - \\frac{2}{5}x - \\frac{2}{5}x = x - \\frac{4}{5}x = \\frac{1}{5}x$\n\n\\boxed{\\frac{1}{5}}"
+    },
+    {
+      "id": "gsm8k/test/676",
+      "gold": "240",
+      "pred": "240",
+      "correct": true,
+      "cut": false,
+      "tokens": 374,
+      "closed_think": true,
+      "tail": "from the original total amount.\n$$ \\text{Skyler's Investment} = \\text{Original Total} - (\\text{Dylan's Investment} + \\text{Frances's Investment}) $$\n$$ \\text{Skyler's Investment} = 1200 - (480 + 480) $$\n$$ \\text{Skyler's Investment} = 1200 - 960 $$\n$$ \\text{Skyler's Investment} = 240 $$\n\n\\boxed{240}"
+    },
+    {
+      "id": "gsm8k/test/966",
+      "gold": "48",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "y step based on the story provided.\n\n**1. Initial Stock:**\nGreta makes a batch for herself.\n*   Quantity: 1 dozen = 12 brownies.\n\n**2. The Office Party:**\nAt her office, the friends are there to throw her a party and send her home with **1/2 a dozen** brownies.\n*   Calculation: $1 \\text{ dozen} = 12"
+    },
+    {
+      "id": "gsm8k/test/966",
+      "gold": "48",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "to interpret the text differently.\n    *   Let's try to interpret the text differently.\n    *   Let's try to interpret the text differently.\n    *   Let's try to interpret the text differently.\n    *   Let's try to interpret the text differently.\n    *   Let's try to interpret the text differently.\n"
+    },
+    {
+      "id": "gsm8k/test/1146",
+      "gold": "16",
+      "pred": "16",
+      "correct": true,
+      "cut": false,
+      "tokens": 15004,
+      "closed_think": true,
+      "tail": "on \"only sells 60% of his inventory\", the remaining 8 items are unsold. Therefore, the total loss is derived from the difference between the cost and the value of the sold stock.\n\n    Calculations:\n    *   Cost: $100\n    *   Revenue: $84\n    *   Net Loss: $16$\n\n    Final Answer:\n</think>\n\n\\boxed{16}"
+    },
+    {
+      "id": "gsm8k/test/1146",
+      "gold": "16",
+      "pred": "24",
+      "correct": false,
+      "cut": false,
+      "tokens": 321,
+      "closed_think": true,
+      "tail": "t\nLoss = $84 - 60 = 24$.\n\nAlternatively, we can think about the profit margin directly.\nHe keeps 40% of the stock (since he only sells 60%).\nProfit = Total Sales Price - Total Cost Price\nTotal Sales Price = $12 \\times 7 = 84$\nTotal Cost Price = $12 \\times 5 = 60$\nProfit = $84 - 60 = 24$.\n\n\\boxed{24}"
+    },
+    {
+      "id": "gsm8k/test/206",
+      "gold": "860",
+      "pred": "620",
+      "correct": false,
+      "cut": false,
+      "tokens": 4068,
+      "closed_think": true,
+      "tail": ".\n\nCalculation:\n$$ \\text{Distance}_{\\text{second}} = 2 \\text{ (times/week)} \\times 60 \\text{ (km)} \\times 3 \\text{ (weeks)} $$\n$$ \\text{Distance}_{\\text{second}} = 120 \\text{ km} $$\n\n**3. Sum the distances:**\n$$ \\text{Total Distance} = 500 \\text{ km} + 120 \\text{ km} = 620 \\text{ km} $$\n\n\\boxed{620}"
+    },
+    {
+      "id": "gsm8k/test/206",
+      "gold": "860",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "\\times 60 = 360$.\n    Total = $860$.\n\n    Let's check if the question implies the first period is 4 weeks.\n    If the first period is 4 weeks, and 5 times a week.\n    $4 \\times 5 \\times 25 = 500$.\n    $3 \\times 2 \\times 60 = 360$.\n    Total = $860$.\n\n    Let's check if the question implies the first"
+    },
+    {
+      "id": "gsm8k/test/724",
+      "gold": "18",
+      "pred": "-25",
+      "correct": false,
+      "cut": false,
+      "tokens": 3148,
+      "closed_think": true,
+      "tail": "expects the number of slices remaining for the remaining friends to be calculated as follows:\n    Total available = 60.\n    Eaten by first group = 40.\n    Eaten by second group = 45.\n    Remaining = $60 - 40 - 45 = -25$.\n\n    Given the strict mathematical constraints, the answer is -25.\n\n\\boxed{-25}"
+    },
+    {
+      "id": "gsm8k/test/724",
+      "gold": "18",
+      "pred": null,
+      "correct": false,
+      "cut": false,
+      "tokens": 10106,
+      "closed_think": true,
+      "tail": "maining friends\" -> 2 people.\n   -   Wait, let's try to assume the question meant:\n        -   \"Bryce and four of his friends\" -> 5 people.\n        -   \"Each ordered their own pizzas\" -> 5 pizzas.\n        -   \"Bryce and two friends\" -> 2 people.\n        -   \"The two remaining friends\" -> 2 people.\ni"
+    },
+    {
+      "id": "gsm8k/test/889",
+      "gold": "15",
+      "pred": "5",
+      "correct": false,
+      "cut": false,
+      "tokens": 186,
+      "closed_think": true,
+      "tail": "s, we subtract the number of petals of the orchids from the number of petals of the daisies.\n    $$ \\text{Difference} = (\\text{Number of petals of daisies}) - (\\text{Number of petals of orchids}) $$\n    $$ \\text{Difference} = 10 - 5 = 5 $$\n\nThe daisies have 5 more petals than the orchids.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/889",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 495,
+      "closed_think": true,
+      "tail": " the daisies:**\n    There are 4 daisies, and each has 10 petals.\n    $$4 \\text{ daisies} \\times 10 \\text{ petals/daisy} = 40 \\text{ petals}$$\n\n3.  **Calculate the difference:**\n    Subtract the number of petals in the orchids from the number of petals in the daisies.\n    $$40 - 25 = 15$$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/647",
+      "gold": "10",
+      "pred": "10 \\text{ hours}",
+      "correct": true,
+      "cut": false,
+      "tokens": 1288,
+      "closed_think": true,
+      "tail": "xt{ feet}}{2 \\text{ feet/hour}} = \\mathbf{4 \\text{ hours}}$\n\n**Step 4: Calculate the total time.**\n*   Total time = Time for soil + Time for clay\n*   Total time = $6 \\text{ hours} + 4 \\text{ hours} = \\mathbf{10 \\text{ hours}}$\n\nIt will take him **10 hours** to dig the well.\n\n\\boxed{10 \\text{ hours}}"
+    },
+    {
+      "id": "gsm8k/test/647",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 5676,
+      "closed_think": true,
+      "tail": "t/hour}} = 6 \\text{ hours}$\n*   **Clay:** $\\frac{\\text{Distance}}{\\text{Speed}} = \\frac{8 \\text{ feet}}{2 \\text{ feet/hour}} = 4 \\text{ hours}$\n\n**Step 3: Sum the times.**\n*   Total Time = $6 \\text{ hours} + 4 \\text{ hours} = 10 \\text{ hours}$\n\nThe total time to dig the well is 10 hours.\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/1251",
+      "gold": "30",
+      "pred": "39.375",
+      "correct": false,
+      "cut": false,
+      "tokens": 7569,
+      "closed_think": true,
+      "tail": " + (Time for second side) + (Time for third side) + (Time for last 2 sides) + (Time for 5th side) + (Time for 6th side).\n    *   Note: The prompt asks for the total time for the entire set, which includes all sides mentioned.\n    *   Sum = $5 + 10 + 20 + 2.5 + 1.25 + 0.625 = 39.375$.\n\n\\boxed{39.375}"
+    },
+    {
+      "id": "gsm8k/test/1251",
+      "gold": "30",
+      "pred": null,
+      "correct": false,
+      "cut": true,
+      "tokens": 32768,
+      "closed_think": true,
+      "tail": "d side: 10\n- 3rd side: 20\n- 4th side: 2.5\n- 5th side: 2.5\nWait, the text says \"The last 2 sides\".\nLet's assume the sequence is:\n- 1st side: 5\n- 2nd side: 10\n- 3rd side: 20\n- 4th side: 2.5\n- 5th side: 2.5\nWait, the text says \"The last 2 sides\".\nLet's assume the sequence is:\n- 1st side: 5\n- 2nd side: "
+    },
+    {
+      "id": "gsm8k/test/1311",
+      "gold": "594",
+      "pred": "600",
+      "correct": false,
+      "cut": false,
+      "tokens": 124,
+      "closed_think": true,
+      "tail": "\nThe caretaker wants 3 feet of line for every foot of the dock.\nTherefore, the total amount of new line needed is:\n$$ \\text{Total Line} = \\text{Length of Dock} \\times \\text{Ratio} $$\n$$ \\text{Total Line} = 200 \\text{ ft} \\times 3 \\text{ ft/ft} $$\n$$ \\text{Total Line} = 600 \\text{ ft} $$\n\n\\boxed{600}"
+    },
+    {
+      "id": "gsm8k/test/1311",
+      "gold": "594",
+      "pred": "600",
+      "correct": false,
+      "cut": false,
+      "tokens": 125,
+      "closed_think": true,
+      "tail": "3 feet per foot of dock.\nThis means for every 1 foot of dock, he needs to buy 3 feet of line.\n\nTo find the total amount of line needed:\nTotal Line = (Length of dock) × (Number of feet of line per foot of dock)\nTotal Line = $200 \\text{ feet} \\times 3 \\text{ feet/foot}$\nTotal Line = $600$\n\n\\boxed{600}"
+    },
+    {
+      "id": "gsm8k/test/418",
+      "gold": "40",
+      "pred": "40",
+      "correct": true,
+      "cut": false,
+      "tokens": 430,
+      "closed_think": true,
+      "tail": "c{1}{4} \\left( \\frac{1}{2} T \\right)$$\n$$P = \\frac{1}{8} T$$\n\nNow, substitute $P$ back into the original equation for $P$:\n$$5 = \\frac{1}{8} T$$\n\n**4. Solve for $T$:**\nTo isolate $T$, multiply both sides by 8:\n$$T = 5 \\times 8$$\n$$T = 40$$\n\nTherefore, Timothy's locker is 40 cubic inches.\n\n\\boxed{40}"
+    },
+    {
+      "id": "gsm8k/test/418",
+      "gold": "40",
+      "pred": "40",
+      "correct": true,
+      "cut": false,
+      "tokens": 370,
+      "closed_think": true,
+      "tail": "e for $T$:**\nWe are given that Peter's locker ($P$) has a size of 5 cubic inches. We can set up an equation where the right-hand side equals 5.\n\n$$ 5 = \\frac{1}{8} T $$\n\nTo isolate $T$, multiply both sides by 8:\n\n$$ T = 5 \\times 8 $$\n$$ T = 40 $$\n\nSo, Timothy's locker is 40 cubic inches.\n\n\\boxed{40}"
+    },
+    {
+      "id": "gsm8k/test/1131",
+      "gold": "96",
+      "pred": "120",
+      "correct": false,
+      "cut": false,
+      "tokens": 323,
+      "closed_think": true,
+      "tail": "1.2**.\n*   Therefore, the total revenue from selling these planks is:\n    $$ \\text{Total Revenue} = 100 \\times 1.2 = 120 \\text{ dollars} $$\n\n**Step 4: Final Calculation.**\nThe question asks \"How much does he make?\", which refers to the total earnings.\n$$ \\text{Total Earnings} = \\$120 $$\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/1131",
+      "gold": "96",
+      "pred": "120",
+      "correct": false,
+      "cut": false,
+      "tokens": 1042,
+      "closed_think": true,
+      "tail": "From each of the 20 logs, he cuts 5 planks.\n    $$ \\text{Total planks} = 20 \\text{ logs} \\times 5 \\text{ planks/log} = 100 \\text{ planks} $$\n\n3.  **Calculate the cost:**\n    Each plank is sold for $1.20.\n    $$ \\text{Total cost} = 100 \\text{ planks} \\times \\$1.20/\\text{plank} = \\$120 $$\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/906",
+      "gold": "10",
+      "pred": "4 \\text{ blue and } 6 \\text{ red}",
+      "correct": false,
+      "cut": false,
+      "tokens": 286,
+      "closed_think": true,
+      "tail": " question asks \"how many red and blue shoe boxes are left in Tim's box?\". Since there is no mention of any other operations or specific types of boxes (e.g., \"blue\" vs \"red\" inside the box), we assume the items remain as they were before the use of the box.\n\n\\boxed{4 \\text{ blue and } 6 \\text{ red}}"
+    },
+    {
+      "id": "gsm8k/test/906",
+      "gold": "10",
+      "pred": "4",
+      "correct": false,
+      "cut": false,
+      "tokens": 3342,
+      "closed_think": true,
+      "tail": "of the total red boxes.\n    *   Red boxes = 9.\n    *   Fraction used = 1/3.\n    *   Remaining red boxes = $9 - (1/3 \\times 9)$.\n    *   $1/3 \\times 9 = 3$.\n    *   Remaining red boxes = $9 - 3 = 6$.\n\n**3. Calculate the final totals:**\n*   Remaining blue boxes: 4\n*   Remaining red boxes: 6\n\n\\boxed{4}"
+    },
+    {
+      "id": "gsm8k/test/1067",
+      "gold": "245",
+      "pred": "245",
+      "correct": true,
+      "cut": false,
+      "tokens": 357,
+      "closed_think": true,
+      "tail": "text{ cents} \\times 1400 = 21000 \\text{ cents}$$\n\nTotal postage cost:\n$$3500 + 21000 = 24500 \\text{ cents}$$\n\nTo convert this back to dollars, divide by 100:\n$$\\frac{24500}{100} = 245 \\text{ dollars}$$\n\nAlternatively, in cents:\n$$24500 \\text{ cents}$$\nIn dollars:\n$$245 \\text{ dollars}$$\n\n\\boxed{245}"
+    },
+    {
+      "id": "gsm8k/test/1067",
+      "gold": "245",
+      "pred": "24500",
+      "correct": false,
+      "cut": false,
+      "tokens": 437,
+      "closed_think": true,
+      "tail": "ely, using the decimal method directly:\n$1400 \\times 15 = 14 \\times 15 \\times 100 = 210 \\times 100 = 21000$.\n\nFinally, add the two costs together to get the total postage spend:\nTotal Cost = Total cost for small coupons + Total cost for big coupons\nTotal Cost = $3500 + 21000 = 24500$.\n\n\\boxed{24500}"
+    },
+    {
+      "id": "gsm8k/test/533",
+      "gold": "300",
+      "pred": "600",
+      "correct": false,
+      "cut": false,
+      "tokens": 377,
+      "closed_think": true,
+      "tail": "uter cost $1,100\". So, $C = 1,100$.\n\nNow plug this value into the simplified equation:\n$$2(1,100) - 400 + M = 2,400$$\n\nCalculate the left side:\n$$2,200 - 400 + M = 2,400$$\n$$1,800 + M = 2,400$$\n\nNow, solve for $M$:\n$$M = 2,400 - 1,800$$\n$$M = 600$$\n\nSo, the price of one monitor is $600.\n\n\\boxed{600}"
+    },
+    {
+      "id": "gsm8k/test/533",
+      "gold": "300",
+      "pred": "300",
+      "correct": true,
+      "cut": false,
+      "tokens": 502,
+      "closed_think": true,
+      "tail": "itor.\n    Total Cost = $1,100 + 700 + 2M$.\n    $$2,400 = 1,800 + 2M$$\n\n6.  **Solve for the cost of one monitor:**\n    Subtract 1,800 from both sides:\n    $$2M = 2,400 - 1,800$$\n    $$2M = 600$$\n    Divide by 2:\n    $$M = \\frac{600}{2}$$\n    $$M = 300$$\n\nThe cost of one monitor was $300.\n\n\\boxed{300}"
+    },
+    {
+      "id": "gsm8k/test/127",
+      "gold": "120",
+      "pred": "120",
+      "correct": true,
+      "cut": false,
+      "tokens": 241,
+      "closed_think": true,
+      "tail": "\n3.  **Calculate the total number of friends they have together:**\n    To find the combined total, add the number of friends each person has:\n    $$ \\text{Total} = \\text{Friends}_{\\text{Lily}} + \\text{Friends}_{\\text{Amy}} $$\n    $$ \\text{Total} = 50 + 70 $$\n    $$ \\text{Total} = 120 $$\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/127",
+      "gold": "120",
+      "pred": "120",
+      "correct": true,
+      "cut": false,
+      "tokens": 244,
+      "closed_think": true,
+      "tail": ".  **Calculate the total number of friends together:**\n    *   To find the total number of friends, we add the number of friends each person has together.\n    *   $$ \\text{Total friends} = \\text{Lily's friends} + \\text{Amy's friends} $$\n    *   $$ \\text{Total friends} = 50 + 70 = 120 $$\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/1123",
+      "gold": "105",
+      "pred": "45",
+      "correct": false,
+      "cut": false,
+      "tokens": 317,
+      "closed_think": true,
+      "tail": "{ pounds} $$\n    $$ \\text{Weight} = 30 \\text{ pounds} $$\n\n**3. Calculate the total weight:**\nNow we sum the weights of both dogs to find the total weight:\n$$ \\text{Total Weight} = 15 \\text{ pounds (Elijah)} + 30 \\text{ pounds (second dog)} $$\n$$ \\text{Total Weight} = 45 \\text{ pounds} $$\n\n\\boxed{45}"
+    },
+    {
+      "id": "gsm8k/test/1123",
+      "gold": "105",
+      "pred": "135",
+      "correct": false,
+      "cut": false,
+      "tokens": 318,
+      "closed_think": true,
+      "tail": " $\\frac{1}{2}$ of Kory's weight.\n    $$ \\text{Weight}_{\\text{Other}} = \\frac{1}{2} \\times 60 = 30 \\text{ pounds} $$\n\n**3. Calculate the total weight:**\nAdd the weights of all four dogs together:\n$$ \\text{Total Weight} = 60 + 15 + 30 + 30 $$\n$$ \\text{Total Weight} = 135 \\text{ pounds} $$\n\n\\boxed{135}"
+    },
+    {
+      "id": "gsm8k/test/28",
+      "gold": "25",
+      "pred": "5",
+      "correct": false,
+      "cut": false,
+      "tokens": 3723,
+      "closed_think": true,
+      "tail": "ween them is $20 - 15 = 5$ miles.\n\n    Let's check the other interpretation:\n    *   If the first stop is 20 miles from the end.\n    *   Then the distance between them is $20 - 15 = 5$ miles.\n\n    Both interpretations lead to the same result: the distance between the two stops is 5 miles.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/28",
+      "gold": "25",
+      "pred": "25",
+      "correct": true,
+      "cut": false,
+      "tokens": 2557,
+      "closed_think": true,
+      "tail": "s:**\n    To find the distance between the first stop and the second stop, we subtract the position of the first stop from the position of the second stop:\n    $$ \\text{Distance} = \\text{Position}_{\\text{second}} - \\text{Position}_{\\text{first}} $$\n    $$ \\text{Distance} = 45 - 20 = 25 $$\n\n\\boxed{25}"
+    },
+    {
+      "id": "gsm8k/test/191",
+      "gold": "5",
+      "pred": "0.5",
+      "correct": false,
+      "cut": false,
+      "tokens": 1084,
+      "closed_think": true,
+      "tail": "umber of days in a week (which is 7).\n\n$$ \\text{Daily Insect Consumption} = \\frac{\\text{Weekly Insect Consumption}}{\\text{Number of Days in a Week}} $$\n\n**Step 3: Perform the calculation.**\n$$ \\text{Daily Insect Consumption} = \\frac{3.5}{7} $$\n$$ \\text{Daily Insect Consumption} = 0.5 $$\n\n\\boxed{0.5}"
+    },
+    {
+      "id": "gsm8k/test/191",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 146,
+      "closed_think": true,
+      "tail": " requirement:**\n    *   Number of ducks: 10\n    *   Insects per duck per week: 3.5 pounds\n    *   Total weekly insects needed = $10 \\times 3.5 = 35$ pounds.\n\n2.  **Calculate the daily requirement:**\n    *   There are 7 days in a week.\n    *   Daily requirement = $\\frac{35}{7} = 5$ pounds.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/816",
+      "gold": "4500",
+      "pred": "4500",
+      "correct": true,
+      "cut": false,
+      "tokens": 257,
+      "closed_think": true,
+      "tail": "s assume the standard context where these prices are consistent with the calculation).\n$$ \\text{Cost for cows} = 2 \\times \\$1,500 = \\$3,000 $$\n\n**Step 3: Calculate the total spending.**\nNow, add the cost of all the animals together.\n$$ \\text{Total Cost} = \\$1,500 + \\$3,000 = \\$4,500 $$\n\n\\boxed{4500}"
+    },
+    {
+      "id": "gsm8k/test/816",
+      "gold": "4500",
+      "pred": "4500",
+      "correct": true,
+      "cut": false,
+      "tokens": 224,
+      "closed_think": true,
+      "tail": "gory:**\n*   **Cost of goats:** $500 \\times 3 = \\$1500$\n*   **Cost of cows:** $1500 \\times 2 = \\$3000$\n\n**4. Calculate the total expenditure:**\nTotal Cost = (Cost of goats) + (Cost of cows)\nTotal Cost = $\\$1500 + \\$3000$\nTotal Cost = $\\$4500$\n\nJohn spent a total of $4500 on the animals.\n\n\\boxed{4500}"
+    },
+    {
+      "id": "gsm8k/test/1280",
+      "gold": "7",
+      "pred": "7",
+      "correct": true,
+      "cut": false,
+      "tokens": 139,
+      "closed_think": true,
+      "tail": "We are given that $S = 10$.\n\nAnna put together the same puzzle in 2 hours more than half of Steve's time.\nSo, the time Anna took is $\\frac{S}{2} + 2$.\nSince $S = 10$, we have:\n$$ \\text{Time Anna} = \\frac{10}{2} + 2 $$\n$$ \\text{Time Anna} = 5 + 2 $$\n$$ \\text{Time Anna} = 7 \\text{ hours} $$\n\n\\boxed{7}"
+    },
+    {
+      "id": "gsm8k/test/1280",
+      "gold": "7",
+      "pred": "7",
+      "correct": true,
+      "cut": false,
+      "tokens": 3698,
+      "closed_think": true,
+      "tail": "result: $5 + 2 = 7$ hours.\n\n    Alternatively, using the phrase \"more than half\" directly:\n    $$T_{Anna} = (\\text{half of } T_{Steve}) + 2$$\n    $$T_{Anna} = (0.5 \\times 10) + 2$$\n    $$T_{Anna} = 5 + 2$$\n    $$T_{Anna} = 7$$\n\n    Therefore, it took Anna **7 hours** to finish the puzzle.\n\n\\boxed{7}"
+    },
+    {
+      "id": "gsm8k/test/2",
+      "gold": "70000",
+      "pred": "120000",
+      "correct": false,
+      "cut": false,
+      "tokens": 415,
+      "closed_think": true,
+      "tail": "itial Cost} $$\n$$ \\text{Profit} = \\$200,000 - \\$80,000 $$\n$$ \\text{Profit} = \\$120,000 $$\n\nAlternatively, you can think of the profit as the percentage of the total value. Since he bought for $80,000 and now has $200,000, the profit is simply the total value minus the purchase price.\n\n\\boxed{120000}"
+    },
+    {
+      "id": "gsm8k/test/2",
+      "gold": "70000",
+      "pred": "120000",
+      "correct": false,
+      "cut": false,
+      "tokens": 364,
+      "closed_think": true,
+      "tail": "Calculation:**\n    Now we can compare the initial investment ($80,000) with the final total value ($200,000).\n    $$ \\text{Profit} = \\text{Total Value} - \\text{Initial Investment} $$\n    $$ \\text{Profit} = 200,000 - 80,000 $$\n    $$ \\text{Profit} = 120,000 $$\n\nThe profit is $120,000.\n\n\\boxed{120000}"
+    },
+    {
+      "id": "gsm8k/test/1253",
+      "gold": "120",
+      "pred": "120",
+      "correct": true,
+      "cut": false,
+      "tokens": 296,
+      "closed_think": true,
+      "tail": "d for one call.\n$$\\frac{360 \\text{ minutes}}{15 \\text{ minutes/call}} = 24 \\text{ calls per day}$$\n\n**Step 4: Calculate the total number of calls over the 5-day work week.**\nMultiply the daily rate by the number of days:\n$$24 \\text{ calls/day} \\times 5 \\text{ days} = 120 \\text{ calls}$$\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/1253",
+      "gold": "120",
+      "pred": "96",
+      "correct": false,
+      "cut": false,
+      "tokens": 339,
+      "closed_think": true,
+      "tail": "ls:**\n    To find how many calls Tim handles, we divide the total time in minutes by the time required for one call:\n    $$ \\text{Number of calls} = \\frac{\\text{Total time}}{\\text{Time per call}} $$\n    $$ \\text{Number of calls} = \\frac{1,440}{15} $$\n    $$ \\text{Number of calls} = 96 $$\n\n\\boxed{96}"
+    },
+    {
+      "id": "gsm8k/test/1010",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 1620,
+      "closed_think": true,
+      "tail": "   $$ \\text{Quinn} = \\text{Shaelyn} - 2 $$\n    $$ \\text{Quinn} = 7 - 2 = 5 $$\n\n5.  **Calculate the difference:**\n    The question asks how many more laps Bethany can run compared to Quinn.\n    $$ \\text{Difference} = \\text{Bethany} - \\text{Quinn} $$\n    $$ \\text{Difference} = 10 - 5 = 5 $$\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/1010",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 4275,
+      "closed_think": true,
+      "tail": "e the number of laps for each person.**\n\nThe question asks: \"How many more laps can Bethany run compared to Quinn?\"\n\nWe subtract the number of laps Quinn runs from the number of laps Bethany runs:\n$$ \\text{Difference} = \\text{Bethany} - \\text{Quinn} $$\n$$ \\text{Difference} = 10 - 5 = 5 $$\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/682",
+      "gold": "80",
+      "pred": "80",
+      "correct": true,
+      "cut": false,
+      "tokens": 3159,
+      "closed_think": true,
+      "tail": "} = 120$$\n\n    Divide by $1.5$:\n    $$L_{orig} = \\frac{120}{1.5}$$\n    $$L_{orig} = \\frac{120}{1.5}$$\n    $$L_{orig} = 80$$\n\n    Alternatively, calculating the fraction:\n    $$1.5 L_{orig} = 140 - 20 = 120$$\n    $$L_{orig} = 120 / 1.5 = 80$$\n\nThe original length of the dress was $80$ cm.\n\n\\boxed{80}"
+    },
+    {
+      "id": "gsm8k/test/682",
+      "gold": "80",
+      "pred": "80",
+      "correct": true,
+      "cut": false,
+      "tokens": 3725,
+      "closed_think": true,
+      "tail": "rac{120}{1.5} $$\n    $$ L = \\frac{120}{1.5} $$\n    $$ L = \\frac{120}{\\frac{3}{2}} $$\n    $$ L = 120 \\times \\frac{2}{3} $$\n    $$ L = 80 $$\n\nAlternatively, using fractions:\n$$ L = \\frac{120}{\\frac{3}{2}} = \\frac{120 \\times 2}{3} = \\frac{240}{3} = 80 $$\n\nBoth methods yield the same result.\n\n\\boxed{80}"
+    },
+    {
+      "id": "gsm8k/test/499",
+      "gold": "10",
+      "pred": "8",
+      "correct": false,
+      "cut": false,
+      "tokens": 12466,
+      "closed_think": true,
+      "tail": "te, the equality holds when:\n$$200 = 25N$$\n$$N = 8$$\n\n(Note: If we strictly follow the text with the first price being $200 + 5, the answer is approximately 6.83, but typically these problems imply the first option is just the base and the second is the per-person rate, leading to $N=8$.)\n\n\\boxed{8}"
+    },
+    {
+      "id": "gsm8k/test/499",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 6037,
+      "closed_think": true,
+      "tail": "sts are equal.\n$$ \\text{Cost}_A = \\text{Cost}_B $$\n$$ 200 + 5n = 25n $$\n\nNow, we solve for $n$:\n$$ 200 + 5n = 25n $$\nSubtract $5n$ from both sides:\n$$ 200 = 20n $$\nDivide by $20$:\n$$ n = \\frac{200}{20} $$\n$$ n = 10 $$\n\nThus, 10 guests are necessary for the two venues to have equal costs.\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/666",
+      "gold": "120",
+      "pred": "40",
+      "correct": false,
+      "cut": false,
+      "tokens": 3026,
+      "closed_think": true,
+      "tail": "ally, we find the value of $R$ using $R = K + 60$:\n$$R = 18 + 60$$\n$$R = 78$$\n\n**Step 4: Verify the solution.**\nThe total money is $120$.\n-   Rayna: $78$\n-   Kassidy: $18$\n-   Aurelia: $24$\n-   Sum: $78 + 18 + 24 = 120$.\n\nEach person receives $\\frac{120}{3} = 40$.\nThe final answer is 40.\n\n\\boxed{40}"
+    },
+    {
+      "id": "gsm8k/test/666",
+      "gold": "120",
+      "pred": "120",
+      "correct": true,
+      "cut": false,
+      "tokens": 2723,
+      "closed_think": true,
+      "tail": "Kassidy, and Rayna), we divide the total sum by 3:\n$$\\text{Share} = \\frac{\\text{Total}}{3}$$\n$$\\text{Share} = \\frac{360}{3}$$\n$$\\text{Share} = 120$$\n\nAlternatively, since the question asks \"how much would each have\", the answer is simply the share amount calculated in the previous step.\n\n\\boxed{120}"
+    },
+    {
+      "id": "gsm8k/test/128",
+      "gold": "880",
+      "pred": "880",
+      "correct": true,
+      "cut": false,
+      "tokens": 473,
+      "closed_think": true,
+      "tail": "0$\n*   Cost for Peppers: $20 \\text{ peppers} \\times 15 \\text{ dollars/fruit} = 300$\n*   Cost for Oranges: $10 \\text{ oranges} \\times 40 \\text{ dollars/fruit} = 400$\n\n**4. Sum the costs:**\n$$Total Cost = 180 + 300 + 400 = 880$$\n\nThe total amount of money she (Dillon) will spend is $880$.\n\n\\boxed{880}"
+    },
+    {
+      "id": "gsm8k/test/128",
+      "gold": "880",
+      "pred": "880",
+      "correct": true,
+      "cut": false,
+      "tokens": 7441,
+      "closed_think": true,
+      "tail": "ies of each item by its respective price and sum the amounts.\n\n*   **Watermelons:** 4 units $\\times$ \\$45/unit = \\$180\n*   **Peppers:** 20 units $\\times$ \\$15/unit = \\$300\n*   **Oranges:** 10 units $\\times$ \\$40/unit = \\$400\n\n**Total Cost:**\n$$\\text{Total Cost} = 180 + 300 + 400 = 880$$\n\n\\boxed{880}"
+    },
+    {
+      "id": "gsm8k/test/391",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 6783,
+      "closed_think": true,
+      "tail": " $$\n$$ \\frac{11}{6}S = 165 $$\n$$ S = 165 \\times \\frac{6}{11} $$\n$$ S = 15 \\times 6 $$\n$$ S = 90 $$\n\nNow, substitute $S$ back into the ratio equation to find $B$:\n$$ B = \\frac{5}{6} \\times 90 $$\n$$ B = 75 $$\n\nThe question asks how many more popsicles Sam has than Betty.\n$$ 90 - 75 = 15 $$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/391",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 16900,
+      "closed_think": true,
+      "tail": "\\frac{165}{11} = 15$\n\nNow, substitute $x = 15$ back into the expressions for $n_B$ and $n_S$:\n$n_B = 5(15) = 75$\n$n_S = 6(15) = 90$\n\nThe question asks \"how many more popsicles does Sam have more than Betty\".\nThis requires calculating the difference $n_S - n_B$:\n$n_S - n_B = 90 - 75 = 15$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/1162",
+      "gold": "3",
+      "pred": "3",
+      "correct": true,
+      "cut": false,
+      "tokens": 171,
+      "closed_think": true,
+      "tail": "The problem states that Geb is 10 less than half the age of Haley.\n3.  **Calculate half of Haley's age:** First, divide 26 by 2.\n    $$ \\frac{26}{2} = 13 $$\n4.  **Subtract 10 from the result:** Now subtract 10 from the calculated value of 13.\n    $$ 13 - 10 = 3 $$\n\nSo, Geb is 3 years old.\n\n\\boxed{3}"
+    },
+    {
+      "id": "gsm8k/test/1162",
+      "gold": "3",
+      "pred": "3",
+      "correct": true,
+      "cut": false,
+      "tokens": 277,
+      "closed_think": true,
+      "tail": " equation:**\n    $$ \\text{Geb's Age} = \\frac{1}{2} \\times 26 - 10 $$\n\n4.  **Perform the calculation:**\n    *   First, multiply $\\frac{1}{2}$ by 26:\n        $$ \\frac{1}{2} \\times 26 = 13 $$\n    *   Next, subtract 10 from the result:\n        $$ 13 - 10 = 3 $$\n\nTherefore, Geb is 3 years old.\n\n\\boxed{3}"
+    },
+    {
+      "id": "gsm8k/test/454",
+      "gold": "150",
+      "pred": "240",
+      "correct": false,
+      "cut": false,
+      "tokens": 2282,
+      "closed_think": true,
+      "tail": " is $4 + 4 = 8$ apples.\n\n2.  **Calculate the total consumption**:\n    *   There are 30 days in the given period.\n    *   To find the total number of apples, multiply the daily consumption by the number of days:\n    $$8 \\text{ (apples/day)} \\times 30 \\text{ (days)} = 240 \\text{ apples}$$\n\n\\boxed{240}"
+    },
+    {
+      "id": "gsm8k/test/454",
+      "gold": "150",
+      "pred": "240",
+      "correct": false,
+      "cut": false,
+      "tokens": 882,
+      "closed_think": true,
+      "tail": "iduals, their daily total is $4 + 4 = 8$ apples.\n\n2.  **Total Days**:\n    *   There are 30 days.\n\n3.  **Calculation**:\n    *   To find the total number of apples eaten in 30 days, multiply the daily total by the number of days.\n    *   $8 \\text{ (daily)} \\times 30 \\text{ (days)} = 240$.\n\n\\boxed{240}"
+    },
+    {
+      "id": "gsm8k/test/488",
+      "gold": "6",
+      "pred": "6",
+      "correct": true,
+      "cut": false,
+      "tokens": 223,
+      "closed_think": true,
+      "tail": "\n3.  **Calculate the number of girls among the Pomeranians:**\n    The problem states that one-third of the Pomeranians are girls.\n    $$ \\text{Number of Girl Pomeranians} = \\frac{1}{3} \\times 18 $$\n    $$ \\text{Number of Girl Pomeranians} = 6 $$\n\nSo, there are 6 girl Pomeranians in total.\n\n\\boxed{6}"
+    },
+    {
+      "id": "gsm8k/test/488",
+      "gold": "6",
+      "pred": "6",
+      "correct": true,
+      "cut": false,
+      "tokens": 186,
+      "closed_think": true,
+      "tail": "$$ \\text{Number of Pomeranians} = \\frac{2}{3} \\times 27 $$\n    $$ \\text{Number of Pomeranians} = 18 $$\n3.  **Girl Pomeranian count:** One third of the Pomeranians are girls.\n    $$ \\text{Number of Girl Pomeranians} = \\frac{1}{3} \\times 18 $$\n    $$ \\text{Number of Girl Pomeranians} = 6 $$\n\n\\boxed{6}"
+    },
+    {
+      "id": "gsm8k/test/291",
+      "gold": "2",
+      "pred": "4",
+      "correct": false,
+      "cut": false,
+      "tokens": 331,
+      "closed_think": true,
+      "tail": "es each child receives:**\n    Since there are 8 children and they need to share the remaining 32 bars equally:\n    Number of bars per child = $\\frac{\\text{Remaining bars}}{\\text{Number of children}}$\n    Number of bars per child = $\\frac{32}{8} = 4$.\n\nEach child will get 4 chocolate bars.\n\n\\boxed{4}"
+    },
+    {
+      "id": "gsm8k/test/291",
+      "gold": "2",
+      "pred": "2",
+      "correct": true,
+      "cut": false,
+      "tokens": 407,
+      "closed_think": true,
+      "tail": "qually among the children\".\nThe phrase \"the rest\" refers to the remaining chocolates after the adults' portion is accounted for.\nRemaining chocolates = $40 - (4 \\times 6) = 16$.\nSince there are 8 children, dividing 16 by 8 gives exactly **2**.\n\nTherefore, each child gets 2 chocolate bars.\n\n\\boxed{2}"
+    },
+    {
+      "id": "gsm8k/test/1112",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 942,
+      "closed_think": true,
+      "tail": "er and Paul from the total.\n\n$$ \\text{Remaining amount} = \\text{Total} - \\text{Peter's portion} - \\text{Paul's portion} $$\n$$ \\text{Remaining amount} = 12 - 3 - 4 = 5 \\text{ kg} $$\n\n(Note: If the question intended to ask for the remainder of the remaining quantity, the answer would be 5.)\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/1112",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 274,
+      "closed_think": true,
+      "tail": "the shares of Peter and Paul from the total number of apples.\n$$ \\text{Remaining apples} = \\text{Total apples} - (\\text{Peter's share} + \\text{Paul's share}) $$\n$$ \\text{Remaining apples} = 12 - (3 + 4) $$\n$$ \\text{Remaining apples} = 12 - 7 $$\n$$ \\text{Remaining apples} = 5 \\text{ kg} $$\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/917",
+      "gold": "12",
+      "pred": "12",
+      "correct": true,
+      "cut": false,
+      "tokens": 187,
+      "closed_think": true,
+      "tail": "\n**Step 2:** Identify the number of pieces of fruit that were eaten by Lola.\nThe problem states that \"Lola ate 2 pieces of the fruit.\"\n\n**Step 3:** Calculate the number of pieces remaining.\nRemaining pieces = Total pieces - Pieces eaten\nRemaining pieces = $14 - 2$\nRemaining pieces = $12$\n\n\\boxed{12}"
+    },
+    {
+      "id": "gsm8k/test/917",
+      "gold": "12",
+      "pred": "12",
+      "correct": true,
+      "cut": false,
+      "tokens": 205,
+      "closed_think": true,
+      "tail": "ieces = $8 + 6$\nTotal pieces = $14$\n\n**Step 2: Determine how many pieces were eaten.**\nLola ate 2 pieces of fruit (apples, bananas, or oranges).\n\n**Step 3: Calculate the remaining pieces.**\nRemaining pieces = Total pieces - Pieces eaten\nRemaining pieces = $14 - 2$\nRemaining pieces = $12$\n\n\\boxed{12}"
+    },
+    {
+      "id": "gsm8k/test/186",
+      "gold": "5",
+      "pred": "26",
+      "correct": false,
+      "cut": false,
+      "tokens": 15851,
+      "closed_think": true,
+      "tail": " = 53.33...$$\n\nThere seems to be an inconsistency in the problem statement provided. Based on the explicit statement \"If 160 pieces of straw have been distributed among the small rodents\", and assuming the total for the small rodents is 160, the number of rats is $\\frac{160}{6} = 26.66$.\n\n\\boxed{26}"
+    },
+    {
+      "id": "gsm8k/test/186",
+      "gold": "5",
+      "pred": "20",
+      "correct": false,
+      "cut": false,
+      "tokens": 9502,
+      "closed_think": true,
+      "tail": "pieces of straw have been distributed among the small rodents,\" which implies the question is likely asking for the number of **rabbits** (since the text explicitly mentions \"20 pieces of straw are distributed among the rabbits\").\n\nTherefore, the number of rabbits in each cage is:\n$$20$$\n\n\\boxed{20}"
+    },
+    {
+      "id": "gsm8k/test/164",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 8421,
+      "closed_think": true,
+      "tail": "5/\\text{hour} = \\$105$.\n\n2.  **Compare with the account company:**\n    *   The problem states the accountant charges **$90**.\n    *   The question asks how much more money she will have.\n    *   Difference = Total lost income - Accountant charge\n    *   Difference = $105 - $90 = **$15**.\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/164",
+      "gold": "15",
+      "pred": null,
+      "correct": false,
+      "cut": false,
+      "tokens": 5838,
+      "closed_think": true,
+      "tail": "had been working. If she works 3 hours, the total loss is $35/hr * 3 = 105. However, if the question implies the difference in the *value* of the services, it's simply the difference between the service charge and the lost hourly rate.)*\n\n**Final Answer:**\nThe difference in money she has is **$55**."
+    },
+    {
+      "id": "gsm8k/test/655",
+      "gold": "10",
+      "pred": "2",
+      "correct": false,
+      "cut": false,
+      "tokens": 269,
+      "closed_think": true,
+      "tail": "$2/3$ of it remaining, the remaining number of pages corresponds to the remaining fraction.\n    $$ \\text{Number of Remaining Pages} = \\frac{2}{3} \\times 3 $$\n    $$ \\text{Number of Remaining Pages} = 2 $$\n\nThe calculation shows that she needs to complete 2 out of the 3 parts of the paper.\n\n\\boxed{2}"
+    },
+    {
+      "id": "gsm8k/test/655",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 1131,
+      "closed_think": true,
+      "tail": "uity in the phrasing \"1/3 of the paper\" versus \"1/3 of the page\", but given the integer constraint of the question asking for \"how many pages\", the most logical interpretation is that the remaining amount corresponds to the fraction $\\frac{2}{3}$ of the total.\n\nThe calculation yields 10.\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/1040",
+      "gold": "736",
+      "pred": "736",
+      "correct": true,
+      "cut": false,
+      "tokens": 406,
+      "closed_think": true,
+      "tail": "total number of letters.**\nNow, sum the amounts delivered on each day:\n$$ \\text{Total} = \\text{Monday} + \\text{Tuesday} + \\text{Wednesday} $$\n$$ \\text{Total} = 425 + 102 + 209 $$\n\nLet's do the addition:\n$$ 425 + 102 = 527 $$\n$$ 527 + 209 = 736 $$\n\nSo, the total number of letters is 736.\n\n\\boxed{736}"
+    },
+    {
+      "id": "gsm8k/test/1040",
+      "gold": "736",
+      "pred": "736",
+      "correct": true,
+      "cut": false,
+      "tokens": 392,
+      "closed_think": true,
+      "tail": "esday} = 204 + 5 = 209 $$\n\n**4. Calculate the total for the entire week:**\nSumming the amounts delivered on all three days:\n$$ \\text{Total} = \\text{Monday} + \\text{Tuesday} + \\text{Wednesday} $$\n$$ \\text{Total} = 425 + 102 + 209 $$\n$$ \\text{Total} = 527 + 209 $$\n$$ \\text{Total} = 736 $$\n\n\\boxed{736}"
+    },
+    {
+      "id": "gsm8k/test/1002",
+      "gold": "8",
+      "pred": "8",
+      "correct": true,
+      "cut": false,
+      "tokens": 2899,
+      "closed_think": true,
+      "tail": "mber of chocolate bars in one box:**\n    *   Since the total number of boxes is 8 and the total number of chocolate bars is 64, we divide the total number of chocolate bars by the total number of boxes to find the number of bars per box.\n    *   Number of bars per box = $\\frac{64}{8} = 8$\n\n\\boxed{8}"
+    },
+    {
+      "id": "gsm8k/test/1002",
+      "gold": "8",
+      "pred": "8",
+      "correct": true,
+      "cut": false,
+      "tokens": 3218,
+      "closed_think": true,
+      "tail": "m of sales} = \\frac{7}{2} + \\frac{9}{2} = \\frac{16}{2} = 8 $$\n\nNow, divide the total number of bars by the sum of the sales to find the size of one box:\n$$ \\text{Box size} = \\frac{\\text{Total bars}}{\\text{Sum of sales}} = \\frac{64}{8} = 8 $$\n\nTherefore, each box contains 8 chocolate bars.\n\n\\boxed{8}"
+    },
+    {
+      "id": "gsm8k/test/223",
+      "gold": "20000",
+      "pred": "20000",
+      "correct": true,
+      "cut": false,
+      "tokens": 353,
+      "closed_think": true,
+      "tail": " from both years together.\n$$ \\text{Total Spending} = \\text{Spending}_{\\text{year 1}} + \\text{Spending}_{\\text{year 2}} $$\n$$ \\text{Total Spending} = 15,000 + 5,000 $$\n$$ \\text{Total Spending} = 20,000 $$\n\nThe total amount the company spent on advertising for the two years is $20,000.\n\n\\boxed{20000}"
+    },
+    {
+      "id": "gsm8k/test/223",
+      "gold": "20000",
+      "pred": "20000",
+      "correct": true,
+      "cut": false,
+      "tokens": 1068,
+      "closed_think": true,
+      "tail": "ing for the first year.\n2.  The next year, the company spends a third of the previous amount on advertising.\n    *   Calculation: $\\frac{1}{3} \\times 15,000 = 5,000$\n3.  To find the total amount spent, add the amounts from both years together.\n    *   Total = $15,000 + 5,000 = 20,000$\n\n\\boxed{20000}"
+    },
+    {
+      "id": "gsm8k/test/617",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 256,
+      "closed_think": true,
+      "tail": "*Calculate the number of days needed:**\n    *   Number of days = Total amount of meat / Daily production\n    *   Number of days = $750 \\text{ kg} / 150 \\text{ kg/day}$\n    *   Number of days = $5$\n\nThe calculation shows that it takes exactly 5 days to produce enough meat to fill the bull.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/617",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 3480,
+      "closed_think": true,
+      "tail": ".**\nWe need to find out how many days it takes to produce the weight of the bull.\nThe weight of the bull is 750 kg.\nUsing the formula $\\text{Total Days} = \\frac{\\text{Total Weight}}{\\text{Daily Production}}$:\n$$ \\text{Total Days} = \\frac{750 \\text{ kg}}{150 \\text{ kg}} = 5 \\text{ days} $$\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/1128",
+      "gold": "9",
+      "pred": "7",
+      "correct": false,
+      "cut": false,
+      "tokens": 7371,
+      "closed_think": true,
+      "tail": " 7 $$\n    And if the question asks for the current age:\n    $$ \\text{Vince}_{\\text{now}} = \\text{Vince}_{\\text{2yago}} + 2 = 7 + 2 = 9 $$\n\n    Let's provide the answer based on the most direct logical derivation from the text:\n    $$ \\text{Vince}_{\\text{2yago}} = 7 $$\n    The answer is 7.\n\n\\boxed{7}"
+    },
+    {
+      "id": "gsm8k/test/1128",
+      "gold": "9",
+      "pred": "9",
+      "correct": true,
+      "cut": false,
+      "tokens": 6329,
+      "closed_think": true,
+      "tail": "\n*   So, the age of Vince two years ago was 7.\n\n**Step 4: Determine the Current Age of Vince**\n*   To find the current age of Vince ($V$), we add the 2-year gap back to the previous age.\n    $$V = V_{\\text{prev}} + 2$$\n    $$V = 7 + 2$$\n    $$V = 9$$\n\n**Answer:**\nVince is 9 years old now.\n\n\\boxed{9}"
+    },
+    {
+      "id": "gsm8k/test/596",
+      "gold": "260",
+      "pred": "340",
+      "correct": false,
+      "cut": false,
+      "tokens": 2842,
+      "closed_think": true,
+      "tail": " number of hours needed.**\n*   The hourly wage is $\\$15$.\n*   We divide the total cost by the hourly wage to find the number of hours required.\n    $$ \\text{Hours} = \\frac{\\text{Total Cost}}{\\text{Hourly Wage}} $$\n    $$ \\text{Hours} = \\frac{\\$5100}{\\$15} $$\n    $$ \\text{Hours} = 340 $$\n\n\\boxed{340}"
+    },
+    {
+      "id": "gsm8k/test/596",
+      "gold": "260",
+      "pred": "260",
+      "correct": true,
+      "cut": false,
+      "tokens": 3142,
+      "closed_think": true,
+      "tail": "al cost}) - \\$600 (\\text{deposit}) = \\$3900 $$\n\n**Step 3: Calculate the number of hours needed.**\n*   He makes $\\$15$ per hour.\n*   The number of hours ($H$) required is the remaining cost divided by the hourly wage.\n    $$ H = \\frac{\\$3900}{\\$15/hour} $$\n    $$ H = 260 \\text{ hours} $$\n\n\\boxed{260}"
+    },
+    {
+      "id": "gsm8k/test/255",
+      "gold": "192",
+      "pred": "176",
+      "correct": false,
+      "cut": false,
+      "tokens": 9957,
+      "closed_think": true,
+      "tail": "umber of cows in each stall, divide the total number of cows by the number of stalls:\n    *   Cows per stall = $\\frac{440}{20} = 22$.\n\n4.  **Calculate the final answer:**\n    *   The question asks for the number of cows in 8 of the stalls.\n    *   Cows in 8 stalls = $8 \\times 22 = 176$.\n\n\\boxed{176}"
+    },
+    {
+      "id": "gsm8k/test/255",
+      "gold": "192",
+      "pred": "2",
+      "correct": false,
+      "cut": false,
+      "tokens": 6128,
+      "closed_think": true,
+      "tail": "alls and 20 cows per stall.\n2.  **New Cows:** Mr. Sylas buys 40 cows.\n3.  **Distribution:** He divides the 40 new cows equally among the 20 stalls. This results in 2 new cows per stall (since $40 / 20 = 2$).\n4.  **Final Count:** The question asks for the number of cows in 8 of the stalls.\n\n\\boxed{2}"
+    },
+    {
+      "id": "gsm8k/test/1121",
+      "gold": "35",
+      "pred": "35",
+      "correct": true,
+      "cut": false,
+      "tokens": 1427,
+      "closed_think": true,
+      "tail": "k twice as far as Brian.\nLet $x$ be the distance Brian walks.\nAccording to the problem:\n$$ \\text{Distance}_\\text{Sofie} = 2 \\times \\text{Distance}_\\text{Brian} $$\nSubstituting the known values:\n$$ 70 = 2 \\times x $$\n$$ x = \\frac{70}{2} $$\n$$ x = 35 $$\n\nSo, Brian walks 35 miles in 7 days.\n\n\\boxed{35}"
+    },
+    {
+      "id": "gsm8k/test/1121",
+      "gold": "35",
+      "pred": "35",
+      "correct": true,
+      "cut": false,
+      "tokens": 464,
+      "closed_think": true,
+      "tail": "es/day} \\times 7 \\text{ days} = 70 \\text{ miles}$.\n2.  Set up the relationship: If Sofie walks twice as far, then $2 \\times (\\text{distance}_B)$ equals 70.\n3.  Solve for the base variable ($\\text{distance}_B$): $\\text{distance}_B = \\frac{70}{2} = 35$.\n\nBoth methods yield the same result.\n\n\\boxed{35}"
+    },
+    {
+      "id": "gsm8k/test/681",
+      "gold": "298",
+      "pred": "300",
+      "correct": false,
+      "cut": false,
+      "tokens": 4605,
+      "closed_think": true,
+      "tail": "calculated.\n\nLet's refine the sum.\nThe chain is:\n*   K: 68\n*   M: 73\n*   CM: 61\n*   S: 96\n\nTotal = $68 + 73 + 61 + 96 = 300$.\n\nAlternatively, if the question is asking for the sum of the variables in the chain as a single entity:\n$K + M + CM + S = 68 + 73 + 61 + 96 = 300$.\n\nFinal Answer:\n\\boxed{300}"
+    },
+    {
+      "id": "gsm8k/test/681",
+      "gold": "298",
+      "pred": "237",
+      "correct": false,
+      "cut": false,
+      "tokens": 3232,
+      "closed_think": true,
+      "tail": " derive the values for both Max and Summer relative to each other. Since the question asks for the total count, and the Monster's count is not explicitly calculated or referenced as part of the final total sum, the total is determined solely by the sum of the distinct quantities found.)\n\n\\boxed{237}"
+    },
+    {
+      "id": "gsm8k/test/1106",
+      "gold": "5",
+      "pred": "0.2",
+      "correct": false,
+      "cut": false,
+      "tokens": 12387,
+      "closed_think": true,
+      "tail": " $1 \\text{ cm} / 5 = 0.2 \\text{ cm}$.\n\nFollowing the pattern of division, the length of the final cut is calculated by applying the divisor to the previous length. Since the question asks for the length of the final cut, we perform the last operation:\n\n$$ \\frac{1}{5} = 0.2 \\text{ cm} $$\n\n\\boxed{0.2}"
+    },
+    {
+      "id": "gsm8k/test/1106",
+      "gold": "5",
+      "pred": "5",
+      "correct": true,
+      "cut": false,
+      "tokens": 230,
+      "closed_think": true,
+      "tail": "take one piece of length $25$ cm and divide it into 5 equal parts.\n    $$ \\frac{25}{5} = 5 \\text{ cm} $$\n    So, each final cut has a length of $5$ centimeters.\n\nThe question asks for the length of each final cut. Based on the calculations, the length of each final cut is $5$ centimeters.\n\n\\boxed{5}"
+    },
+    {
+      "id": "gsm8k/test/416",
+      "gold": "56",
+      "pred": "56",
+      "correct": true,
+      "cut": false,
+      "tokens": 630,
+      "closed_think": true,
+      "tail": "f animals and the total number of humps:\n- **Animals:** $124 \\text{ (camels)} + 56 \\text{ (dromedaries)} = 180$ animals.\n- **Humps:** $124 \\times 2 + 56 \\times 1 = 248 + 56 = 304$ humps.\n- **Head count:** 180 heads.\n\nThe calculations match the initial conditions provided in the question.\n\n\\boxed{56}"
+    },
+    {
+      "id": "gsm8k/test/416",
+      "gold": "56",
+      "pred": null,
+      "correct": false,
+      "cut": false,
+      "tokens": 11594,
+      "closed_think": true,
+      "tail": "n).\n\nCalculation:\n$$ 180 - 304 = -124 $$\n\nSince a negative number of dromedaries is impossible, there is a likely misinterpretation of the \"180\" or \"304\" counts relative to the total head/hump/bump count. However, if we strictly follow the subtraction logic provided by the numbers:\n\nAnswer: **-124**"
+    },
+    {
+      "id": "gsm8k/test/1235",
+      "gold": "60",
+      "pred": "60\\%",
+      "correct": true,
+      "cut": false,
+      "tokens": 489,
+      "closed_think": true,
+      "tail": "ge} = \\left( \\frac{3600}{6000} \\right) \\times 100 = \\left( \\frac{36}{60} \\right) \\times 100 $$\n\nPerform the division:\n$$ \\text{Percentage} = 0.6 \\times 100 = 60\\% $$\n\nAlternatively, you can see that since 3600 is exactly 60% of 6000 ($6000 \\times 0.6 = 3600$), the answer is simply 60%.\n\n\\boxed{60\\%}"
+    },
+    {
+      "id": "gsm8k/test/1235",
+      "gold": "60",
+      "pred": "60",
+      "correct": true,
+      "cut": false,
+      "tokens": 1407,
+      "closed_think": true,
+      "tail": "he phrasing \"takes into account all the necessary stops,\" which often implies slowing down due to conditions like wind, rain, or traffic, it supports the calculation of the total distance based on the full 3-day duration.\n\nTherefore, assuming the speed applies to the full 3-day duration:\n\n\\boxed{60}"
+    },
+    {
+      "id": "gsm8k/test/1120",
+      "gold": "560",
+      "pred": "280",
+      "correct": false,
+      "cut": false,
+      "tokens": 2909,
+      "closed_think": true,
+      "tail": " total distance for the month:**\n    *   Since John visits his parents twice, we multiply the distance for one visit by the number of visits.\n    *   Total Distance = $140 \\text{ miles} \\times 2 = 280 \\text{ miles}$\n\nThe total distance John drives when visiting his parents is 280 miles.\n\n\\boxed{280}"
+    },
+    {
+      "id": "gsm8k/test/1120",
+      "gold": "560",
+      "pred": "280",
+      "correct": false,
+      "cut": false,
+      "tokens": 6192,
+      "closed_think": true,
+      "tail": ".\n\n3.  **Calculate the total distance for the entire month:**\n    *   Since John visits his parents twice a month, the total distance is the distance for the round trip multiplied by the number of visits.\n    *   $$\\text{Total Distance} = 140 \\text{ miles} \\times 2 = 280 \\text{ miles}$$\n\n\\boxed{280}"
+    },
+    {
+      "id": "gsm8k/test/1203",
+      "gold": "240",
+      "pred": "240",
+      "correct": true,
+      "cut": false,
+      "tokens": 1787,
+      "closed_think": true,
+      "tail": "t floor (which is the most significant dimension provided in the context), we subtract the first floor's height from the total house height.\n    $$ \\text{Roof Height} = \\text{Total House Height} - \\text{First Floor Height} $$\n    $$ \\text{Roof Height} = 420 - 180 = 240 \\text{ inches} $$\n\n\\boxed{240}"
+    },
+    {
+      "id": "gsm8k/test/1203",
+      "gold": "240",
+      "pred": "240",
+      "correct": true,
+      "cut": false,
+      "tokens": 9080,
+      "closed_think": true,
+      "tail": "e structure implied by the house height (420 inches) and the first floor height (180 inches), the remaining height corresponds to the second floor (assuming the second floor is the full height of the house minus the first floor).\n    $$ \\text{Second Floor Height} = 240 \\text{ inches} $$\n\n\\boxed{240}"
+    },
+    {
+      "id": "gsm8k/test/589",
+      "gold": "15",
+      "pred": "2.5",
+      "correct": false,
+      "cut": false,
+      "tokens": 324,
+      "closed_think": true,
+      "tail": "find the difference between them.\n\n**Final Weights:**\n- Weight with Cheerios: $6.25 + 0 = 6.25 \\text{ lbs}$\n- Weight with Donuts: $8.75 + 0 = 8.75 \\text{ lbs}$\n\n**Difference in Weight:**\nThe difference is the absolute difference between the two weights:\n$|8.75 - 6.25| = 2.5 \\text{ lbs}$\n\n\\boxed{2.5}"
+    },
+    {
+      "id": "gsm8k/test/589",
+      "gold": "15",
+      "pred": "2.5",
+      "correct": false,
+      "cut": false,
+      "tokens": 654,
+      "closed_think": true,
+      "tail": "W_{\\text{cheerios}} - W_{\\text{donuts}|} $$\n$$ \\text{Difference} = |( \\text{Initial Weight} + 6.25 ) - ( \\text{Initial Weight} + 8.75 )| $$\n$$ \\text{Difference} = | 6.25 - 8.75 | $$\n$$ \\text{Difference} = |-2.5| $$\n$$ \\text{Difference} = 2.5 \\text{ lbs} $$\n\nThe difference is 2.5 pounds.\n\n\\boxed{2.5}"
+    },
+    {
+      "id": "gsm8k/test/911",
+      "gold": "64",
+      "pred": "64",
+      "correct": true,
+      "cut": false,
+      "tokens": 278,
+      "closed_think": true,
+      "tail": "nd the total earnings, multiply the hourly wage by the number of packages completed per hour during the day.\n    $$ \\text{Total Earnings} = \\text{Hourly Wage} \\times (\\text{Packages per hour}) $$\n    $$ \\text{Total Earnings} = \\$1.60 \\times 40 $$\n    $$ \\text{Total Earnings} = \\$64.00 $$\n\n\\boxed{64}"
+    },
+    {
+      "id": "gsm8k/test/911",
+      "gold": "64",
+      "pred": "64",
+      "correct": true,
+      "cut": false,
+      "tokens": 2034,
+      "closed_think": true,
+      "tail": "ghout the day:\n    $$ \\text{Total packages} = 40 \\text{ packages/hour} \\times 8 \\text{ hours} = 320 \\text{ packages} $$\n\n3.  **Calculate the total earnings:**\n    He is paid $0.20 for each package.\n    $$ \\text{Total earnings} = 320 \\text{ packages} \\times \\$0.20/\\text{package} = \\$64 $$\n\n\\boxed{64}"
+    },
+    {
+      "id": "gsm8k/test/187",
+      "gold": "106",
+      "pred": "106",
+      "correct": true,
+      "cut": false,
+      "tokens": 1838,
+      "closed_think": true,
+      "tail": ".02 \\times 3$$\n$$I = 2 \\times 3$$\n$$I = 6$$\n\nSo, the interest is \\$6.\n\n**4. Calculate the Total Debt:**\nThe total amount Mandy needs to pay is the sum of the principal and the interest.\n$$Total = P + I$$\n$$Total = 100 + 6$$\n$$Total = 106$$\n\nTherefore, Mandy should give Benedict $\\$106$.\n\n\\boxed{106}"
+    },
+    {
+      "id": "gsm8k/test/187",
+      "gold": "106",
+      "pred": "106",
+      "correct": true,
+      "cut": false,
+      "tokens": 1574,
+      "closed_think": true,
+      "tail": "xts. Often, \"pay it\" means \"pay the debt\". If she has to pay the debt, the total is $100 + 6$.\n\n**Calculation:**\n$$ \\text{Total} = \\$100 + (\\$100 \\times 0.02 \\times 3) $$\n$$ \\text{Total} = \\$100 + \\$6 $$\n$$ \\text{Total} = \\$106 $$\n\nTherefore, Mandy should give Benedict the total amount.\n\n\\boxed{106}"
+    },
+    {
+      "id": "gsm8k/test/1221",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 1745,
+      "closed_think": true,
+      "tail": " We now apply this to the calculated weight of the meat (5 pounds).\n\n$$ \\text{Total Seasoning} = \\text{Total Meat} \\times \\text{Seasoning per Pound} $$\n$$ \\text{Total Seasoning} = 5 \\text{ pounds} \\times 2 \\text{ tablespoons/pound} $$\n$$ \\text{Total Seasoning} = 10 \\text{ tablespoons} $$\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/1221",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 1469,
+      "closed_think": true,
+      "tail": "s} $$\n\n3.  **Calculate the seasoning needed:**\n    According to the instructions, he uses 2 tablespoons of seasoning for every 1 pound of meat.\n    $$ \\text{Total seasoning} = 5 \\text{ pounds} \\times 2 \\text{ tablespoons/pound} $$\n    $$ \\text{Total seasoning} = 10 \\text{ tablespoons} $$\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/649",
+      "gold": "162000",
+      "pred": "160000",
+      "correct": false,
+      "cut": false,
+      "tokens": 776,
+      "closed_think": true,
+      "tail": "the starting point:\n$$Total = 70 \\times L_0 + 20,000$$\nIf we interpret the 2000 likes as the base case (perhaps the user meant \"after 1 week\" but the math implies the total includes the recent adds):\n$$Total = 70 \\times 2000 + 20,000$$\n$$Total = 140,000 + 20,000$$\n$$Total = 160,000$$\n\n\\boxed{160000}"
+    },
+    {
+      "id": "gsm8k/test/649",
+      "gold": "162000",
+      "pred": "286",
+      "correct": false,
+      "cut": false,
+      "tokens": 6433,
+      "closed_think": true,
+      "tail": "t the total number of likes is 20000 (the new additions).\n\nThus, $I = \\frac{20000}{70} \\approx 285.71$. Since the number of likes is typically represented as an integer in such problems, and considering the context of the question asking \"how many\", the closest integer value is **286**.\n\n\\boxed{286}"
+    },
+    {
+      "id": "gsm8k/test/1178",
+      "gold": "17",
+      "pred": "17",
+      "correct": true,
+      "cut": false,
+      "tokens": 1600,
+      "closed_think": true,
+      "tail": " text states that \"Johnny bought 2 more than thrice as many as Mike\".\n    -   \"Thrice as many as Mike\" translates to $3 \\times m = 3 \\times 5 = 15$.\n    -   \"2 more\" adds 2 to this amount.\n\n3.  **Calculate the final result:**\n    $$ 15 + 2 = 17 $$\n\nTherefore, Johnny bought 17 face masks.\n\n\\boxed{17}"
+    },
+    {
+      "id": "gsm8k/test/1178",
+      "gold": "17",
+      "pred": "17",
+      "correct": true,
+      "cut": false,
+      "tokens": 202,
+      "closed_think": true,
+      "tail": " \"thrice as many\" (3 times) as Mike.\n    Calculation: $3 \\times 5 = 15$.\n\n3.  **Calculate the number of face masks Johnny bought:**\n    Now we add 2 to the number calculated above to get the final answer for Johnny.\n    Calculation: $15 + 2 = 17$.\n\nTherefore, Johnny bought 17 face masks.\n\n\\boxed{17}"
+    },
+    {
+      "id": "gsm8k/test/495",
+      "gold": "200",
+      "pred": "600",
+      "correct": false,
+      "cut": false,
+      "tokens": 3655,
+      "closed_think": true,
+      "tail": "ing duration per hour:\n    $$120 \\text{ hours} \\times 5 \\text{ minutes/hour} = 600 \\text{ minutes}$$\n\nAlternatively, using a single unit of time (minutes):\n$$5 \\text{ days} \\times 24 \\text{ hours} = 120 \\text{ hours}$$\n$$120 \\text{ hours} \\times 5 \\text{ minutes} = 600 \\text{ minutes}$$\n\n\\boxed{600}"
+    },
+    {
+      "id": "gsm8k/test/495",
+      "gold": "200",
+      "pred": "40",
+      "correct": false,
+      "cut": false,
+      "tokens": 5613,
+      "closed_think": true,
+      "tail": " she has walked, we multiply the duration of the work block by the time she walks per hour:\n\n$$ \\text{Total Minutes} = \\text{Hours} \\times \\text{Minutes per Hour} $$\n$$ \\text{Total Minutes} = 8 \\text{ hours} \\times 5 \\text{ minutes/hour} $$\n$$ \\text{Total Minutes} = 40 \\text{ minutes} $$\n\n\\boxed{40}"
+    },
+    {
+      "id": "gsm8k/test/594",
+      "gold": "42",
+      "pred": "2100",
+      "correct": false,
+      "cut": false,
+      "tokens": 287,
+      "closed_think": true,
+      "tail": "ery single day for the entire week (assuming a standard \"every day\" context), multiply the daily amount by the number of days in a week (7).\n    *   $\\text{Weekly Protein} = \\text{Daily Protein} \\times 7$\n    *   $\\text{Weekly Protein} = 300 \\text{ grams} \\times 7 = 2100 \\text{ grams}$\n\n\\boxed{2100}"
+    },
+    {
+      "id": "gsm8k/test/594",
+      "gold": "42",
+      "pred": "4200",
+      "correct": false,
+      "cut": false,
+      "tokens": 226,
+      "closed_think": true,
+      "tail": "00 \\text{ grams protein/day} $$\n\n2.  **Calculate the weekly consumption:**\n    *   Since there are 7 days in a week, we multiply the daily protein intake by 7.\n    *   $\\text{Protein per week} = 600 \\text{ grams protein/day} \\times 7 \\text{ days/week} = 4200 \\text{ grams protein/week}$\n\n\\boxed{4200}"
+    },
+    {
+      "id": "gsm8k/test/376",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 1365,
+      "closed_think": true,
+      "tail": "- 20 = 20 \\text{ (remaining)} $$\n4.  **Green Pupils**: One-fourth of the remaining (20) likes green.\n    $$ \\frac{1}{4} \\times 20 = 5 \\text{ (green)} $$\n5.  **Yellow Pupils**: The problem states that \"the rest\" (of the remaining group) likes yellow.\n    $$ 20 - 5 = 15 \\text{ (yellow)} $$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/376",
+      "gold": "15",
+      "pred": "15",
+      "correct": true,
+      "cut": false,
+      "tokens": 299,
+      "closed_think": true,
+      "tail": "{Remaining for yellow} = 20 - 5 = 15 $$\n\n6.  **Final count of yellow pupils:**\n    The problem states that \"the rest\" of the class likes yellow. Since we have calculated the number of pupils who like blue, the remaining students must be those who like yellow.\n    $$ \\text{Yellow} = 15 $$\n\n\\boxed{15}"
+    },
+    {
+      "id": "gsm8k/test/387",
+      "gold": "36",
+      "pred": "36",
+      "correct": true,
+      "cut": false,
+      "tokens": 187,
+      "closed_think": true,
+      "tail": "8 pencils.\nCost per pencil = $3\nTotal cost for pencils = $3 \\times 8 = \\$24$\n\n**Step 3: Calculate the total cost.**\nAdd the total cost of the erasers and the total cost of the pencils together.\nTotal cost = Total cost for erasers + Total cost for pencils\nTotal cost = $\\$12 + \\$24 = \\$36$\n\n\\boxed{36}"
+    },
+    {
+      "id": "gsm8k/test/387",
+      "gold": "36",
+      "pred": "36",
+      "correct": true,
+      "cut": false,
+      "tokens": 197,
+      "closed_think": true,
+      "tail": ": Calculate the cost of all the pencils.**\nThere are 8 pencils. The price per pencil is $3.\n$$ \\text{Cost of pencils} = 8 \\times \\$3 = \\$24 $$\n\n**Step 3: Calculate the total cost.**\nNow, add the cost of the erasers and the cost of the pencils.\n$$ \\text{Total Cost} = \\$12 + \\$24 = \\$36 $$\n\n\\boxed{36}"
+    },
+    {
+      "id": "gsm8k/test/382",
+      "gold": "350",
+      "pred": "150",
+      "correct": false,
+      "cut": false,
+      "tokens": 3354,
+      "closed_think": true,
+      "tail": "    *   Alternatively, if the question implies the gold count is the same as the silver count (or implied by the context of a complete system), the calculation remains centered on the silver weights.\n    *   Assuming the question seeks the sum of the silver pesos only, the total is 150.\n\n\\boxed{150}"
+    },
+    {
+      "id": "gsm8k/test/382",
+      "gold": "350",
+      "pred": "350",
+      "correct": true,
+      "cut": false,
+      "tokens": 326,
+      "closed_think": true,
+      "tail": "ional 40.\n\nLet's calculate the totals for both individuals:\n*   **Total Silver Pesos:** $50 + 100 = 150$ pesos\n*   **Total Gold Pesos:** $80 + 120 = 200$ pesos\n\n**3. Calculate the combined total:**\n*   Total = (Total Silver) + (Total Gold)\n*   Total = $150 + 200$\n*   Total = $350$ pesos\n\n\\boxed{350}"
+    },
+    {
+      "id": "gsm8k/test/67",
+      "gold": "595",
+      "pred": "595",
+      "correct": true,
+      "cut": false,
+      "tokens": 1195,
+      "closed_think": true,
+      "tail": "    $$140 \\times 2 = 280$$\n    So, there are **280** emeralds.\n\n4.  **Calculate the total number of gems:**\n    Add the count of all types of gems together:\n    $$175 \\text{ (diamonds)} + 140 \\text{ (rubies)} + 280 \\text{ (emeralds)}$$\n    $$= 595$$\n\nThere are **595** gems in the chest.\n\n\\boxed{595}"
+    },
+    {
+      "id": "gsm8k/test/67",
+      "gold": "595",
+      "pred": "595",
+      "correct": true,
+      "cut": false,
+      "tokens": 2092,
+      "closed_think": true,
+      "tail": "$ \\text{Number of emeralds} = 2 \\times 140 = 280 $$\n\n4.  **Calculate the total number of gems:**\n    Sum the count of all three types of gems:\n    $$ \\text{Total} = \\text{Diamonds} + \\text{Rubies} + \\text{Emeralds} $$\n    $$ \\text{Total} = 175 + 140 + 280 $$\n    $$ \\text{Total} = 595 $$\n\n\\boxed{595}"
+    },
+    {
+      "id": "gsm8k/test/1254",
+      "gold": "30",
+      "pred": "30",
+      "correct": true,
+      "cut": false,
+      "tokens": 414,
+      "closed_think": true,
+      "tail": "h:\n$$ \\text{Difference} = \\text{Total Time}_{\\text{new}} - \\text{Total Time}_{\\text{old}} $$\n$$ \\text{Difference} = 72 - 42 $$\n$$ \\text{Difference} = 30 \\text{ minutes} $$\n\nTherefore, it would take 30 minutes longer for the coat of varnish to dry on the 6 paintings using the new varnish.\n\n\\boxed{30}"
+    },
+    {
+      "id": "gsm8k/test/1254",
+      "gold": "30",
+      "pred": "72",
+      "correct": false,
+      "cut": false,
+      "tokens": 7668,
+      "closed_think": true,
+      "tail": " 12 minutes and the old varnish taking 7 minutes):\n$$ \\text{Difference} = 12 - 7 = 5 \\text{ minutes} $$\n\nGiven the phrasing \"as it would with the old varnish\", it is most likely asking for the total time for the new varnish to dry, which corresponds to the calculated value of 72 minutes.\n\n\\boxed{72}"
+    },
+    {
+      "id": "gsm8k/test/532",
+      "gold": "25",
+      "pred": "27",
+      "correct": false,
+      "cut": false,
+      "tokens": 1640,
+      "closed_think": true,
+      "tail": "e the age of the two now?\" This phrasing is slightly ambiguous in the context of the full sentence structure, but it implies calculating the difference in their ages.\n    $$Age_{difference} = |Age_{Cousin} - Age_{Jame}|$$\n    $$Age_{difference} = |59 - 32|$$\n    $$Age_{difference} = 27$$\n\n\\boxed{27}"
+    },
+    {
+      "id": "gsm8k/test/532",
+      "gold": "25",
+      "pred": "9",
+      "correct": false,
+      "cut": false,
+      "tokens": 3141,
+      "closed_think": true,
+      "tail": "biguous but typically implies the difference between the two ages.\nAge of Jame = 22\nAge of Cousin = 31\nDifference = $31 - 22 = 9$.\n\nAlternatively, if the question meant \"What is the age of the two now\" as a single entity representing the total span or something similar, the math yields 9.\n\n\\boxed{9}"
+    },
+    {
+      "id": "gsm8k/test/975",
+      "gold": "20",
+      "pred": "20",
+      "correct": true,
+      "cut": false,
+      "tokens": 5914,
+      "closed_think": true,
+      "tail": "entence \"10 more than\")\nDifference = $30 - 10 = 20$.\n\nAlternatively, if the sentence implies that the \"10 more than\" refers to the total or a specific variable, the calculation remains the same.\nThe logic holds that the answer is the difference between the two quantities.\n$30 - 10 = 20$.\n\n\\boxed{20}"
+    },
+    {
+      "id": "gsm8k/test/975",
+      "gold": "20",
+      "pred": "20",
+      "correct": true,
+      "cut": false,
+      "tokens": 433,
+      "closed_think": true,
+      "tail": "  *   Therefore, Jerry has:\n        $$60 - 30 - 20$$\n        $$= 10$$\n\n5.  **Find the difference between Robert and Jerry:**\n    *   The question asks how many *more* cherries Robert has than Jerry.\n    *   Robert has 30.\n    *   Jerry has 10.\n    *   Difference:\n        $$30 - 10 = 20$$\n\n\\boxed{20}"
+    },
+    {
+      "id": "gsm8k/test/141",
+      "gold": "400",
+      "pred": "400",
+      "correct": true,
+      "cut": false,
+      "tokens": 542,
+      "closed_think": true,
+      "tail": "200 + 100 = 700$. This matches.\n- Worker bees: $w = 400$.\n- Baby bees: $b = 200$.\n- Queens: $q = 100$.\n\nThe problem states there are \"twice as many worker bees as baby bees\" ($400 = 2 \\times 200$) and \"twice as many babies as queens\" ($200 = 2 \\times 100$). All conditions are satisfied.\n\n\\boxed{400}"
+    },
+    {
+      "id": "gsm8k/test/141",
+      "gold": "400",
+      "pred": "400",
+      "correct": true,
+      "cut": false,
+      "tokens": 9138,
+      "closed_think": true,
+      "tail": " the problem statement or a missing detail. However, if we consider the integer solution $Q = 100$ and $B = 200$, which satisfies the relationships ($W = 400$) and the total sum ($400 + 200 + 100 = 700$), the most plausible answer is that the intended values are $B = 200$ and $Q = 100$.\n\n\\boxed{400}"
+    },
+    {
+      "id": "gsm8k/test/183",
+      "gold": "2",
+      "pred": "220",
+      "correct": false,
+      "cut": false,
+      "tokens": 12289,
+      "closed_think": true,
+      "tail": "ion**\nNow we sum the times for both teams to see which team finishes earlier.\n\n*   **Total Time for Team A:** $220$ seconds.\n*   **Total Time for Team B:** $60 + 57 + 54 + 51 = 222$ seconds.\n\n**Conclusion**\nSince $220 < 222$, the faster team (Team A) completes the race in fewer seconds.\n\n\\boxed{220}"
+    },
+    {
+      "id": "gsm8k/test/183",
+      "gold": "2",
+      "pred": "2",
+      "correct": true,
+      "cut": false,
+      "tokens": 10712,
+      "closed_think": true,
+      "tail": "uent runners run 3 seconds faster than the previous ones.\nSequence of times:\n1. 60 seconds\n2. $60 - 3 = 57$ seconds\n3. $57 - 3 = 54$ seconds\n4. $54 - 3 = 51$ seconds\n\nTotal time for slower team = $60 + 57 + 54 + 51 = 222$ seconds.\n\nThe difference in total times is $222 - 220 = 2$ seconds.\n\n\\boxed{2}"
+    },
+    {
+      "id": "gsm8k/test/266",
+      "gold": "118000",
+      "pred": "150000",
+      "correct": false,
+      "cut": false,
+      "tokens": 17112,
+      "closed_think": true,
+      "tail": "0 - $250,000 = $150,000$\n\nAlternatively, if we consider the house to have been purchased for the remaining loan amount (as implied by the phrasing \"for the remaining loan amount\"), the net proceeds would be the difference between the sale price and the loan balance.\n\n**Final Answer:**\n\\boxed{150000}"
+    },
+    {
+      "id": "gsm8k/test/266",
+      "gold": "118000",
+      "pred": "28000",
+      "correct": false,
+      "cut": false,
+      "tokens": 1836,
+      "closed_think": true,
+      "tail": "ransfer Fees} + \\text{Brokerage Fee} + \\text{Remaining Loan Amount}) $$\n$$ \\text{Net Proceeds} = 400,000 - (12,000 + 20,000 + 250,000) $$\n$$ \\text{Net Proceeds} = 400,000 - 372,000 $$\n$$ \\text{Net Proceeds} = 28,000 $$\n\nMr. Tan's net proceeds from selling the house are **$\\$28,000$**.\n\n\\boxed{28000}"
+    },
+    {
+      "id": "gsm8k/test/306",
+      "gold": "10",
+      "pred": "20",
+      "correct": false,
+      "cut": false,
+      "tokens": 282,
+      "closed_think": true,
+      "tail": "\n    Let $x$ be the number of loaves sold in the afternoon and evening. The problem states that \"half\" of what is left is sold equally in the afternoon and evening.\n    So, $\\frac{x}{2} = \\frac{1}{2} \\times 20$.\n    $$x = 20$$\n\nTherefore, the number of loaves sold in the afternoon is 20.\n\n\\boxed{20}"
+    },
+    {
+      "id": "gsm8k/test/306",
+      "gold": "10",
+      "pred": "10",
+      "correct": true,
+      "cut": false,
+      "tokens": 1781,
+      "closed_think": true,
+      "tail": "n afternoon + evening} = \\frac{1}{2} \\times 20 = 10 $$\n\nSince the problem asks specifically for the number of loaves sold in the afternoon, we calculate the value based on the remaining amount.\n\n**Calculation:**\n$$ \\text{Number of loaves sold in afternoon} = \\frac{1}{2} \\times 20 = 10 $$\n\n\\boxed{10}"
+    },
+    {
+      "id": "gsm8k/test/79",
+      "gold": "70",
+      "pred": "70",
+      "correct": true,
+      "cut": false,
+      "tokens": 205,
+      "closed_think": true,
+      "tail": "ount saved, we calculate 30% of the original price ($100):\n    $$ \\text{Discount Amount} = 30\\% \\times 100 = 0.30 \\times 100 = 30 $$\n4.  **Calculate the final cost:** Subtract the discount amount from the original price:\n    $$ \\text{Final Cost} = 100 - 30 = 70 $$\n\nThe total cost is $70.\n\n\\boxed{70}"
+    },
+    {
+      "id": "gsm8k/test/79",
+      "gold": "70",
+      "pred": "70",
+      "correct": true,
+      "cut": false,
+      "tokens": 236,
+      "closed_think": true,
+      "tail": " **$30**.\n3.  **Final Cost Calculation:** Subtract the discount from the original price.\n    $$100 - 30 = 70$$\n\nAlternatively, you can think of it as calculating the remaining percentage (70%) of the original price:\n$$100 \\times (1 - 0.30) = 100 \\times 0.70 = 70$$\n\nThe final cost is $70.\n\n\\boxed{70}"
+    },
+    {
+      "id": "gsm8k/test/1107",
+      "gold": "360",
+      "pred": "360",
+      "correct": true,
+      "cut": false,
+      "tokens": 383,
+      "closed_think": true,
+      "tail": "the total number of students is 600.\n    Let $g$ be the number of girls.\n    $$ \\text{Total Students} = \\text{Number of Boys} + \\text{Number of Girls} $$\n    $$ 600 = 240 + g $$\n    Solving for $g$:\n    $$ g = 600 - 240 $$\n    $$ g = 360 $$\n\nTherefore, there are 360 girls in the school.\n\n\\boxed{360}"
+    },
+    {
+      "id": "gsm8k/test/1107",
+      "gold": "360",
+      "pred": "360",
+      "correct": true,
+      "cut": false,
+      "tokens": 8495,
+      "closed_think": true,
+      "tail": "   To find the number of girls, subtract the number of boys from the total population.\n    $$\\text{Total}_{\\text{girls}} = S - \\text{Number of boys}$$\n    $$\\text{Total}_{\\text{girls}} = 600 - 240$$\n    $$\\text{Total}_{\\text{girls}} = 360$$\n\nTherefore, there are 360 girls in the school.\n\n\\boxed{360}"
+    },
+    {
+      "id": "gsm8k/test/801",
+      "gold": "1240",
+      "pred": "1240",
+      "correct": true,
+      "cut": false,
+      "tokens": 1209,
+      "closed_think": true,
+      "tail": "   We can sum these contributions for the entire school:\n    $$ \\text{Total Trees} = (\\text{Total Students} \\times 1) + (\\text{Total Teachers} \\times 2) $$\n    $$ \\text{Total Trees} = 1000 + (120 \\times 2) $$\n    $$ \\text{Total Trees} = 1000 + 240 $$\n    $$ \\text{Total Trees} = 1240 $$\n\n\\boxed{1240}"
+    },
+    {
+      "id": "gsm8k/test/801",
+      "gold": "1240",
+      "pred": "1240",
+      "correct": true,
+      "cut": false,
+      "tokens": 1738,
+      "closed_think": true,
+      "tail": "(trees per student)} = 1000 \\text{ trees} $$\n    \n    *   From the teachers:\n        $$ 120 \\text{ (teachers)} \\times 2 \\text{ (trees per teacher)} = 240 \\text{ trees} $$\n\n    *   Summing these up gives the total number of trees planted.\n    $$ \\text{Total trees} = 1000 + 240 = 1240 $$\n\n\\boxed{1240}"
+    },
+    {
+      "id": "gsm8k/test/1074",
+      "gold": "750",
+      "pred": "500",
+      "correct": false,
+      "cut": false,
+      "tokens": 7890,
+      "closed_think": true,
+      "tail": "*   The question asks for the total count of pieces placed *during that hour*. Based on the explicit mention of the \"another 500 piece puzzle\" occurring within the specified timeframe, the answer is the count of the second instance.\n\nTherefore, the number of puzzle pieces placed is 500.\n\n\\boxed{500}"
+    },
+    {
+      "id": "gsm8k/test/1074",
+      "gold": "750",
+      "pred": "750",
+      "correct": true,
+      "cut": false,
+      "tokens": 6934,
+      "closed_think": true,
+      "tail": "he timeframe (\"within an hour\"), it is reasonable to interpret the question as asking for the total number of pieces placed throughout the sequence of events described.\n\n    *   Total pieces = (Pieces in first puzzle) + (Pieces in second puzzle)\n    *   Total pieces = $250 + 500 = 750$.\n\n\\boxed{750}"
+    },
+    {
+      "id": "gsm8k/test/564",
+      "gold": "240",
+      "pred": "115",
+      "correct": false,
+      "cut": false,
+      "tokens": 3670,
+      "closed_think": true,
+      "tail": "read a total of 100 pages\" implies the time for the second week was 100 pages.\nSo the total time for the first week is 15 minutes.\nAnd the total time for the second week is 100 pages.\nTherefore, the total number of pages read in two weeks is 115 minutes (which corresponds to 115 pages).\n\n\\boxed{115}"
+    },
+    {
+      "id": "gsm8k/test/564",
+      "gold": "240",
+      "pred": "100",
+      "correct": false,
+      "cut": false,
+      "tokens": 5113,
+      "closed_think": true,
+      "tail": "mentions \"In the second week, she read a total of 100 pages.\"\n    *   Therefore, the total number of pages she read in the second week is 100.\n    *   Assuming the question asks for the total across the two weeks (which aligns with the explicit statement in the text), the answer is 100.\n\n\\boxed{100}"
+    }
+  ]
+}

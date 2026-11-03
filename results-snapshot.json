@@ -737,7 +737,8 @@
       "tok_per_s": 3912,
       "intervention": "Our new Astra edit (25 tool calls)",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -758,7 +759,8 @@
       "tok_per_s": 3117,
       "intervention": "Our new Astra edit (25 tool calls)",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -779,7 +781,8 @@
       "tok_per_s": 3001,
       "intervention": "Original Qwen3.5-0.8B",
       "benchmark": "GSM8K",
-      "thinking_enabled": false
+      "thinking_enabled": false,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -800,7 +803,8 @@
       "tok_per_s": 1970,
       "intervention": "Original Qwen3.5-0.8B",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -821,7 +825,8 @@
       "tok_per_s": 5053,
       "intervention": "Original Qwen3.5-0.8B",
       "benchmark": "MATH-500",
-      "thinking_enabled": false
+      "thinking_enabled": false,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -842,7 +847,8 @@
       "tok_per_s": 1961,
       "intervention": "Original Qwen3.5-0.8B",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -863,7 +869,8 @@
       "tok_per_s": 3644,
       "intervention": "Authors\u2019 released Astra edit",
       "benchmark": "GSM8K",
-      "thinking_enabled": false
+      "thinking_enabled": false,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -884,7 +891,8 @@
       "tok_per_s": 3286,
       "intervention": "Authors\u2019 released Astra edit",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -905,7 +913,8 @@
       "tok_per_s": 5130,
       "intervention": "Authors\u2019 released Astra edit",
       "benchmark": "MATH-500",
-      "thinking_enabled": false
+      "thinking_enabled": false,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -926,7 +935,8 @@
       "tok_per_s": 2312,
       "intervention": "Authors\u2019 released Astra edit",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -947,7 +957,8 @@
       "tok_per_s": 2080,
       "intervention": "Complete removal of selected direction components",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -968,7 +979,8 @@
       "tok_per_s": 2008,
       "intervention": "Complete removal of selected direction components",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -989,7 +1001,8 @@
       "tok_per_s": 1987,
       "intervention": "Random columns with original directions (seed 0)",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -1010,7 +1023,8 @@
       "tok_per_s": 1962,
       "intervention": "Random columns with original directions (seed 0)",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -1031,7 +1045,8 @@
       "tok_per_s": 1973,
       "intervention": "Random directions with matched edit magnitude (seed 0)",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -1052,7 +1067,8 @@
       "tok_per_s": 1960,
       "intervention": "Random directions with matched edit magnitude (seed 0)",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "completed"
     },
     {
       "sampling": {
@@ -1071,9 +1087,10 @@
       "mean_tokens": 4144.3,
       "seconds": 396,
       "tok_per_s": 2093,
-      "intervention": "DeepSeek V4.1 Flash 1017 edit (provisional provenance)",
+      "intervention": "Archived DeepSeek-associated checkpoint (historical; provenance caveat)",
       "benchmark": "GSM8K",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "historical, archived-run provenance caveat"
     },
     {
       "sampling": {
@@ -1092,19 +1109,180 @@
       "mean_tokens": 15837.3,
       "seconds": 1440,
       "tok_per_s": 2199,
-      "intervention": "DeepSeek V4.1 Flash 1017 edit (provisional provenance)",
+      "intervention": "Archived DeepSeek-associated checkpoint (historical; provenance caveat)",
       "benchmark": "MATH-500",
-      "thinking_enabled": true
+      "thinking_enabled": true,
+      "status": "historical, archived-run provenance caveat"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.35,
+      "cut_share": 0.64,
+      "mean_tokens": 22737.075,
+      "seconds": 2201,
+      "tok_per_s": 2066,
+      "intervention": "DeepSeek V4.1 Flash 1017 newly completed edit (10-call budget)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true,
+      "status": "completed"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.225,
+      "cut_share": 0.785,
+      "mean_tokens": 27577.31,
+      "seconds": 2686,
+      "tok_per_s": 2054,
+      "intervention": "DeepSeek V4.1 Flash 1017 newly completed edit (10-call budget)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true,
+      "status": "completed"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.56,
+      "cut_share": 0.03,
+      "mean_tokens": 3939.16,
+      "seconds": 304,
+      "tok_per_s": 2592,
+      "intervention": "GLM 5.3 Flash edit (10-call budget)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true,
+      "status": "completed"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.535,
+      "cut_share": 0.21,
+      "mean_tokens": 11572.61,
+      "seconds": 841,
+      "tok_per_s": 2753,
+      "intervention": "GLM 5.3 Flash edit (10-call budget)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true,
+      "status": "completed"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.4,
+      "cut_share": 0.29,
+      "mean_tokens": 10170.27,
+      "seconds": 944,
+      "tok_per_s": 2155,
+      "intervention": "Qwen 3.8 27B edit (10-call budget)",
+      "benchmark": "GSM8K",
+      "thinking_enabled": true,
+      "status": "completed"
+    },
+    {
+      "sampling": {
+        "thinking": true,
+        "temperature": 0.6,
+        "top_p": 0.95,
+        "top_k": 20,
+        "presence_penalty": 1.5,
+        "max_tokens": 32768
+      },
+      "n_problems": 100,
+      "samples": 2,
+      "n": 200,
+      "acc": 0.245,
+      "cut_share": 0.535,
+      "mean_tokens": 18920.655,
+      "seconds": 1807,
+      "tok_per_s": 2094,
+      "intervention": "Qwen 3.8 27B edit (10-call budget)",
+      "benchmark": "MATH-500",
+      "thinking_enabled": true,
+      "status": "completed"
     }
   ],
-  "missing_math_results": [
-    "GLM 5.3 Flash",
-    "Qwen 3.8 27B"
-  ],
-  "note": "The newer math editor runs were still active at this snapshot. The measured DeepSeek math checkpoint has unresolved provenance associated with an archived harness-failure run. No new full benchmark evaluations were run to prepare this article.",
-  "pending_math_editor_runs": [
-    "DeepSeek V4.1 Flash 1017",
-    "GLM 5.3 Flash",
-    "Qwen 3.8 27B"
+  "missing_math_results": [],
+  "note": "All four local editors have completed math evaluations. Historical DeepSeek-associated scores are retained separately from the newly completed four-layer edit. The checkpoint directory path was reused and does not uniquely identify the historical weights. This update compiles existing evaluations rather than rerunning benchmarks.",
+  "pending_math_editor_runs": [],
+  "completed_math_edits": [
+    {
+      "editor": "DeepSeek V4.1 Flash 1017",
+      "maximum_tool_calls": 10,
+      "charged_tool_calls": 10,
+      "changed_weight_entries": 9576531,
+      "edited_tensors": [
+        "model.language_model.layers.16.mlp.down_proj.weight",
+        "model.language_model.layers.18.mlp.down_proj.weight",
+        "model.language_model.layers.20.mlp.down_proj.weight",
+        "model.language_model.layers.22.mlp.down_proj.weight"
+      ]
+    },
+    {
+      "editor": "GLM 5.3 Flash",
+      "maximum_tool_calls": 10,
+      "charged_tool_calls": 8,
+      "changed_weight_entries": 4094,
+      "edited_tensors": [
+        "model.language_model.layers.13.mlp.down_proj.weight",
+        "model.language_model.layers.17.mlp.down_proj.weight",
+        "model.language_model.layers.21.mlp.down_proj.weight",
+        "model.language_model.layers.9.mlp.down_proj.weight"
+      ]
+    },
+    {
+      "editor": "Qwen 3.8 27B",
+      "maximum_tool_calls": 10,
+      "charged_tool_calls": 5,
+      "changed_weight_entries": 2457706,
+      "edited_tensors": [
+        "model.language_model.layers.23.mlp.down_proj.weight"
+      ]
+    }
   ]
 }

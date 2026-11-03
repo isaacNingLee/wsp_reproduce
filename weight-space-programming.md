@@ -6,7 +6,7 @@ What can an LLM learn by inspecting another model’s weights? And when it finds
 
 We investigated these questions using Astra and DeepSeek V4.1 Flash 1017, GLM 5.3 Flash, and Qwen 3.8 27B. We evaluated a released Qwen weight edit, ran new editing experiments, and extended the idea to vision transformers. The results are encouraging—but the failures are just as informative as the successes.
 
-**The clearest result is that targeted edits can recover useful behavior when a model already has the relevant capability.** On our math subset, the released edit raises Qwen3.5-0.8B from **5.0% to 54.5%** on MATH-500. A new local Astra edit reaches **64.0%**. All four editors identify our anonymous vision checkpoints correctly. But repairing fine-grained bird classification is less reliable: an edit that reaches **96.7% on practice images** achieves only **60.0% on held-out images**, and fails our overall-accuracy constraint.
+**The clearest result is that targeted edits can recover useful behavior when a model already has the relevant capability.** On our math subset, the released edit raises Qwen3.5-0.8B from **5.0% to 54.5%** on MATH-500. A new local Astra edit reaches **64.0%**. Completed edits from GLM 5.3 Flash, Qwen 3.8 27B, and DeepSeek V4.1 Flash 1017 reach **53.5%, 24.5%, and 22.5%**, respectively, on the same MATH-500 subset. All four editors identify our anonymous vision checkpoints correctly. But repairing fine-grained bird classification is less reliable: an edit that reaches **96.7% on practice images** achieves only **60.0% on held-out images**, and fails our overall-accuracy constraint.
 
 The saved editor reasoning traces help explain this gap. They show useful mathematical deductions, sensible calibration strategies, and also a validation procedure that inadvertently reuses information from the example it claims to hold out.
 
@@ -173,18 +173,20 @@ Our math evaluation uses fixed seed-0 subsets of **100 MATH-500 problems and 100
 
 Accuracy is per generated answer, not pass@2. “Cut” means generation reached its token limit; it is an observable proxy for nontermination, not a direct loop detector.
 
-All rows evaluate **Qwen3.5-0.8B after the named intervention**. “Not available” means no completed evaluation was found; it does not mean 0% accuracy.
+All rows evaluate **Qwen3.5-0.8B after the named intervention**. All four local editors now have completed MATH-500 and GSM8K evaluations. The three newly completed runs each had a nominal budget of ten generation/activation-read calls; Astra had 25. These budgets are not identical amounts of computation: calls can inspect different numbers of examples, and failed calls are refunded.
 
 | Who produced the weight edit? | MATH-500 accuracy (%) | GSM8K accuracy (%) | Evaluation status |
 |---|---:|---:|---|
 | No editor: original Qwen3.5-0.8B | 5.0 | 12.5 | Completed |
 | GPT-6 Astra: authors’ publicly released edit | 54.5 | 75.0 | Completed local evaluation of the released checkpoint |
-| GPT-6 Astra: our new edit, budget of 25 tool calls | 64.0 | 72.5 | Completed |
-| DeepSeek V4.1 Flash 1017: saved edited checkpoint | 41.0 | 57.5 | Evaluation completed; editor-run provenance requires qualification† |
-| GLM 5.3 Flash | Not available | Not available | New editing run still pending; no completed clean math-edit evaluation |
-| Qwen 3.8 27B | Not available | Not available | New editing run still pending; an archived attempt saved no edit |
+| GPT-6 Astra: our new edit | 64.0 | 72.5 | Completed; 25-call budget |
+| DeepSeek V4.1 Flash 1017: newly completed edit | 22.5 | 35.0 | Completed; 10-call budget |
+| GLM 5.3 Flash | 53.5 | 56.0 | Completed; 10-call budget |
+| Qwen 3.8 27B | 24.5 | 40.0 | Completed; 10-call budget |
 
-†The DeepSeek checkpoint has saved benchmark evaluation records, but its completed editing record belongs to an archived run affected by a harness bug. The later run at the checkpoint’s recorded location is still pending at this snapshot. We can report the measured checkpoint scores, but cannot present them as a verified clean ten-call editing run.
+Each accuracy is calculated from 200 generated answers to 100 problems. Relative to the original model, the new DeepSeek, GLM, and Qwen edits improve MATH-500 by **17.5, 48.5, and 19.5 percentage points**, respectively, and GSM8K by **22.5, 43.5, and 27.5 points**.
+
+**Historical result, kept separate:** an earlier DeepSeek-associated checkpoint scored **41.0% on MATH-500 and 57.5% on GSM8K**. That evaluation was associated with an archived run affected by a harness bug. It is not the newly completed four-layer edit above. Both evaluations recorded the same checkpoint-directory path at different times, so the path alone cannot identify the checkpoint version. The old records remain in the evidence archive; they are not substituted for the new run’s scores or treated as a second clean trial.
 
 **Termination behavior for the evaluated checkpoints:**
 
@@ -193,7 +195,11 @@ All rows evaluate **Qwen3.5-0.8B after the named intervention**. “Not availabl
 | Original model | 95.0 | 90.0 |
 | Authors’ released Astra edit | 32.0 | 3.5 |
 | Our new Astra edit | 7.5 | 0.0 |
-| DeepSeek V4.1 Flash 1017 edited checkpoint† | 41.0 | 9.5 |
+| DeepSeek V4.1 Flash 1017: newly completed edit | 78.5 | 64.0 |
+| GLM 5.3 Flash edit | 21.0 | 3.0 |
+| Qwen 3.8 27B edit | 53.5 | 29.0 |
+
+GLM’s edit substantially reduces truncation on both benchmarks. DeepSeek and Qwen also improve on the base model, but many answers still reach the cap. Lower truncation alone does not guarantee higher accuracy: GLM has fewer truncated GSM8K answers than the released Astra edit, yet its GSM8K accuracy is **56.0% versus 75.0%**. Reaching an answer and reaching the right answer are separate requirements.
 
 **Control experiments: what happens if we alter the released edit?**
 
@@ -205,7 +211,7 @@ All rows evaluate **Qwen3.5-0.8B after the named intervention**. “Not availabl
 
 Our base and released-edit scores show the same broad improvement as the published results. Numerical differences should not be read as contradictions or new full-benchmark records: the sample counts, selected problems, and local evaluation implementation differ. We did not evaluate IFEval.
 
-The local Astra edit has a higher MATH point estimate than the released edit and a slightly lower GSM8K estimate. This is one local run on small subsets, not evidence of a general editor ranking. Two answers to the same problem are also correlated, so treating all 200 samples as independent would overstate precision.
+The local Astra edit has the highest MATH point estimate among these checkpoints. GLM comes close to the released edit on MATH-500 (**53.5% versus 54.5%**) but falls further behind on GSM8K (**56.0% versus 75.0%**). These are single editor runs on small subsets, with unequal budgets, not evidence of a general editor ranking. Two answers to the same problem are also correlated, so treating all 200 samples as independent would overstate precision.
 
 ### What changed in the weights?
 
@@ -223,15 +229,48 @@ That coefficient matters. At $c=1$, this operation removes the projection along 
 
 The controls show why a generic “small edit” explanation is insufficient. Literal projection removal helps somewhat, but much less than the released edit. A norm-matched random direction also performs much worse. Random columns perform poorly, although that control has a smaller total perturbation norm, so it does not isolate column choice from edit magnitude. Only one random seed was evaluated.
 
-### A different route: encourage termination in the last layer
+### Four local edits, four ways of steering the model
 
-The new local Astra run modifies **layer 23’s MLP output projection**, using a rank-two update intended to encourage `</think>` and suppress repeated “Wait” transitions. The saved result records **2,157,312 changed entries**, substantially more than the released edit.
+The completed results let us compare the actual submitted edits. Layer numbers below are zero-indexed, and changed-entry counts come from each saved editing result.
 
-Its practice generation calls used an 8,192-token cap. The table above comes from separate evaluation at 32,768 tokens. Its final 128-problem check described in the editor response is still a reserve from the training-data practice pool, not the MATH-500 or GSM8K test evaluation.
+| Editor | MLP output projections edited | Numerically changed weight entries | Intended intervention |
+|---|---|---:|---|
+| GPT-6 Astra | Layer 23 | 2,157,312 | Rank-two update favoring thinking termination and suppressing repeated “Wait” transitions |
+| DeepSeek V4.1 Flash 1017 | Layers 16, 18, 20, 22 | 9,576,531 | Rank-one update per layer, steering from repeated reconsideration toward computation |
+| GLM 5.3 Flash | One column each in layers 9, 13, 17, 21 | 4,094 | Persistent residual-stream bias toward the thinking-close token |
+| Qwen 3.8 27B | Layer 23 | 2,457,706 | Rank-one close-versus-“Wait” direction, gated by recent numeric content |
 
-The archived DeepSeek math run takes a related approach: a rank-one final-layer update designed to favor closing the thinking block and ending the response. Its trace describes repetitive reconsideration and scarce termination, then uses activation statistics to make a token-output bias. This is a plausible mechanism for recovering answers, but the archived harness failure and unresolved checkpoint provenance limit what we can conclude about that run.
+Edit size does not predict the result here. GLM changes far fewer entries than the other local editors and outperforms DeepSeek and Qwen on both benchmarks. This comparison is descriptive; the runs do not control for direction choice, layer choice, search effort, or edit magnitude.
 
-The archived Qwen editor run illustrates a different failure. It identifies repetition and proposes a final-layer intervention, but a variable named `sd` shadows the weights dictionary; the save never executes. The result records **zero changed weights**. A useful diagnosis and a proposed edit are not an executed repair.
+Astra’s practice generation calls used an 8,192-token cap. Its final 128-problem check described in the editor response is a reserve from the training-data practice pool, not the MATH-500 or GSM8K test evaluation. The main table uses separate evaluation at 32,768 tokens for every checkpoint.
+
+### A successful math trace: a small bias can unlock completion
+
+In its [completed math-edit transcript](logs/math-edit-completed/glm_t0/transcript.jsonl), GLM searches for MLP features that remain positive across many tokens. It selects one column in each of four MLP output matrices and adds a direction based on the final-normalization-scaled embedding of the thinking-close token. When an approximately constant positive feature multiplies that column, it adds an approximately persistent residual-stream shift.
+
+The intended effect is to make closing the thinking block more likely without changing the embeddings or output layer. The direction is motivated by the output geometry, but the resulting probability change remains state-dependent because of normalization and subsequent computation; it is not an exact constant addition to the final logit.
+
+The trace reports a useful dose-response on its 128-problem practice set: accuracy rises from **7.8%** to **50.0%** at the selected steering strength, then falls to **28.1%** at a stronger setting. The independent benchmark results—**53.5% MATH-500 and 56.0% GSM8K**—support a real benefit beyond that practice set. The four selected columns have a nominal support of 4,096 entries; 4,094 entries differ numerically after storage.
+
+There is an execution caveat: GLM rerouted generation to another GPU after resource failures. This changed environment plumbing, while the submitted artifact remained a weight edit and the final benchmark was scored separately. We report the run as completed, without claiming that its infrastructure was identical to every other run.
+
+### Why more steering is not always better
+
+DeepSeek’s [new trace](logs/math-edit-completed/deepseek_t0/transcript.jsonl) takes a broader approach. It contrasts activations near arithmetic, numbers, and answer construction with activations near reconsideration phrases, then writes that direction into four MLPs. The result improves both benchmarks, but leaves **78.5% of MATH answers** and **64.0% of GSM8K answers** truncated.
+
+The trace also tests a stronger perturbation: on its 96-problem practice set, increasing the relative steering strength from **12% to 20%** of the estimated residual norm reduces accuracy from **27.1% to 15.6%**. The submitted edit uses the weaker setting. These practice generations used a 4,096-token cap after an 8,192-token attempt encountered memory limits, so their absolute scores should not be compared directly with the final 32,768-token table.
+
+Qwen’s [completed run](logs/math-edit-completed/qwen38_t0/transcript.jsonl) uses a more conditional idea: steer toward closing the thinking block and away from “Wait” after the model has recently written a number. The trace itself identifies the risk: writing a number does not mean the calculation is finished or correct, and some “Wait” transitions precede useful self-correction.
+
+On its practice set, Qwen reports that the number of responses finishing rises from **11 to 73**, while accuracy among those finished responses falls from **100% to 61.6%**. Those are different selected subsets, so this is not a paired estimate of lost reasoning ability. It does illustrate the tradeoff: encouraging completion admits many more answers, including wrong ones. The final scores improve to **24.5% MATH-500 and 40.0% GSM8K**, but remain well below GLM and Astra.
+
+Taken together, the traces support an intervention with a limited useful range: too little steering leaves the model looping; too much can interrupt needed reasoning. Fewer truncated answers are helpful, but they are not a sufficient optimization objective.
+
+### Archived implementation failure versus a completed retry
+
+The earlier archived Qwen attempt correctly identified repetition but never saved its proposed edit: a variable shadowed the weights dictionary. Its result records zero changed weights. The new completed Qwen run is a separate attempt and does save an edit, with the evaluated scores above. We retain the archived failure as an implementation lesson rather than using it to describe the current result.
+
+The completed runs’ budget files record **10 charged calls for DeepSeek, 8 for GLM, and 5 for Qwen**, under a maximum of ten each. Failed attempts also appear in the logs, so log-entry counts are not the same as charged calls. Tool-call budgets, editor turns, and computation spent inspecting cached activations should not be conflated.
 
 ### Does the edit add mathematical ability?
 
@@ -264,7 +303,7 @@ Our evidence supports targeted repair as a promising use of weight-space program
 
 This article compiles existing artifacts; it does not report newly rerun model evaluations. Scores come from structured evaluation records, not the editors’ claimed final-answer scores. Trace passages above are brief quotations or explanatory summaries; raw reasoning is not required to read this post.
 
-The companion [results snapshot](results-snapshot.json) contains public-facing numerical records. The [reproduction package](code/README.md) contains portable experiment code, setup instructions, and tests.
+The companion [results snapshot](results-snapshot.json) contains public-facing numerical records, including all three newly completed math runs. The [published logs](logs/README.md) and [per-answer evaluations](results/math/) retain the evidence behind the tables. The [reproduction package](code/README.md) contains portable experiment code, setup instructions, and tests.
 
 The base revision is `2fc06364715b967f1860aea9cf38778875588b17`; the evaluated released-edit revision is `d1671a178705bcab7644806d23c535517f35723b`. Earlier shortcut, truncated, killed, and harness-failure runs are not counted as clean completed trials. Some exported `reasoning.md` files are incomplete; the full saved transcript is used when available.
 

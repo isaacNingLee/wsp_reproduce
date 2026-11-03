@@ -324,6 +324,60 @@
     "published_sha256": "4c6106b73e07f53b5f347e48b4a027f402ae5d788be99f8e54af292cc76d1453"
   },
   {
+    "file": "logs/math-edit-completed/deepseek_t0/transcript.jsonl",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "597d2c835dc184ea414b409ef4b81a8c736756804e7cda9c1389759805a43fe6",
+    "published_sha256": "d6522533086456af9791771deba80257c985849de1e024980572a5f9e24f1cfa"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/deepseek_t0/result.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "61a4793758825048d693934ef6b78cdc0407df53b523306f69e1d4b2fbcabfcd",
+    "published_sha256": "354104b6fa8bb1e89f8b3a653fdefd95a41d21023e8e9b2e3af6a4db58e3f30b"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/deepseek_t0/budget.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "17363aef43d9a75440811a87914f9ee69335c837f1e3ff1d930bc22ed94e58d2",
+    "published_sha256": "83f450346cbd8ce9c16be83529eb59a6ead7d8743d16d31315d1ab73fb2af5e4"
+  },
+  {
+    "file": "logs/math-edit-completed/glm_t0/transcript.jsonl",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "e2ee88b14c0fdb3b1bb6e43f25c46c7e58a43e928088d1d4b2110af92599a084",
+    "published_sha256": "7665b53a352909e0684a387a22978a86c2013b67c8eb89a4581a87f4c46e76fb"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/glm_t0/result.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "33801358071428c67b0fd1611c63212266204f4b1b0bfd9b800db51eb4749f9b",
+    "published_sha256": "2921aa3a0a4e2fe065ba10d5abc5876b0a21d4b6103db6ecb43412c81d11ff58"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/glm_t0/budget.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "5b928be3df102285cb35628a3650f7ec56751116fd6b136a1fcba3ffb100d895",
+    "published_sha256": "c594d28d17dd6c67d3dfa1dcf2ca66c4f38b9d36b30cd47e5daaa5a510097eb5"
+  },
+  {
+    "file": "logs/math-edit-completed/qwen38_t0/transcript.jsonl",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "11b90b44f88fc32865b5d4db33c25aa7435f9614c487392028dccb93aa2b8d7b",
+    "published_sha256": "365f9e19ad2ae67464232d8ae06e3343724f1a4592847a754b9b95f0f493444e"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/qwen38_t0/result.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "59773f43d68df7270e3ddce81eef9c1373fc084517b9778613eced046cda52d6",
+    "published_sha256": "e1798f952cbc1ba52f8d235d5f7c0948527b1399d90a5f7090518395ae2964e7"
+  },
+  {
+    "file": "results/experiments/math-edit-completed/qwen38_t0/budget.json",
+    "status": "completed editor run; nominal 10-call budget",
+    "original_sha256": "23fd9a4f19d3a3881a4f40ac77511cce5933bb831d43fa4b227d5e00df4e8c24",
+    "published_sha256": "8823436478834b0696ece94f7174d4efe90e90e069d649cd68e2d61fb53e716c"
+  },
+  {
     "file": "logs/math-edit-archived/deepseek_t0/transcript.jsonl",
     "status": "archived harness failure; not a clean completed comparison",
     "original_sha256": "eb8bf36794a672e6b11ae72df734e776249fc4a26b79c0a34f6baa544eeb7326",
@@ -466,6 +520,42 @@
     "status": "completed checkpoint evaluation; see article for provenance",
     "original_sha256": "faba1a7cf5398ec4cf439431143a4ee5fa3348d94205bf1cb0202d3713e037bd",
     "published_sha256": "c21c50483c4c7fa4570d778859efa5973e30b676753ce4b5580eab3737b328a9"
+  },
+  {
+    "file": "results/math/t3_deepseek_clean/gsm8k_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "324612ac049693ae8a33a1d98ece40cb7b8c5ee8aa96a47e2de2267c8bc93d2a",
+    "published_sha256": "fa002a7a5d755b80c30abbb8854300a69adc51311446e97a06efa0aa87822f65"
+  },
+  {
+    "file": "results/math/t3_deepseek_clean/math500_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "072e5a37712b9bc85eb8db0baa21c2912f6bd172cd76de875e3514828daa3adb",
+    "published_sha256": "f55d20c63b8b399680a670bf4652c2ea2bbcc7a5a5e0e49a8f6c1b4078922695"
+  },
+  {
+    "file": "results/math/t3_glm/gsm8k_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "e09f84395725023205c6bf92bfdb4df8da7d8a2ac44acf4d092d08ef77087b0b",
+    "published_sha256": "ba019827566f6967c2dbcb3aaf1ad4ab13cdd1adf9253ed6cb4f68129cde2918"
+  },
+  {
+    "file": "results/math/t3_glm/math500_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "12528e3451b9589c19fb5e15efb9afea5dcdf6540d88395fdb774342fc664f00",
+    "published_sha256": "81ed7738e9b0175b4024a72f10758085169df827fba0b7710efcdfaea3a65c0a"
+  },
+  {
+    "file": "results/math/t3_qwen38/gsm8k_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "249a3b44f8daefaa24b6eea458a2ee00dbbc88903c008f633d25a98625aa18d4",
+    "published_sha256": "1bcb4fa6ea70092fa3368afb38e76d21f1939eae9bcc651cb3a3b7df49c5ff91"
+  },
+  {
+    "file": "results/math/t3_qwen38/math500_think.json",
+    "status": "completed checkpoint evaluation; see article for provenance",
+    "original_sha256": "bd5ba89b8738ebaa7b7822ea8c48540f866f23a8401be88702bd3429d601b5e0",
+    "published_sha256": "ac6244f25fbfda991099bb8b5d507126005b774850340348299334ecea4764ee"
   },
   {
     "file": "results/audit/released-edit.json",
