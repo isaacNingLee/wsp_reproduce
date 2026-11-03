@@ -13,3 +13,15 @@ for name, scores in rows.items():
     print(f"| {name} | {scores['MATH-500']:.1f} | {scores['GSM8K']:.1f} |")
 for name in snapshot['missing_math_results']:
     print(f'| {name} | Not available | Not available |')
+
+if 'model_merging' in snapshot:
+    merging = snapshot['model_merging']
+    print('\n| Merging method | CIFAR-100 (%) | CUB (%) | Mean (%) |')
+    print('|---|---:|---:|---:|')
+    for key, label in [('average', 'Plain averaging'), ('task_arithmetic', 'Task arithmetic tuned on practice')]:
+        scores = merging['baselines']['holdout'][key]
+        print(f"| {label} | {100*scores['cifar100']:.2f} | {100*scores['cub']:.2f} | {100*scores['mean']:.2f} |")
+    for editor in merging['editors']:
+        scores = editor['holdout']
+        label = editor['editor'] + (' (submission failure)' if not editor['beats_average'] else '')
+        print(f"| {label} | {100*scores['cifar100']:.2f} | {100*scores['cub']:.2f} | {100*scores['mean']:.2f} |")

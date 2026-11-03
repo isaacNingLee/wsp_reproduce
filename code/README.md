@@ -99,3 +99,16 @@ python scripts/run_agent.py --task vit_fix --dataset cifar100 --model deepseek -
 Set `WSP_SCRATCH` to relocate run artifacts, `WSP_OUT` to relocate evaluation output, and `HF_HOME` to select a download cache. Identification hides the home directory by default. If reference checkpoints or caches live elsewhere, set `WSP_HIDE_ROOTS` to a colon-separated list of all private roots before running identification. The interpreter and harness are explicitly made visible inside the sandbox. Other tasks retain read-only filesystem access; the sandbox is a research harness, not a formal proof of protocol compliance.
 
 See [VALIDATION.md](VALIDATION.md) for the checks actually performed and their limits.
+
+## Model merging
+
+After configuring the three vision checkpoints and preparing both dataset splits as above:
+
+```bash
+python scripts/merge_baselines.py --gpu 0
+python scripts/run_agent.py --task vit_merge --model deepseek --passes 8 --trial 0 --gpu 0 --max_turns 20
+```
+
+Use `--model glm` or `--model qwen38` for the other API editors. The saved backbone is `work/runs/vit_merge/<editor>_t<trial>/merge.pt`; heads remain fixed. Scoring records practice and held-out accuracy separately. Astra requires a separate execution setup.
+
+This reproduces the recorded harness, including a known isolation limitation: baseline and cache/split files mounted into the editor sandbox contain held-out information. It is not a hardened blind-evaluation benchmark. The article discloses that limitation; do not describe runs with this harness as certified blind. The correct full merge adds the parent to the weighted task deltas. Evaluate the saved object itself to catch missing-parent errors.

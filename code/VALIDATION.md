@@ -14,3 +14,7 @@ Full benchmark suites and new API-driven editor trajectories were not rerun. A f
 ## Completed-math-results update
 
 The six new evaluation files (three editors × two benchmarks) were checked against their per-answer records: 200 answers to the same 100 problems per benchmark, with matching sampling settings. Accuracy and token-limit fractions were recomputed from those records. Updated logs are redacted copies of completed runs; original experiment files were not changed.
+
+## Model-merging addition
+
+The four completed result files and baseline selection were checked arithmetically. A new read-only CPU audit compared all 150 saved backbone tensors in each run with the formula reconstructed from its transcript. It confirmed Astra’s parent-shrunk blend, DeepSeek/Qwen’s 40/60 blend, and GLM’s omission of the parent. This audit did not rerun image inference or alter checkpoints. The merging entry points were syntax/import checked; full GPU merge evaluations were not rerun for this update.

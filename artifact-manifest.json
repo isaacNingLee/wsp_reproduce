@@ -586,5 +586,89 @@
     "status": "control construction metadata",
     "original_sha256": "cb463a927ad5dff7c6571b4505dfd502ccd008045312a658f211895f4a88f968",
     "published_sha256": "e65a3005701c7f2bb6d07db76cc0a5fe8f4b52daf8cf18ea0420faeb91675791"
+  },
+  {
+    "file": "results/experiments/vit_merge/astra_t0/result.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "2557e6d56d6f5f261f21d592c788d5a0bdc00f9639e8b230f7b3cf29d9725b71",
+    "published_sha256": "335dc0be17c7a6776ad1eb62de26087b48f2c5e07050ccc5742dd4760f8e874f"
+  },
+  {
+    "file": "results/experiments/vit_merge/astra_t0/budget.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "02ca16bedd4c361b36b2aa8a1671df04314219a31f02c51baa78db5bae0e1a9c",
+    "published_sha256": "1a042f467a4f74ab9ffc7cce3c8b57799729c8737bb191b9ccc895c30125bdc4"
+  },
+  {
+    "file": "logs/vit_merge/astra_t0/transcript.jsonl",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "16cb9e28985c8eb94fe3d8ec23e83daf7444d9b7212f5b04c897860ec1a218a6",
+    "published_sha256": "bb4fdd82887f6e6c9fc860bfc027cb70a40a9c6ce1862d6fdf8f2b3be68aa19c"
+  },
+  {
+    "file": "results/experiments/vit_merge/deepseek_t0/result.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "247e6a38e33fbe003a2b6ae79baad26167e799cf38f9b1fb2d4a845fb9e4833f",
+    "published_sha256": "191ea28013c76d7f97574e10b0069839487d352843e861ff9b9b9506e48d13ec"
+  },
+  {
+    "file": "results/experiments/vit_merge/deepseek_t0/budget.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "5f8a40533585c18050614959b8dfc33a0cd7d905bac76045495f59c318b8d288",
+    "published_sha256": "f7653f2f530c250b39a2f53c2d5707435aea420b5deaff845783e2be18192f04"
+  },
+  {
+    "file": "logs/vit_merge/deepseek_t0/transcript.jsonl",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "67c7e79522d38d61a778550b9a3752acfa87f989513ab3a6186359a41fdb4db1",
+    "published_sha256": "6f2a929963e0f716a3fefab5ca5a15293044c417fea3283b26085319c8b00f29"
+  },
+  {
+    "file": "results/experiments/vit_merge/glm_t0/result.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "2274b5452e3552ef9ea628de702b7d1c6fc61ed79a1d5f0bb419929920a6ca69",
+    "published_sha256": "526d1b1bdd842bd9a8d899ba925d59e47a0df6aaef09716fab4ee7479c02c7db"
+  },
+  {
+    "file": "results/experiments/vit_merge/glm_t0/budget.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "6fb18dd00175be87f4258619964a8567cf00cfe00cb3d20f57511dbee54091ea",
+    "published_sha256": "499c5877bba3ac543f0a5149841a284e0be33aa719aa134c3e20dd7e2ba46ce3"
+  },
+  {
+    "file": "logs/vit_merge/glm_t0/transcript.jsonl",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "4a01adbbd15c49b38e928501203c54659a562a43260f4fa4743bdfe175c76cef",
+    "published_sha256": "b9e3524ee9fbb9c430575e3e5f4f3919ff83245bf22f5cdc3a1b1ae155bf6788"
+  },
+  {
+    "file": "results/experiments/vit_merge/qwen38_t0/result.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "58268a0f60004e3e91a4c97a527a8444fe198f28cb71b8833994ea617142c8db",
+    "published_sha256": "f7c1ed748bc3655336ebd43118c2715506867477f79113a33bff83f48336c16d"
+  },
+  {
+    "file": "results/experiments/vit_merge/qwen38_t0/budget.json",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "64f539e63c2e0bd83e48ec3e7a0e8763c37bf2a2cc5c2b4f36783f2669098d5e",
+    "published_sha256": "ef773d4c92a770532665241c88affdd01681d6cbd6568e8287d50be211553b65"
+  },
+  {
+    "file": "logs/vit_merge/qwen38_t0/transcript.jsonl",
+    "status": "completed model-merging run; see isolation caveat in article",
+    "original_sha256": "09148491a891f3df7603424ee5788a85e08709be9ac0287bd6263329620ec9f5",
+    "published_sha256": "4d603ec306e74afe9a72037801862b13d11df7eafe7fb7413957ca68700b32d0"
+  },
+  {
+    "file": "results/merging/baselines.json",
+    "status": "measured merge baselines; shared task-arithmetic strength selected on practice",
+    "original_sha256": "445699240c8e9418657150e7ebe312c1374d831a19a0c0f0afbb226c7a1fce15",
+    "published_sha256": "18a4cc26a751b0d389a3965f3f17fb236ca5da0f5d2ab68971b5878f04fc76be"
+  },
+  {
+    "file": "results/merging/saved-weight-audit.json",
+    "status": "read-only audit of all 150 tensors in each saved merged backbone",
+    "original_sha256": "6037c971b32dbcaaf0dbe4a78a4bbc37068fb16cb681e879a787360c668c3a69",
+    "published_sha256": "6037c971b32dbcaaf0dbe4a78a4bbc37068fb16cb681e879a787360c668c3a69"
   }
 ]

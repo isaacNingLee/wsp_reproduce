@@ -21,7 +21,7 @@ PERMS = list(itertools.permutations(("imagenet", "cifar100", "cub")))
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--task", choices=["vit_identify", "vit_fix", "qwen_math"], required=True)
+    ap.add_argument("--task", choices=["vit_identify", "vit_fix", "qwen_math", "vit_merge"], required=True)
     ap.add_argument("--model", choices=["deepseek", "glm", "qwen38"], required=True)
     ap.add_argument("--trial", type=int, default=0)
     ap.add_argument("--dataset", default="cifar100")
@@ -40,6 +40,8 @@ def main():
     elif args.task == "vit_fix":
         cfg.update(dataset=args.dataset, passes=args.passes)
         name += f"_{args.dataset}"
+    elif args.task == "vit_merge":
+        cfg.update(passes=args.passes)
     else:
         cfg.update(passes=args.passes)
         name += f"_p{args.passes}"

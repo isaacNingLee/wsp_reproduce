@@ -8,6 +8,8 @@ We investigated these questions using Astra and DeepSeek V4.1 Flash 1017, GLM 5.
 
 **The clearest result is that targeted edits can recover useful behavior when a model already has the relevant capability.** On our math subset, the released edit raises Qwen3.5-0.8B from **5.0% to 54.5%** on MATH-500. A new local Astra edit reaches **64.0%**. Completed edits from GLM 5.3 Flash, Qwen 3.8 27B, and DeepSeek V4.1 Flash 1017 reach **53.5%, 24.5%, and 22.5%**, respectively, on the same MATH-500 subset. All four editors identify our anonymous vision checkpoints correctly. But repairing fine-grained bird classification is less reliable: an edit that reaches **96.7% on practice images** achieves only **60.0% on held-out images**, and fails our overall-accuracy constraint.
 
+In an additional merging experiment, Astra and DeepSeek both reach **80.6% mean accuracy** across CIFAR-100 and CUB, versus **79.4% for plain averaging**. Qwen reaches **80.5%**; GLM finds a useful candidate but saves the wrong mathematical object.
+
 The saved editor reasoning traces help explain this gap. They show useful mathematical deductions, sensible calibration strategies, and also a validation procedure that inadvertently reuses information from the example it claims to hold out.
 
 ## What we tested
@@ -23,11 +25,12 @@ This investigation follows [*Sparks of Weight-Space Programming*](https://rikiya
 
 These are the authors’ reported values, not measurements from our runs. Their evaluation uses full benchmarks and repeated samples; our math evaluation uses 100 problems per benchmark and two samples per problem. [Source: original post, Experiment 8](https://rikiyat.github.io/blog/weight-space-programming/).
 
-Our work has three parts:
+Our work has four parts:
 
 1. **Read:** identify ImageNet, CIFAR-100, and CUB vision checkpoints from middle-layer weights, without forward passes.
 2. **Repair:** edit a vision classifier to improve a confused class pair, while limiting the overall accuracy loss.
 3. **Improve:** evaluate the released Qwen edit, compare controls, and test locally produced math edits.
+4. **Merge:** combine two separately fine-tuned vision backbones while retaining both task-specific heads—a task not evaluated in the original post.
 
 The local vision experiments are extensions of the idea, not reproductions of the blog’s tasks. There is no published CIFAR/CUB score to put beside them.
 
@@ -284,6 +287,90 @@ A useful control is to disable thinking:
 The unedited model already answers many problems correctly in this mode. The released edit does not improve these point estimates. The no-thinking profile also changes temperature, top-p, and the token cap, so this is not an isolated toggle experiment.
 
 Nevertheless, together with the large decline in truncated thinking-mode answers, these observations support a narrower interpretation: **the edits recover access to existing competence by improving the generation trajectory**. They do not establish that the model learned new mathematical procedures.
+
+## Experiment 4: Merging two fine-tuned models into one backbone
+
+Can the editor combine two adaptations without retraining? This experiment extends the investigation to a task not tested in the original post.
+
+We start with the shared ImageNet ViT-B/16 parent and its CIFAR-100 and CUB fine-tunes. The editor must produce **one shared backbone**. The original CIFAR-100 and CUB classification heads stay fixed, and the appropriate head is used for each dataset. This is not a single unified classifier or an ensemble of two backbones.
+
+Each editor has a budget of **eight practice evaluations**. Practice contains 5,000 CIFAR-100 images and 2,875 CUB images; scoring uses 5,000 and 2,915 held-out images, respectively. The score is the **unweighted mean of the two dataset accuracies**, not accuracy pooled over all images. The logged prompt incorrectly says 2,895 CUB practice images; the saved split contains 2,875.
+
+### Results: similar scores, slightly different blends
+
+| Method or editor | CIFAR-100 held-out accuracy (%) | CUB held-out accuracy (%) | Mean held-out accuracy (%) |
+|---|---:|---:|---:|
+| Plain equal averaging of the two fine-tuned backbones | 85.32 | 73.52 | 79.42 |
+| Task arithmetic, shared strength selected on practice | 84.76 | 74.96 | 79.86 |
+| GPT-6 Astra | 84.36 | 76.78 | **80.57** |
+| DeepSeek V4.1 Flash 1017 | 83.06 | 78.04 | **80.55** |
+| Qwen 3.8 27B | 83.04 | 78.01 | **80.53** |
+| GLM 5.3 Flash: incorrectly saved backbone | 1.00 | 0.65 | **0.83 — submission failure** |
+| Reference: retain both separate task-specific backbones | 88.46 | 83.22 | 85.84 |
+
+The final row uses two different backbones and therefore does not satisfy the merging task. It is a reference for how much accuracy the shared model gives up, not a proven upper bound on what a merged model could achieve.
+
+Astra and DeepSeek both round to **80.6%**, while Qwen rounds to **80.5%**. Their exact mean scores differ by less than **0.05 percentage points**. This supports “similar performance on this experiment,” not a general model ranking. The small differences between DeepSeek and Qwen also occur despite nominally identical formulas; their code uses different floating-point arithmetic, and these runs do not isolate numerical effects from evaluation variation.
+
+The best result improves on plain averaging by **1.15 percentage points**, or on tuned task arithmetic by **0.71 points**. The gap from plain averaging to the separate-backbone reference is **6.42 points**, so the best merge recovers about **18%** of that gap. Most of the gap remains.
+
+### What the successful editors actually saved
+
+Let $P$ be the parent backbone, $C$ the CIFAR fine-tune, and $B$ the bird fine-tune. The task vectors are $Delta_C=C-P$ and $Delta_B=B-P$.
+
+Plain averaging uses $(C+B)/2$. The task-arithmetic baseline searches a single shared strength in
+
+$$
+P+lambda(Delta_C+Delta_B).
+$$
+
+It tests strengths 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, and 1.0, selecting **0.4 on practice accuracy** before reporting the held-out score.
+
+DeepSeek and Qwen instead save an asymmetric blend:
+
+$$
+P+0.40Delta_C+0.60Delta_B=0.40C+0.60B.
+$$
+
+Astra favors the bird adaptation too, but also shrinks the update toward the parent:
+
+$$
+P+0.40Delta_C+0.50Delta_B=0.10P+0.40C+0.50B.
+$$
+
+Thus, the three successful editors converge on a **similar CUB-favoring family**, not exactly the same merge. A read-only [audit of the saved weights](results/merging/saved-weight-audit.json) checks all 150 backbone tensors per submission. Each successful artifact matches its stated formula with a maximum absolute discrepancy below **0.00000006**.
+
+### Why an asymmetric blend helps
+
+The [DeepSeek](logs/vit_merge/deepseek_t0/transcript.jsonl), [Qwen](logs/vit_merge/qwen38_t0/transcript.jsonl), and [Astra](logs/vit_merge/astra_t0/transcript.jsonl) logs share a useful observation: the CIFAR task vector is roughly **1.5 times larger** than the CUB task vector across much of the network. Equal scalar weights therefore do not mean equal-sized perturbations. The practice results also show that equal averaging sacrifices substantially more bird accuracy than CIFAR accuracy.
+
+Those measurements motivate reducing the CIFAR contribution. The successful merges trade some CIFAR accuracy for a larger CUB gain, improving the mean. Their candidate evaluations—not the norm comparison alone—establish that this trade is beneficial on this split.
+
+More elaborate proposals do not necessarily help. Qwen’s full sum of both task vectors reaches only **59.88% mean practice accuracy**, and its sign-based conflict-resolution candidate reaches **54.18%**. Near-orthogonal parameter changes do not guarantee independent functional effects: both updates still pass through the same nonlinear network and fixed heads. Astra likewise tests head-aware corrections, depth-varying coefficients, and sparse sign-consistent updates, then keeps the simpler parent-shrunk blend.
+
+This is a useful result for an editor that can inspect weights and choose among candidates. It is not evidence that the LLM discovered a new merging algorithm. A direct search over two independent mixing coefficients is an important missing baseline; outperforming equal averaging and a shared-strength task-arithmetic grid does not establish superiority over well-tuned asymmetric interpolation.
+
+### GLM’s failure: a good candidate is not a valid saved model
+
+The [GLM trace](logs/vit_merge/glm_t0/transcript.jsonl) evaluates a correct 40% CIFAR / 60% CUB blend at **80.37% mean practice accuracy**. Its final prose claims that this candidate was submitted.
+
+The save code tells a different story. It first constructs the blended **delta**, then subtracts the parent before passing that tensor dictionary to a helper that adds the parent. The two parent terms cancel. What reaches disk is
+
+$$
+0.40Delta_C+0.60Delta_B,
+$$
+
+rather than the full backbone $P+0.40Delta_C+0.60Delta_B$.
+
+The saved-weight audit confirms this across every backbone tensor. The resulting artifact scores **0.83% mean held-out accuracy**, close to chance. Shape and finite-value checks pass because a delta has exactly the same tensor shapes as a model; they cannot detect the missing parent.
+
+This failure is especially informative because the candidate-selection reasoning was broadly sound. The broken link was between the evaluated candidate and the submitted artifact. A robust workflow must reload the saved backbone and evaluate that exact object before declaring success. We report the actual failed submission and do not silently replace it with the candidate described in the final answer.
+
+### Limits of this merging experiment
+
+There is only one checkpoint pair and one split. The trials have separate run directories; earlier open-filesystem attempts are excluded. However, the sandbox’s allowlist includes the baseline JSON containing held-out baseline scores and cache/split files containing held-out information. DeepSeek also inspects evaluator internals and searches for data in its trace. The intended scoring split is held out from the normal practice-evaluation tool, but these artifacts do **not** establish strict evaluation blindness or complete run isolation.
+
+The recorded scores and saved-weight formulas remain reproducible evidence about the submitted models. A stronger comparison should expose only practice data and practice baseline summaries, isolate scoring in a separate process, repeat the experiment across seeds, and include a tuned asymmetric-blend baseline. We omit cost comparisons because the experiment artifacts contain token usage but no verified billing record.
 
 ## What the traces teach us
 

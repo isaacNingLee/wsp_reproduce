@@ -1,0 +1,88 @@
+{
+  "task": "vit_merge",
+  "submitted": true,
+  "holdout": {
+    "cifar100": 0.8435999751091003,
+    "cub": 0.767753005027771,
+    "mean": 0.8056764900684357
+  },
+  "practice": {
+    "cifar100": 0.8384000062942505,
+    "cub": 0.7683477997779846,
+    "mean": 0.8033739030361176
+  },
+  "baselines_holdout": {
+    "parent": {
+      "cifar100": 0.6922000050544739,
+      "cub": 0.5379073619842529,
+      "mean": 0.6150536835193634
+    },
+    "cifar_child": {
+      "cifar100": 0.8845999836921692,
+      "cub": 0.2092624306678772,
+      "mean": 0.5469312071800232
+    },
+    "cub_child": {
+      "cifar100": 0.52920001745224,
+      "cub": 0.8322470188140869,
+      "mean": 0.6807235181331635
+    },
+    "average": {
+      "cifar100": 0.8532000184059143,
+      "cub": 0.7351629734039307,
+      "mean": 0.7941814959049225
+    },
+    "ta_0.3": {
+      "cifar100": 0.8325999975204468,
+      "cub": 0.7403087615966797,
+      "mean": 0.7864543795585632
+    },
+    "ta_0.4": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089
+    },
+    "ta_0.5": {
+      "cifar100": 0.853600025177002,
+      "cub": 0.7344768643379211,
+      "mean": 0.7940384447574615
+    },
+    "ta_0.6": {
+      "cifar100": 0.854200005531311,
+      "cub": 0.7142367362976074,
+      "mean": 0.7842183709144592
+    },
+    "ta_0.7": {
+      "cifar100": 0.84579998254776,
+      "cub": 0.6775299906730652,
+      "mean": 0.7616649866104126
+    },
+    "ta_0.8": {
+      "cifar100": 0.8374000191688538,
+      "cub": 0.6161234974861145,
+      "mean": 0.7267617583274841
+    },
+    "ta_1.0": {
+      "cifar100": 0.7778000235557556,
+      "cub": 0.4353344738483429,
+      "mean": 0.6065672487020493
+    },
+    "task_arithmetic": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089,
+      "lam": 0.4
+    }
+  },
+  "beats_average": true,
+  "beats_task_arithmetic": true,
+  "final_answer": "FINAL ANSWER\n\nSaved the backbone defined, for **every backbone tensor**, by\n\n\\[\n\\theta_{\\text{merge}}\n=\\theta_{\\text{parent}}\n+0.40(\\theta_{\\text{cifar}}-\\theta_{\\text{parent}})\n+0.50(\\theta_{\\text{cub}}-\\theta_{\\text{parent}})\n=0.10\\theta_{\\text{parent}}+0.40\\theta_{\\text{cifar}}+0.50\\theta_{\\text{cub}}.\n\\]\n\nBoth classifier heads remain unchanged.\n\n**Why this rule:** CIFAR’s fine-tuning updates were consistently larger, and the reference average sacrificed more CUB accuracy. Slightly favoring CUB while shrinking the combined update toward the shared parent gave the highest measured mean among the eight candidates. Larger updates, head-aware corrections, depth-dependent mixing, and sparse sign-consistent merging did not outperform it.\n\n### Measured practice accuracies\n\n| Candidate | CIFAR-100 | CUB | Mean |\n|---|---:|---:|---:|\n| Parent + 0.70 CIFAR delta + 0.70 CUB delta | 84.16% | 69.29% | 76.72% |\n| 35% CIFAR / 65% CUB average | 80.44% | 79.93% | 80.19% |\n| 40% / 60% average + final-MLP head correction | 82.14% | 78.26% | 80.20% |\n| **Saved: 10% parent / 40% CIFAR / 50% CUB** | **83.84%** | **76.83%** | **80.34%** |\n| Depth-varying merge, total delta strength 0.90 | 83.72% | 76.83% | 80.28% |\n| Sparse sign-consistent merge, scale 0.90 | 84.86% | 74.75% | 79.80% |\n| Sparse sign-consistent merge, scale 0.65 | 83.94% | 75.55% | 79.74% |\n| 42.5% CIFAR / 57.5% CUB average | 83.20% | 77.43% | 80.31% |\n\nThe saved merge improves on the supplied simple-average reference by **0.70 percentage points in mean practice accuracy**. No training or label regression was used.",
+  "model": "GPT-6 Astra",
+  "turns": 10,
+  "code_runs": 9,
+  "usage": {
+    "prompt_tokens": 39362,
+    "completion_tokens": 9811
+  },
+  "finalize": "True"
+}

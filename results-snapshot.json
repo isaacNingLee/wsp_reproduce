@@ -1284,5 +1284,260 @@
         "model.language_model.layers.23.mlp.down_proj.weight"
       ]
     }
-  ]
+  ],
+  "model_merging": {
+    "metric": "Unweighted mean of CIFAR-100 and CUB-200 held-out accuracy; one shared backbone with two unchanged task-specific heads",
+    "evaluation_budget_per_editor": 8,
+    "baselines": {
+      "practice": {
+        "parent": {
+          "cifar100": 0.6917999982833862,
+          "cub": 0.560347855091095,
+          "mean": 0.6260739266872406
+        },
+        "cifar_child": {
+          "cifar100": 0.8838000297546387,
+          "cub": 0.2201739102602005,
+          "mean": 0.5519869700074196
+        },
+        "cub_child": {
+          "cifar100": 0.5105999708175659,
+          "cub": 0.8413913249969482,
+          "mean": 0.6759956479072571
+        },
+        "average": {
+          "cifar100": 0.8519999980926514,
+          "cub": 0.7408695816993713,
+          "mean": 0.7964347898960114
+        },
+        "ta_0.3": {
+          "cifar100": 0.8363999724388123,
+          "cub": 0.7429565191268921,
+          "mean": 0.7896782457828522
+        },
+        "ta_0.4": {
+          "cifar100": 0.8489999771118164,
+          "cub": 0.7495652437210083,
+          "mean": 0.7992826104164124
+        },
+        "ta_0.5": {
+          "cifar100": 0.8521999716758728,
+          "cub": 0.7405217289924622,
+          "mean": 0.7963608503341675
+        },
+        "ta_0.6": {
+          "cifar100": 0.850600004196167,
+          "cub": 0.7255651950836182,
+          "mean": 0.7880825996398926
+        },
+        "ta_0.7": {
+          "cifar100": 0.8417999744415283,
+          "cub": 0.6928695440292358,
+          "mean": 0.7673347592353821
+        },
+        "ta_0.8": {
+          "cifar100": 0.8288000226020813,
+          "cub": 0.6399999856948853,
+          "mean": 0.7344000041484833
+        },
+        "ta_1.0": {
+          "cifar100": 0.771399974822998,
+          "cub": 0.426086962223053,
+          "mean": 0.5987434685230255
+        },
+        "task_arithmetic": {
+          "cifar100": 0.8489999771118164,
+          "cub": 0.7495652437210083,
+          "mean": 0.7992826104164124,
+          "lam": 0.4
+        }
+      },
+      "holdout": {
+        "parent": {
+          "cifar100": 0.6922000050544739,
+          "cub": 0.5379073619842529,
+          "mean": 0.6150536835193634
+        },
+        "cifar_child": {
+          "cifar100": 0.8845999836921692,
+          "cub": 0.2092624306678772,
+          "mean": 0.5469312071800232
+        },
+        "cub_child": {
+          "cifar100": 0.52920001745224,
+          "cub": 0.8322470188140869,
+          "mean": 0.6807235181331635
+        },
+        "average": {
+          "cifar100": 0.8532000184059143,
+          "cub": 0.7351629734039307,
+          "mean": 0.7941814959049225
+        },
+        "ta_0.3": {
+          "cifar100": 0.8325999975204468,
+          "cub": 0.7403087615966797,
+          "mean": 0.7864543795585632
+        },
+        "ta_0.4": {
+          "cifar100": 0.847599983215332,
+          "cub": 0.7495712041854858,
+          "mean": 0.7985855937004089
+        },
+        "ta_0.5": {
+          "cifar100": 0.853600025177002,
+          "cub": 0.7344768643379211,
+          "mean": 0.7940384447574615
+        },
+        "ta_0.6": {
+          "cifar100": 0.854200005531311,
+          "cub": 0.7142367362976074,
+          "mean": 0.7842183709144592
+        },
+        "ta_0.7": {
+          "cifar100": 0.84579998254776,
+          "cub": 0.6775299906730652,
+          "mean": 0.7616649866104126
+        },
+        "ta_0.8": {
+          "cifar100": 0.8374000191688538,
+          "cub": 0.6161234974861145,
+          "mean": 0.7267617583274841
+        },
+        "ta_1.0": {
+          "cifar100": 0.7778000235557556,
+          "cub": 0.4353344738483429,
+          "mean": 0.6065672487020493
+        },
+        "task_arithmetic": {
+          "cifar100": 0.847599983215332,
+          "cub": 0.7495712041854858,
+          "mean": 0.7985855937004089,
+          "lam": 0.4
+        }
+      }
+    },
+    "saved_weight_audit": {
+      "astra_t0": {
+        "backbone_tensors": 150,
+        "cifar_delta_coefficient": 0.4,
+        "cub_delta_coefficient": 0.5,
+        "parent_added": true,
+        "max_absolute_error_to_formula": 5.364418032005602e-08,
+        "relative_frobenius_error_to_formula": 3.9512295343494976e-08,
+        "distance_to_parent": 32.62508910778018,
+        "distance_to_intended_full_backbone": 1.0877372677509144e-05
+      },
+      "deepseek_t0": {
+        "backbone_tensors": 150,
+        "cifar_delta_coefficient": 0.4,
+        "cub_delta_coefficient": 0.6,
+        "parent_added": true,
+        "max_absolute_error_to_formula": 2.384185793236071e-08,
+        "relative_frobenius_error_to_formula": 2.491346390956181e-08,
+        "distance_to_parent": 35.501496237061346,
+        "distance_to_intended_full_backbone": 6.859966555467997e-06
+      },
+      "qwen38_t0": {
+        "backbone_tensors": 150,
+        "cifar_delta_coefficient": 0.4,
+        "cub_delta_coefficient": 0.6,
+        "parent_added": true,
+        "max_absolute_error_to_formula": 4.768371586472142e-08,
+        "relative_frobenius_error_to_formula": 3.5885311428303967e-08,
+        "distance_to_parent": 35.501497161318355,
+        "distance_to_intended_full_backbone": 9.881084266546204e-06
+      },
+      "glm_t0": {
+        "backbone_tensors": 150,
+        "cifar_delta_coefficient": 0.4,
+        "cub_delta_coefficient": 0.6,
+        "parent_added": false,
+        "max_absolute_error_to_formula": 5.960464477539063e-08,
+        "relative_frobenius_error_to_formula": 2.0857361963496424e-07,
+        "distance_to_parent": 283.2708918145063,
+        "distance_to_intended_full_backbone": 277.07425602646106
+      },
+      "split_sizes": {
+        "cifar100": {
+          "practice": 5000,
+          "holdout": 5000
+        },
+        "cub": {
+          "practice": 2875,
+          "holdout": 2915
+        }
+      }
+    },
+    "editors": [
+      {
+        "editor": "GPT-6 Astra",
+        "practice": {
+          "cifar100": 0.8384000062942505,
+          "cub": 0.7683477997779846,
+          "mean": 0.8033739030361176
+        },
+        "holdout": {
+          "cifar100": 0.8435999751091003,
+          "cub": 0.767753005027771,
+          "mean": 0.8056764900684357
+        },
+        "charged_evaluations": 8,
+        "beats_average": true,
+        "beats_task_arithmetic": true,
+        "submission_status": "saved full merged backbone"
+      },
+      {
+        "editor": "DeepSeek V4.1 Flash 1017",
+        "practice": {
+          "cifar100": 0.8240000009536743,
+          "cub": 0.7829565405845642,
+          "mean": 0.8034782707691193
+        },
+        "holdout": {
+          "cifar100": 0.8306000232696533,
+          "cub": 0.7804459929466248,
+          "mean": 0.805523008108139
+        },
+        "charged_evaluations": 8,
+        "beats_average": true,
+        "beats_task_arithmetic": true,
+        "submission_status": "saved full merged backbone"
+      },
+      {
+        "editor": "GLM 5.3 Flash",
+        "practice": {
+          "cifar100": 0.009999999776482582,
+          "cub": 0.005217391531914473,
+          "mean": 0.007608695654198527
+        },
+        "holdout": {
+          "cifar100": 0.009999999776482582,
+          "cub": 0.006518010515719652,
+          "mean": 0.008259005146101117
+        },
+        "charged_evaluations": 8,
+        "beats_average": false,
+        "beats_task_arithmetic": false,
+        "submission_status": "saved task deltas without parent; artifact failure"
+      },
+      {
+        "editor": "Qwen 3.8 27B",
+        "practice": {
+          "cifar100": 0.8241999745368958,
+          "cub": 0.7836521863937378,
+          "mean": 0.8039260804653168
+        },
+        "holdout": {
+          "cifar100": 0.8303999900817871,
+          "cub": 0.7801029086112976,
+          "mean": 0.8052514493465424
+        },
+        "charged_evaluations": 7,
+        "beats_average": true,
+        "beats_task_arithmetic": true,
+        "submission_status": "saved full merged backbone"
+      }
+    ],
+    "limitations": "One checkpoint pair and split. Editors had eight evaluations and did not all choose identical formulas. The sandbox mounted baseline scores and split/cache files that contained held-out information; this is not certified blind evaluation. No exhaustive asymmetric-blend baseline or repeated seeds."
+  }
 }

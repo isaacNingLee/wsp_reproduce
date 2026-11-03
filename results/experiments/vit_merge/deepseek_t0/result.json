@@ -1,0 +1,88 @@
+{
+  "task": "vit_merge",
+  "submitted": true,
+  "holdout": {
+    "cifar100": 0.8306000232696533,
+    "cub": 0.7804459929466248,
+    "mean": 0.805523008108139
+  },
+  "practice": {
+    "cifar100": 0.8240000009536743,
+    "cub": 0.7829565405845642,
+    "mean": 0.8034782707691193
+  },
+  "baselines_holdout": {
+    "parent": {
+      "cifar100": 0.6922000050544739,
+      "cub": 0.5379073619842529,
+      "mean": 0.6150536835193634
+    },
+    "cifar_child": {
+      "cifar100": 0.8845999836921692,
+      "cub": 0.2092624306678772,
+      "mean": 0.5469312071800232
+    },
+    "cub_child": {
+      "cifar100": 0.52920001745224,
+      "cub": 0.8322470188140869,
+      "mean": 0.6807235181331635
+    },
+    "average": {
+      "cifar100": 0.8532000184059143,
+      "cub": 0.7351629734039307,
+      "mean": 0.7941814959049225
+    },
+    "ta_0.3": {
+      "cifar100": 0.8325999975204468,
+      "cub": 0.7403087615966797,
+      "mean": 0.7864543795585632
+    },
+    "ta_0.4": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089
+    },
+    "ta_0.5": {
+      "cifar100": 0.853600025177002,
+      "cub": 0.7344768643379211,
+      "mean": 0.7940384447574615
+    },
+    "ta_0.6": {
+      "cifar100": 0.854200005531311,
+      "cub": 0.7142367362976074,
+      "mean": 0.7842183709144592
+    },
+    "ta_0.7": {
+      "cifar100": 0.84579998254776,
+      "cub": 0.6775299906730652,
+      "mean": 0.7616649866104126
+    },
+    "ta_0.8": {
+      "cifar100": 0.8374000191688538,
+      "cub": 0.6161234974861145,
+      "mean": 0.7267617583274841
+    },
+    "ta_1.0": {
+      "cifar100": 0.7778000235557556,
+      "cub": 0.4353344738483429,
+      "mean": 0.6065672487020493
+    },
+    "task_arithmetic": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089,
+      "lam": 0.4
+    }
+  },
+  "beats_average": true,
+  "beats_task_arithmetic": true,
+  "final_answer": "FINAL ANSWER\n\n**Merge rule used (submitted):** a single, global convex blend of the two fine-tuning deltas applied uniformly to every backbone tensor (all 150 tensors except the two heads):\n\n    W = P + 0.40·(W_cifar − P) + 0.60·(W_cub − P)\n\ni.e. for each key, `sd[k] = parent[k] + 0.40·δc[k] + 0.60·δu[k]`, computed in float64 and cast back to float32. No per-layer or per-tensor-type weighting, no scaling beyond the (0.40, 0.60) split.\n\n**Why this rule (weight-space analysis, no labels used):**\n- The two fine-tuning deltas δc, δu are **nearly orthogonal** at every depth: per-block cosine 0.12–0.18 in the earliest blocks and 0.02–0.06 in mid/late blocks (only the final LayerNorm, 0.97, and the class token, 0.74, are aligned). So the two adaptations occupy almost disjoint parameter directions and a convex blend is the natural compromise — there is no \"shared\" component worth averaging first.\n- CIFAR's delta is consistently ~1.5× larger in norm than CUB's at every block (rel. size ≈0.19–0.24 vs 0.13–0.17 of the parent norm), so the equal-weight blend over-weights CIFAR's perturbation and starves CUB; this predicted an optimum shifted toward the CUB delta, confirmed by measurement.\n- The two fixed heads read feature subspaces that overlap **exactly at the random baseline** (‖W_cub·proj_row(W_cifar)‖ / ‖W_cub‖ = 0.361 = √(100/768)), so there is no head-aware subspace trick available; the only real freedom is the global mixing ratio.\n- Everything more elaborate was tested and lost: adding both full deltas (a=b=1 → CUB collapses to 42.7, total perturbation scale matters), mild scale-up (0.41/0.77 → 79.3), and depth-dependent ratio tilts in both directions (tilt toward CUB late: 78.7; tilt toward CIFAR late: 79.8). Uniform convex blending at total scale 1 is the optimum of this family, and the measured accuracy curve is concave with its vertex between t=0.55 and 0.65.\n\n**Practice accuracies measured (CIFAR-100 / CUB / mean):**\n- **Submitted: a=0.40, b=0.60 → 82.40 / 78.30 / 80.35**\n- a=0.35, b=0.65 → 80.32 / 79.93 / 80.13\n- reference average (a=b=0.5) → 85.20 / 74.09 / 79.64\n- a=0.30, b=0.70 → 77.98 / 81.22 / 79.60\n- depth ramps: CIFAR-heavy late 79.92 / 79.62 / 79.77; CUB-heavy late 78.88 / 78.57 / 78.73\n- a=0.41, b=0.77 (scale-up) → 79.46 / 79.06 / 79.26\n- a=0.20, b=0.80 → 72.02 / 83.03 / 77.52\n- sum of both deltas → 77.14 / 42.71 / 59.93\n- single children (reference): 88.38 / 22.02 / 55.20 and 51.06 / 84.14 / 67.60\n\nSo the merge beats the \"average\" baseline by about **+0.7 points mean** (80.35 vs 79.64), with a much more balanced profile than either child backbone alone.",
+  "model": "DeepSeek V4.1 Flash 1017",
+  "turns": 8,
+  "code_runs": 7,
+  "usage": {
+    "prompt_tokens": 56028,
+    "completion_tokens": 82415
+  },
+  "finalize": "True"
+}

@@ -1,0 +1,52 @@
+{
+  "astra_t0": {
+    "backbone_tensors": 150,
+    "cifar_delta_coefficient": 0.4,
+    "cub_delta_coefficient": 0.5,
+    "parent_added": true,
+    "max_absolute_error_to_formula": 5.364418032005602e-08,
+    "relative_frobenius_error_to_formula": 3.9512295343494976e-08,
+    "distance_to_parent": 32.62508910778018,
+    "distance_to_intended_full_backbone": 1.0877372677509144e-05
+  },
+  "deepseek_t0": {
+    "backbone_tensors": 150,
+    "cifar_delta_coefficient": 0.4,
+    "cub_delta_coefficient": 0.6,
+    "parent_added": true,
+    "max_absolute_error_to_formula": 2.384185793236071e-08,
+    "relative_frobenius_error_to_formula": 2.491346390956181e-08,
+    "distance_to_parent": 35.501496237061346,
+    "distance_to_intended_full_backbone": 6.859966555467997e-06
+  },
+  "qwen38_t0": {
+    "backbone_tensors": 150,
+    "cifar_delta_coefficient": 0.4,
+    "cub_delta_coefficient": 0.6,
+    "parent_added": true,
+    "max_absolute_error_to_formula": 4.768371586472142e-08,
+    "relative_frobenius_error_to_formula": 3.5885311428303967e-08,
+    "distance_to_parent": 35.501497161318355,
+    "distance_to_intended_full_backbone": 9.881084266546204e-06
+  },
+  "glm_t0": {
+    "backbone_tensors": 150,
+    "cifar_delta_coefficient": 0.4,
+    "cub_delta_coefficient": 0.6,
+    "parent_added": false,
+    "max_absolute_error_to_formula": 5.960464477539063e-08,
+    "relative_frobenius_error_to_formula": 2.0857361963496424e-07,
+    "distance_to_parent": 283.2708918145063,
+    "distance_to_intended_full_backbone": 277.07425602646106
+  },
+  "split_sizes": {
+    "cifar100": {
+      "practice": 5000,
+      "holdout": 5000
+    },
+    "cub": {
+      "practice": 2875,
+      "holdout": 2915
+    }
+  }
+}

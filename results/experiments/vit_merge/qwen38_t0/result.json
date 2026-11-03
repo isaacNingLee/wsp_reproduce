@@ -1,0 +1,88 @@
+{
+  "task": "vit_merge",
+  "submitted": true,
+  "holdout": {
+    "cifar100": 0.8303999900817871,
+    "cub": 0.7801029086112976,
+    "mean": 0.8052514493465424
+  },
+  "practice": {
+    "cifar100": 0.8241999745368958,
+    "cub": 0.7836521863937378,
+    "mean": 0.8039260804653168
+  },
+  "baselines_holdout": {
+    "parent": {
+      "cifar100": 0.6922000050544739,
+      "cub": 0.5379073619842529,
+      "mean": 0.6150536835193634
+    },
+    "cifar_child": {
+      "cifar100": 0.8845999836921692,
+      "cub": 0.2092624306678772,
+      "mean": 0.5469312071800232
+    },
+    "cub_child": {
+      "cifar100": 0.52920001745224,
+      "cub": 0.8322470188140869,
+      "mean": 0.6807235181331635
+    },
+    "average": {
+      "cifar100": 0.8532000184059143,
+      "cub": 0.7351629734039307,
+      "mean": 0.7941814959049225
+    },
+    "ta_0.3": {
+      "cifar100": 0.8325999975204468,
+      "cub": 0.7403087615966797,
+      "mean": 0.7864543795585632
+    },
+    "ta_0.4": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089
+    },
+    "ta_0.5": {
+      "cifar100": 0.853600025177002,
+      "cub": 0.7344768643379211,
+      "mean": 0.7940384447574615
+    },
+    "ta_0.6": {
+      "cifar100": 0.854200005531311,
+      "cub": 0.7142367362976074,
+      "mean": 0.7842183709144592
+    },
+    "ta_0.7": {
+      "cifar100": 0.84579998254776,
+      "cub": 0.6775299906730652,
+      "mean": 0.7616649866104126
+    },
+    "ta_0.8": {
+      "cifar100": 0.8374000191688538,
+      "cub": 0.6161234974861145,
+      "mean": 0.7267617583274841
+    },
+    "ta_1.0": {
+      "cifar100": 0.7778000235557556,
+      "cub": 0.4353344738483429,
+      "mean": 0.6065672487020493
+    },
+    "task_arithmetic": {
+      "cifar100": 0.847599983215332,
+      "cub": 0.7495712041854858,
+      "mean": 0.7985855937004089,
+      "lam": 0.4
+    }
+  },
+  "beats_average": true,
+  "beats_task_arithmetic": true,
+  "final_answer": "\n\nFINAL ANSWER\n\n**Merge rule (all 150 backbone tensors, every weight except the two heads):**\n\n```\nmerged[t] = parent[t] + 0.40 · (cifar[t] − parent[t]) + 0.60 · (cub[t] − parent[t])\n```\n\ni.e., a weighted task-arithmetic blend of the two child checkpoints with the CIFAR-100 task vector weighted 0.40 and the CUB task vector weighted 0.60 (equivalently, the straight line in parameter space from the CUB child toward the CIFAR child at 40% of the way). This exact backbone is saved as the submission.\n\n**Why this rule:**\n\n1. **The two fine-tunings are mutually compatible in direction.** Task vectors (child − parent) have non-negative tensor-level cosine for all 150 tensors (min cos ≈ +0.01, mean +0.33), so a positive-weight combination is the right merge family — no per-tensor gating was needed.\n2. **But they are near-orthogonal element-wise** (≈49% of update elements have opposite signs; the big tensors like `mlp.0.weight` have tensor cos ≈ 0.02), and **the CIFAR child moved ~1.45× farther than the CUB child**, almost uniformly across all 13 blocks (|Tc|/|Tb| ≈ 1.40–1.59) and all tensor types. So 0.5/0.5 actually overweights the CIFAR update, and \"keep 100% of both updates\" is destructive:\n   - Full task arithmetic (1.0/1.0): mean **59.88** (CUB collapses 84.1 → 42.6; CIFAR 88.4 → 77.2 — the CIFAR update is far more damaging to CUB).\n   - TIES-style elementwise (add on agreement, keep larger on conflict): mean **54.18** (the \"keep larger\" rule systematically picks the larger CIFAR update).\n   Conclusion: the merge must *shrink* both updates; the only real degree of freedom is the blend ratio, because the per-block magnitude ratio is nearly constant (non-uniform per-layer weights ≈ the same thing).\n3. **Sweeping the ratio** (practice set, 5,000/2,895 images):\n\n| CIFAR weight / CUB weight | CIFAR-100 | CUB | mean |\n|---|---|---|---|\n| 0.30 / 0.70 | 77.98 | 81.11 | 79.55 |\n| 0.35 / 0.65 | 80.44 | 79.93 | 80.19 |\n| **0.40 / 0.60** | **82.42** | **78.37** | **80.39** |\n| 0.45 / 0.55 | 84.06 | 76.21 | 80.13 |\n| 0.50 / 0.50 (simple avg) | 85.20 | 74.09 | 79.64 |\n\nA quadratic fit to the five sweep points puts the optimum at CIFAR weight ≈ 0.396, so 0.40/0.60 is the peak (the flat top spans ~0.38–0.42, within ~0.1 of the maximum).\n\n**Measured practice accuracies of the submitted backbone (heads fixed):**\n- CIFAR-100: **82.42** (vs 85.20 plain average, 88.38 CIFAR child)\n- CUB-200: **78.37** (vs 74.09 plain average, 84.14 CUB child)\n- **Mean: 80.39**, a **+0.75 point improvement** over the plain checkpoint average (79.64), obtained by tilting the blend ~10% toward the CUB child to compensate for the CIFAR child's larger, more destructive update.",
+  "model": "Qwen 3.8 27B",
+  "turns": 10,
+  "code_runs": 8,
+  "usage": {
+    "prompt_tokens": 60471,
+    "completion_tokens": 41505
+  },
+  "finalize": "True"
+}
